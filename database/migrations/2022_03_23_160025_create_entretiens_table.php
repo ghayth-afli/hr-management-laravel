@@ -15,6 +15,7 @@ class CreateEntretiensTable extends Migration
     {
         Schema::create('entretiens', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('designation');
             $table->string('time');
             $table->date('date');
