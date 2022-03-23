@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Competance extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'candidat_id', 
+        'designation', 
+    ];
 }

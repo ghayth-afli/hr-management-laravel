@@ -15,6 +15,7 @@ class CreateProfilsTable extends Migration
     {
         Schema::create('profils', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('nom');
             $table->string('prenom');
             $table->string('entreprise');
@@ -23,7 +24,6 @@ class CreateProfilsTable extends Migration
             $table->string('etat');
             $table->string('langue');
             $table->text('photo');
-            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

@@ -10,6 +10,12 @@ class Departement extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nom', 
+        'etat_recrutement',
+        'user_id'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

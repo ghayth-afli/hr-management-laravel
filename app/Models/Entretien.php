@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Entretien extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nom', 
+        'designation',
+        'time',
+        'date',
+    ];
 }
