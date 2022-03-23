@@ -17,6 +17,7 @@ class CreateEntretienCandidatsTable extends Migration
             $table->id();
             $table->foreignId('candidat_id')->constrained();
             $table->foreignId('entretien_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

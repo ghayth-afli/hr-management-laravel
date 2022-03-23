@@ -15,6 +15,7 @@ class CreateMailsTable extends Migration
     {
         Schema::create('mails', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('email');
             $table->text('contenu');
             $table->string('type');
