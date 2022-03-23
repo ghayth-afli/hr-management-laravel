@@ -10,6 +10,12 @@ use App\Models\Permission;
 use App\Models\Profil;
 use App\Models\Departement;
 use App\Models\Recrutement;
+use App\Models\Etat_Candidat;
+use App\Models\Rapport;
+use App\Models\Entretien;
+
+
+
 use Cache;
 
 class User extends Authenticatable
@@ -71,5 +77,25 @@ class User extends Authenticatable
     public function recrutements()
     {
         return $this->hasMany(Recrutement::class);
+    }
+
+    public function etat_candidats()
+    {
+        return $this->hasMany(Etat_Candidat::class);
+    }
+
+    public function rapports()
+    {
+        return $this->hasMany(Rapport::class);
+    }
+
+    public function mails()
+    {
+        return $this->hasMany(Mail::class);
+    }
+
+    public function entretiens()
+    {
+        return $this->hasMany(Entretien::class);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntretienCandidatsTable extends Migration
+class CreatePivotTableCandidatEntretien extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateEntretienCandidatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('entretien__candidats', function (Blueprint $table) {
+        Schema::create('pivot_table_candidat_entretien', function (Blueprint $table) {
             $table->id();
             $table->foreignId('candidat_id')->constrained();
             $table->foreignId('entretien_id')->constrained();
-            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateEntretienCandidatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entretien__candidats');
+        Schema::dropIfExists('pivot_table_candidat_entretien');
     }
 }
