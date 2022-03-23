@@ -19,12 +19,9 @@
         <div id="box-login-personalize">
             <div class="login-logo">
                 
-                @if(\App\Models\Config::find(1)->img_login == 'T')
-                    <img src="{{ asset(\App\Models\Config::find(1)->caminho_img_login) }}" width="{{ \App\Models\Config::find(1)->tamanho_img_login }}%"/>
+                    <img src="" width=""/>
                     <br/>
-                @endif
                
-                {!! \App\Models\Config::find(1)->titulo_login !!}             
             </div>
             <div class="login-box-body">
                 <p class="login-box-msg">Sign in to start your session</p>
