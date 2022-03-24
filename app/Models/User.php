@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Passport\HasApiTokens;
 use App\Models\Role;
 use App\Models\Permission;
 use App\Models\Profil;
@@ -13,16 +14,12 @@ use App\Models\Recrutement;
 use App\Models\Etat_Candidat;
 use App\Models\Rapport;
 use App\Models\Entretien;
-
-
-
 use Cache;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
-    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
