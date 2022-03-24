@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\RoleController;
+
 //use App\Http\Controllers\api\AuthController;
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +27,25 @@ Route::post('/login', [App\Http\Controllers\API\AuthController::class, 'login'])
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // API route for logout user
     Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
+    Route::prefix('user')->group(function () {
+        Route::get('/', [UserController::class,'index']);
+        Route::get('/create', [UserController::class,'create']);
+        Route::post('/store', [UserController::class,'store']);
+        Route::get('/edit/{id}', [UserController::class,'edit']);
+        Route::put('/update/{id}', [UserController::class,'update']);
+        Route::get('/edit/password/{id}', [UserController::class,'editPassword']);
+        Route::put('/update/password/{id}', [UserController::class,'updatePassword']);
+        Route::get('/show/{id}', [UserController::class,'show']);
+        Route::get('/destroy/{id}', [UserController::class,'destroy']);
+    });
+    Route::prefix('role')->group(function () {
+        // Roles
+        Route::get('/', [RoleController::class,'index']);
+        Route::get('/create', [RoleController::class,'create']);
+        Route::post('/store', [RoleController::class,'store']);
+        Route::get('/edit/{id}', [RoleController::class,'edit']);
+        Route::put('/update/{id}', [RoleController::class,'update']);
+        Route::get('/show/{id}', [RoleController::class,'show']);
+        Route::get('/destroy/{id}', [RoleController::class,'destroy']);
+    });
 });

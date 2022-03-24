@@ -12,13 +12,28 @@ use App\Models\Role;
 
 class UserController extends Controller 
 { 
+    public function __construct() {
+        $this->middleware('guest', ['except' => [
+            'index',
+             'show',
+              'create',
+               'store',
+                'edit',
+                 'update',
+                  'updatePassword',
+                   'editPassword',
+                    'destroy'
+        ]]);
+    }
+
     public function index()
     { 
         $this->authorize('show-user', User::class);
 
         $users = User::paginate(15);
 
-        return view('users.index', compact('users'));
+        return response()
+                ->json($users); 
     }
 
     public function show($id)
@@ -36,7 +51,8 @@ class UserController extends Controller
 
 		$roles_ids = Role::rolesUser($user);      	               
 
-        return view('users.show',compact('user', 'roles', 'roles_ids'));
+        return response()
+                ->json($user); 
     }
 
     public function create()
@@ -45,7 +61,8 @@ class UserController extends Controller
 
         $roles = Role::all();
 
-        return view('users.create',compact('roles'));
+        return response()
+                ->json($roles);
     }
 
     public function store(StoreUserRequest $request)
@@ -62,7 +79,8 @@ class UserController extends Controller
 
         $this->flashMessage('check', 'User successfully added!', 'success');
 
-        return redirect()->route('user.create');
+        return response()
+                ->json(['message'=> 'User successfully added!']);
     }
 
     public function edit($id)
@@ -80,7 +98,8 @@ class UserController extends Controller
 
 		$roles_ids = Role::rolesUser($user);       	               
 
-        return view('users.edit',compact('user', 'roles', 'roles_ids'));
+        return response()
+                ->json([$user,$roles,$roles_ids]);
     }
 
     public function update(UpdateUserRequest $request,$id)
@@ -102,7 +121,8 @@ class UserController extends Controller
 
         $this->flashMessage('check', 'User updated successfully!', 'success');
 
-        return redirect()->route('user');
+        return response()
+                ->json(['message'=> 'User updated successfully!']);
     }
 
     public function updatePassword(UpdatePasswordUserRequest $request,$id)
@@ -122,7 +142,8 @@ class UserController extends Controller
 
         $this->flashMessage('check', 'User password updated successfully!', 'success');
 
-        return redirect()->route('user');
+        return response()
+                ->json(['message'=> 'User password updated successfully!']);
     }
 
     public function editPassword($id)
@@ -136,7 +157,8 @@ class UserController extends Controller
             return redirect()->route('user');
         }              	               
 
-        return view('users.edit_password',compact('user'));
+        return response()
+                ->json($user);
     }
 
     public function destroy($id)
@@ -154,6 +176,7 @@ class UserController extends Controller
 
         $this->flashMessage('check', 'User successfully deleted!', 'success');
 
-        return redirect()->route('user');
+        return response()
+                ->json(['message'=> 'User successfully deleted!']);
     }
 }
