@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Profil;
 
 class RoleUserTablesSeeder extends Seeder
 {
@@ -24,9 +25,28 @@ class RoleUserTablesSeeder extends Seeder
 
     private function createAdmins()
     {
+        Profil::create([
+            'entreprise' => '', 
+            'tel'  => 0,
+            'adresse'  => '',
+            'etat' => '',
+            'langue'  => '',
+            'photo'  => ''
+        ]);
+
+        Profil::create([
+            'entreprise' => '', 
+            'tel'  => 0,
+            'adresse'  => '',
+            'etat' => '',
+            'langue'  => '',
+            'photo'  => ''
+        ]);
         User::create([
+            'profil_id' => 1,
             'email' => 'dev@dev.com', 
             'name'  => 'Developer',
+            //'prenom'  => 'k',
             'password' => bcrypt('root'),
             'avatar'  => 'img/config/nopic.png',
             'active'  => true
@@ -35,8 +55,10 @@ class RoleUserTablesSeeder extends Seeder
         $this->command->info('User dev created');
 
         User::create([
+            'profil_id' => 2,
             'email' => 'admin@admin.com', 
             'name'  => 'Administrator',
+            //'prenom'  => 'f',
             'password' => bcrypt('admin'),
             'avatar'  => 'img/config/nopic.png',
             'active'  => true

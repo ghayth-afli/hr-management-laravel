@@ -11,15 +11,12 @@ class Profil extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom', 
-        'prenom',
         'entreprise',
         'tel',
         'adresse',
         'etat',
         'langue',
         'photo',
-        'user_id',
     ];
 
     public function user()

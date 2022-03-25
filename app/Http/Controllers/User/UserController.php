@@ -78,6 +78,14 @@ class UserController extends Controller
         $user->roles()->sync($roles);
 
         $this->flashMessage('check', 'User successfully added!', 'success');
+        $user->profil()->create([
+            'entreprise' => '', 
+            'tel'  => 0,
+            'adresse'  => '',
+            'etat' => '',
+            'langue'  => '',
+            'photo'  => ''
+        ]);
 
         return response()
                 ->json(['message'=> 'User successfully added!']);
