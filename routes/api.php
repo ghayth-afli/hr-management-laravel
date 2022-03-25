@@ -114,4 +114,55 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/show/{id}', [App\Http\Controllers\Candidat\FormationController::class,'show']);
         Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\FormationController::class,'destroy']);
     });
+    // Departement
+    Route::prefix('departement')->group(function () {
+        Route::get('/', [App\Http\Controllers\GestionCandidature\DepartementController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\GestionCandidature\DepartementController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\GestionCandidature\DepartementController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\GestionCandidature\DepartementController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\GestionCandidature\DepartementController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\GestionCandidature\DepartementController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\GestionCandidature\DepartementController::class,'destroy']);
+    });
+    // Entretien
+    Route::prefix('entretien')->group(function () {
+        Route::get('/', [App\Http\Controllers\GestionCandidature\EntretienController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\GestionCandidature\EntretienController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\GestionCandidature\EntretienController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\GestionCandidature\EntretienController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\GestionCandidature\EntretienController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\GestionCandidature\EntretienController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\GestionCandidature\EntretienController::class,'destroy']);
+    });
+    // Mail
+    Route::prefix('mail')->group(function () {
+        Route::get('/', [App\Http\Controllers\GestionCandidature\MailController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\GestionCandidature\MailController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\GestionCandidature\MailController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\GestionCandidature\MailController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\GestionCandidature\MailController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\GestionCandidature\MailController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\GestionCandidature\MailController::class,'destroy']);
+    });
+    // Rapport
+    Route::prefix('rapport')->group(function () {
+        Route::get('/', [App\Http\Controllers\GestionCandidature\RapportController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\GestionCandidature\RapportController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\GestionCandidature\RapportController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\GestionCandidature\RapportController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\GestionCandidature\RapportController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\GestionCandidature\RapportController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\GestionCandidature\RapportController::class,'destroy']);
+    });
+    // Recrutement
+    Route::prefix('recrutement')->group(function () {
+        Route::get('/', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'destroy']);
+    });
 });
+

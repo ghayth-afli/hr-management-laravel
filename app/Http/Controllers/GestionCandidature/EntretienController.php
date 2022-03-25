@@ -8,6 +8,17 @@ use App\Models\Entretien;
 
 class EntretienController extends Controller
 {
+    public function __construct() {
+        $this->middleware('guest', ['except' => [
+            'index',
+             'show',
+              'create',
+               'store',
+                'edit',
+                 'update',
+                    'destroy'
+        ]]);
+    }
     /**
      * Display a listing of the resource.
      *
