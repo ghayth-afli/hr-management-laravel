@@ -4,6 +4,7 @@ namespace App\Http\Controllers\GestionCandidature;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Recrutement;
 
 class RecrutementController extends Controller
 {

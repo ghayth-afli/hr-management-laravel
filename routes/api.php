@@ -38,8 +38,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/show/{id}', [UserController::class,'show']);
         Route::get('/destroy/{id}', [UserController::class,'destroy']);
     });
-    Route::prefix('role')->group(function () {
         // Roles
+    Route::prefix('role')->group(function () {
         Route::get('/', [RoleController::class,'index']);
         Route::get('/create', [RoleController::class,'create']);
         Route::post('/store', [RoleController::class,'store']);
@@ -48,6 +48,20 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/show/{id}', [RoleController::class,'show']);
         Route::get('/destroy/{id}', [RoleController::class,'destroy']);
     });
-    Route::get('/profil', [App\Http\Controllers\User\ProfilController::class,'index']);
-    Route::put('/profil/update/{id}', [App\Http\Controllers\User\ProfilController::class,'update']);
+    // Profil
+    Route::prefix('role')->group(function () {
+        Route::get('/profil', [App\Http\Controllers\User\ProfilController::class,'index']);
+        Route::put('/profil/update/{id}', [App\Http\Controllers\User\ProfilController::class,'update']);
+    });
+    // Candidat
+    Route::prefix('candidat')->group(function () {
+        Route::get('/', [App\Http\Controllers\Candidat\CandidatController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\Candidat\CandidatController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\Candidat\CandidatController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'destroy']);
+    });
+    
 });

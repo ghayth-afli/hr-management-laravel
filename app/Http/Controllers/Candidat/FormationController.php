@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Candidat;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Formation;
 
 class FormationController extends Controller
 {
