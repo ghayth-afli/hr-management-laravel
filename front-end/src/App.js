@@ -2,8 +2,8 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom'
-import Header from './components/layouts/header';
-import Footer from './components/layouts/footer';
+//import Header from './components/layouts/header';
+//import Footer from './components/layouts/footer';
 //import Responsable from './components/pages/user/responsable';
 import Table from './components/pages/user/dataTable/table';
 //import Tables from './components/pages/user/tables/data-tables/advance';
@@ -17,13 +17,15 @@ import Rapports from './components/pages/user/rapports';
 import Recruitement from './components/pages/user/recruitement';
 import Roles from './components/pages/user/roles';
 import Tableau_de_bord from './components/pages/user/tableau de bord';
-import Menu_lateral from './components/layouts/menu_lateral';
+//import Menu_lateral from './components/layouts/menu_lateral';
+import Login from './components/pages/user/auth/login';
 function App() {
   return (
     <Router>
-      <Header/>
-      <Menu_lateral/>
+      
+      
       <Routes>
+          <Route exact path='/login' element={<Login/>} />
           <Route exact path='/calendrier' element={<Calendar/>} />
           <Route exact path='/candidats' element={<Candidats/>} />
           <Route exact path='/chat' element={<Chat/>} />
@@ -36,7 +38,6 @@ function App() {
           <Route exact path='/roles' element={<Roles/>} />
           <Route exact path='/tableau_de_bord' element={<Tableau_de_bord/>} />
       </Routes>
-      <Footer/>
     </Router>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-class Chat extends React.Component{
+export default class Chat extends React.Component{
     render(){
         return(
             <div>
@@ -10,4 +10,3 @@ class Chat extends React.Component{
         )
     }
 }
-export default Chat;
