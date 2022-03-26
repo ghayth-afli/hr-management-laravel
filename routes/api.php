@@ -56,33 +56,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Candidat
     Route::prefix('candidat')->group(function () {
         Route::get('/', [App\Http\Controllers\Candidat\CandidatController::class,'index']);
-        Route::get('/create', [App\Http\Controllers\Candidat\CandidatController::class,'create']);
-        Route::post('/store', [App\Http\Controllers\Candidat\CandidatController::class,'store']);
-        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'edit']);
-        Route::put('/update/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'update']);
         Route::get('/show/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'show']);
         Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'destroy']);
     });
-    // Competance
-    Route::prefix('competance')->group(function () {
-        Route::get('/', [App\Http\Controllers\Candidat\CompetanceController::class,'index']);
-        Route::get('/create', [App\Http\Controllers\Candidat\CompetanceController::class,'create']);
-        Route::post('/store', [App\Http\Controllers\Candidat\CompetanceController::class,'store']);
-        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\CompetanceController::class,'edit']);
-        Route::put('/update/{id}', [App\Http\Controllers\Candidat\CompetanceController::class,'update']);
-        Route::get('/show/{id}', [App\Http\Controllers\Candidat\CompetanceController::class,'show']);
-        Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\CompetanceController::class,'destroy']);
-    });
-    // Cv
-    Route::prefix('cv')->group(function () {
-        Route::get('/', [App\Http\Controllers\Candidat\CvController::class,'index']);
-        Route::get('/create', [App\Http\Controllers\Candidat\CvController::class,'create']);
-        Route::post('/store', [App\Http\Controllers\Candidat\CvController::class,'store']);
-        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\CvController::class,'edit']);
-        Route::put('/update/{id}', [App\Http\Controllers\Candidat\CvController::class,'update']);
-        Route::get('/show/{id}', [App\Http\Controllers\Candidat\CvController::class,'show']);
-        Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\CvController::class,'destroy']);
-    });
+    
     // EtatCandidat
     Route::prefix('etat')->group(function () {
         Route::get('/', [App\Http\Controllers\Candidat\EtatCandidatController::class,'index']);
@@ -93,27 +70,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/show/{id}', [App\Http\Controllers\Candidat\EtatCandidatController::class,'show']);
         Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\EtatCandidatController::class,'destroy']);
     });
-    // Experience
-    Route::prefix('experience')->group(function () {
-        Route::get('/', [App\Http\Controllers\Candidat\ExperienceController::class,'index']);
-        Route::get('/create', [App\Http\Controllers\Candidat\ExperienceController::class,'create']);
-        Route::post('/store', [App\Http\Controllers\Candidat\ExperienceController::class,'store']);
-        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\ExperienceController::class,'edit']);
-        Route::put('/update/{id}', [App\Http\Controllers\Candidat\ExperienceController::class,'update']);
-        Route::get('/show/{id}', [App\Http\Controllers\Candidat\ExperienceController::class,'show']);
-        Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\ExperienceController::class,'destroy']);
-    });
 
-    // Formation
-    Route::prefix('formation')->group(function () {
-        Route::get('/', [App\Http\Controllers\Candidat\FormationController::class,'index']);
-        Route::get('/create', [App\Http\Controllers\Candidat\FormationController::class,'create']);
-        Route::post('/store', [App\Http\Controllers\Candidat\FormationController::class,'store']);
-        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\FormationController::class,'edit']);
-        Route::put('/update/{id}', [App\Http\Controllers\Candidat\FormationController::class,'update']);
-        Route::get('/show/{id}', [App\Http\Controllers\Candidat\FormationController::class,'show']);
-        Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\FormationController::class,'destroy']);
-    });
     // Departement
     Route::prefix('departement')->group(function () {
         Route::get('/', [App\Http\Controllers\GestionCandidature\DepartementController::class,'index']);
@@ -163,6 +120,52 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::put('/update/{id}', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'update']);
         Route::get('/show/{id}', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'show']);
         Route::get('/destroy/{id}', [App\Http\Controllers\GestionCandidature\RecrutementController::class,'destroy']);
+    });
+    // Candidat
+    Route::get('/create', [App\Http\Controllers\Candidat\CandidatController::class,'create']);
+    Route::post('/store', [App\Http\Controllers\Candidat\CandidatController::class,'store']);
+    Route::get('/edit/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'edit']);
+    Route::put('/update/{id}', [App\Http\Controllers\Candidat\CandidatController::class,'update']);
+    // Competance
+    Route::prefix('competance')->group(function () {
+        Route::get('/', [App\Http\Controllers\Candidat\CompetanceController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\Candidat\CompetanceController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\Candidat\CompetanceController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\CompetanceController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\Candidat\CompetanceController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\Candidat\CompetanceController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\CompetanceController::class,'destroy']);
+    });
+    // Cv
+    Route::prefix('cv')->group(function () {
+        Route::get('/', [App\Http\Controllers\Candidat\CvController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\Candidat\CvController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\Candidat\CvController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\CvController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\Candidat\CvController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\Candidat\CvController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\CvController::class,'destroy']);
+    });
+    // Experience
+    Route::prefix('experience')->group(function () {
+        Route::get('/', [App\Http\Controllers\Candidat\ExperienceController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\Candidat\ExperienceController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\Candidat\ExperienceController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\ExperienceController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\Candidat\ExperienceController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\Candidat\ExperienceController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\ExperienceController::class,'destroy']);
+    });
+
+    // Formation
+    Route::prefix('formation')->group(function () {
+        Route::get('/', [App\Http\Controllers\Candidat\FormationController::class,'index']);
+        Route::get('/create', [App\Http\Controllers\Candidat\FormationController::class,'create']);
+        Route::post('/store', [App\Http\Controllers\Candidat\FormationController::class,'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\Candidat\FormationController::class,'edit']);
+        Route::put('/update/{id}', [App\Http\Controllers\Candidat\FormationController::class,'update']);
+        Route::get('/show/{id}', [App\Http\Controllers\Candidat\FormationController::class,'show']);
+        Route::get('/destroy/{id}', [App\Http\Controllers\Candidat\FormationController::class,'destroy']);
     });
 });
 
