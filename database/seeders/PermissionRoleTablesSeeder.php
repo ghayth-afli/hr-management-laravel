@@ -41,10 +41,6 @@ class PermissionRoleTablesSeeder extends Seeder
 
     private function createRoles()
     {
-        Role::create([
-            'name' => 'Developer', 
-            'label'  => 'System Developer'
-        ]);       
 
         Role::create([
             'name' => 'Administrators', 
@@ -72,6 +68,26 @@ class PermissionRoleTablesSeeder extends Seeder
             'name' => 'Permissions', //4
         ]);
 
+        PermissionGroup::create([
+            'name' => 'Departement', //5
+        ]); 
+
+        PermissionGroup::create([
+            'name' => 'Recrutement', //6
+        ]); 
+
+        PermissionGroup::create([
+            'name' => 'Entretien', //7
+        ]);
+
+        PermissionGroup::create([
+            'name' => 'Mail', //8
+        ]);
+
+        PermissionGroup::create([
+            'name' => 'Rapport', //9
+        ]);
+
         $this->command->info('Permission Groups created!');
     }
 
@@ -88,54 +104,181 @@ class PermissionRoleTablesSeeder extends Seeder
             'name' => 'edit-config', 
             'label'  => 'Edit System Settings'
         ]);       
-
+//User
         Permission::create([
             'permission_group_id' => '3', 
             'name' => 'show-user', 
-            'label'  => 'View User'
+            'label'  => 'Voir'
         ]); 
 
         Permission::create([
             'permission_group_id' => '3',
             'name' => 'create-user', 
-            'label'  => 'Add User'
+            'label'  => 'Ajouter'
         ]);
 
         Permission::create([
             'permission_group_id' => '3',
             'name' => 'edit-user', 
-            'label'  => 'Edit User'
+            'label'  => 'Modifier'
         ]);
 
         Permission::create([
             'permission_group_id' => '3',
             'name' => 'destroy-user', 
-            'label'  => 'Delete User'
+            'label'  => 'Supprimer'
         ]); 
-
+//Role
         Permission::create([
             'permission_group_id' => '4',
             'name' => 'show-role', 
-            'label'  => 'View Permission'
+            'label'  => 'Voir'
         ]);
 
         Permission::create([
             'permission_group_id' => '4',
             'name' => 'create-role', 
-            'label'  => 'Add Permission'
+            'label'  => 'Ajouter'
         ]);
 
         Permission::create([
             'permission_group_id' => '4',
             'name' => 'edit-role', 
-            'label'  => 'Edit Permission'
+            'label'  => 'Modifier'
         ]);
 
         Permission::create([
             'permission_group_id' => '4',
             'name' => 'destroy-role', 
-            'label'  => 'Delete Permission'
-        ]); 
+            'label'  => 'Supprimer'
+        ]);
+
+
+//Departement
+        Permission::create([
+            'permission_group_id' => '5',
+            'name' => 'show-departement', 
+            'label'  => 'Voir'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '5',
+            'name' => 'create-departement', 
+            'label'  => 'Ajouter'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '5',
+            'name' => 'edit-departement', 
+            'label'  => 'Modifier'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '5',
+            'name' => 'destroy-departement', 
+            'label'  => 'Supprimer'
+        ]);
+
+//Recrutement
+        Permission::create([
+            'permission_group_id' => '6',
+            'name' => 'show-recrutement', 
+            'label'  => 'Voir'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '6',
+            'name' => 'create-recrutement', 
+            'label'  => 'Ajouter'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '6',
+            'name' => 'edit-recrutement', 
+            'label'  => 'Modifier'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '6',
+            'name' => 'destroy-recrutement', 
+            'label'  => 'Supprimer'
+        ]);
+//Entretien
+        Permission::create([
+            'permission_group_id' => '7',
+            'name' => 'show-entretien', 
+            'label'  => 'Voir'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '7',
+            'name' => 'create-entretien', 
+            'label'  => 'Ajouter'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '7',
+            'name' => 'edit-entretien', 
+            'label'  => 'Modifier'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '6',
+            'name' => 'destroy-entretien', 
+            'label'  => 'Supprimer'
+        ]);
+//Mail
+        Permission::create([
+            'permission_group_id' => '8',
+            'name' => 'show-mail', 
+            'label'  => 'Voir'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '8',
+            'name' => 'create-mail', 
+            'label'  => 'Ajouter'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '8',
+            'name' => 'edit-mail', 
+            'label'  => 'Modifier'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '8',
+            'name' => 'destroy-mail', 
+            'label'  => 'Supprimer'
+        ]);
+//Rapport
+        Permission::create([
+            'permission_group_id' => '9',
+            'name' => 'show-rapport', 
+            'label'  => 'Voir'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '9',
+            'name' => 'create-rapport', 
+            'label'  => 'Ajouter'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '9',
+            'name' => 'edit-rapport', 
+            'label'  => 'Modifier'
+        ]);
+
+        Permission::create([
+            'permission_group_id' => '9',
+            'name' => 'destroy-rapport', 
+            'label'  => 'Supprimer'
+        ]);
+
+
+
+
 
         $this->command->info('Permissions created!');
     }

@@ -33,29 +33,9 @@ class RoleUserTablesSeeder extends Seeder
             'langue'  => '',
             'photo'  => ''
         ]);
-
-        Profil::create([
-            'entreprise' => '', 
-            'tel'  => 0,
-            'adresse'  => '',
-            'etat' => '',
-            'langue'  => '',
-            'photo'  => ''
-        ]);
+        
         User::create([
             'profil_id' => 1,
-            'email' => 'dev@dev.com', 
-            'name'  => 'Developer',
-            //'prenom'  => 'k',
-            'password' => bcrypt('root'),
-            'avatar'  => 'img/config/nopic.png',
-            'active'  => true
-        ]);
-        
-        $this->command->info('User dev created');
-
-        User::create([
-            'profil_id' => 2,
             'email' => 'admin@admin.com', 
             'name'  => 'Administrator',
             //'prenom'  => 'f',
@@ -64,15 +44,12 @@ class RoleUserTablesSeeder extends Seeder
             'active'  => true
         ]);
 
-        $this->command->info('Users dev and admin created');
     }
 
     private function sync()
     {       
-        $role = User::find(1);
-        $role->roles()->sync([1]);
 
-        $role = User::find(2);
+        $role = User::find(1);
         $role->roles()->sync([2]);        
 
         $this->command->info('Users linked to roles!');
