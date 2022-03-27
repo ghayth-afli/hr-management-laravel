@@ -223,7 +223,7 @@ class PermissionRoleTablesSeeder extends Seeder
         ]);
 
         Permission::create([
-            'permission_group_id' => '6',
+            'permission_group_id' => '7',
             'name' => 'destroy-entretien', 
             'label'  => 'Supprimer'
         ]);
@@ -289,9 +289,9 @@ class PermissionRoleTablesSeeder extends Seeder
         $role = Role::find(1);        
         $role->permissions()->sync($permissions_id);
 
-        $permissions_id = Permission::permissionsId(2);
+        /*$permissions_id = Permission::permissionsId(2);
         $role = Role::find(2);
-        $role->permissions()->sync($permissions_id);
+        $role->permissions()->sync($permissions_id);*/
 
         $this->command->info('Persistence linked to roles!');
     }

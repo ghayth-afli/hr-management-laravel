@@ -50,7 +50,7 @@ class RoleUserTablesSeeder extends Seeder
     {       
 
         $role = User::find(1);
-        $role->roles()->sync([2]);        
+        $role->roles()->sync([1]);        
 
         $this->command->info('Users linked to roles!');
     }
