@@ -8,7 +8,7 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
       <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-        <li class=" nav-item"><a class="d-flex align-items-center" href="tableau%20de%20bord.html"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Tableau de bord</span></a>
+        <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('home')}}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Tableau de bord</span></a>
         </li>
         <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Menu</span><i data-feather="more-horizontal"></i>
         </li>
