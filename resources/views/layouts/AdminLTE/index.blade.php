@@ -1,60 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        @include('layouts.AdminLTE._includes._head')
+            @yield('title')
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+            <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+            <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+            <meta name="author" content="PIXINVENT">
+            <title>Tableau de bord </title>
+            <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.html">
+            <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/ico/favicon.ico">
+            <link href="https://fonts.googleapis.com/css2?family=Rajdhani" rel="stylesheet">
+
+            <!-- BEGIN: Vendor CSS-->
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/charts/apexcharts.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css">
+            <link rel="stylesheet" type="text/css" href="/app-assets/font/font-awesome/css/font-awesome.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+            <script src="https://unpkg.com/feather-icons"></script>
+
+
+            <!-- END: Vendor CSS-->
+
+            <!-- BEGIN: Theme CSS-->
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.min.css">
+
+            <!-- BEGIN: Page CSS-->
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/dashboard-ecommerce.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/charts/chart-apex.min.css">
+            <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.min.css">
+            <!-- END: Page CSS-->
+
+            <!-- BEGIN: Custom CSS-->
+            <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+            <!-- END: Custom CSS-->
+
+            @yield('css')
     </head>
-    <body class="hold-transition skin-{{ \App\Models\Config::find(1)->skin }} {{ \App\Models\Config::find(1)->layout }} sidebar-mini">
-        <div class="wrapper">
-            
+
+    <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
             @include('layouts.AdminLTE._includes._menu_superior')
-
-
             @include('layouts.AdminLTE._includes._menu_lateral')
-            
-            <div class="content-wrapper">
-                <nav class="navbar navbar-static-top" id="menu_sup_corpo" style="background-color:#d2d6de; margin-bottom:0; padding-bottom:0;navbar-header.a:color:#fff;">      
-                    <div class="navbar-header">
-                        <a href="" class="navbar-brand" id="" style="color:#222d32;'"><i class="fa fa-@yield('icon_page')"></i> @yield('title')</a>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2" aria-expanded="false">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </div>
-                    <div class="navbar-collapse collapse" id="navbar-collapse-2" aria-expanded="false" style="height: 1px;">
-                        <ul class="nav navbar-nav">                            
-
-                            @yield('menu_pagina')
-
-                        </ul>
-                    </div>
-                </nav>  
-
-                @if(Session::has('flash_message'))
-                    
-                    <div class="{{ Session::get('flash_message')['class'] }}" style="padding: 10px 20px;" id="flash_message">
-                        <div style="color: #fff; display: inline-block; margin-right: 10px;">
-                            {!! Session::get('flash_message')['msg'] !!}
-                        </div> 
-                    </div>
-
-                @endif                
-                
-                <section class="content">
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            @yield('content')
-
-                        </div>
-                    </div>
-                </section>              
-
-            </div>
-
+            @yield('content')
             @include('layouts.AdminLTE._includes._footer')
-
-        </div>       
-
-        @include('layouts.AdminLTE._includes._script_footer')
-
+            
+            <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+            <script src="../../../app-assets/vendors/js/charts/apexcharts.min.js"></script>
+            <script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
+            <script src="../../../app-assets/js/core/app-menu.min.js"></script>
+            <script src="../../../app-assets/js/core/app.min.js"></script>
+            <script src="../../../app-assets/js/scripts/customizer.min.js"></script>
+            <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.min.js"></script>
+            
+            <script>
+                feather.replace()
+            </script>
+            @yield('js')
+            
     </body>
+
 </html>

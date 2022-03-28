@@ -12,28 +12,13 @@ use App\Models\Role;
 
 class UserController extends Controller 
 { 
-    public function __construct() {
-        $this->middleware('guest', ['except' => [
-            'index',
-             'show',
-              'create',
-               'store',
-                'edit',
-                 'update',
-                  'updatePassword',
-                   'editPassword',
-                    'destroy'
-        ]]);
-    }
-
     public function index()
     { 
         $this->authorize('show-user', User::class);
 
         $users = User::paginate(15);
 
-        return response()
-                ->json($users); 
+        return view('users.index', compact('users'));
     }
 
     public function show($id)
@@ -51,8 +36,7 @@ class UserController extends Controller
 
 		$roles_ids = Role::rolesUser($user);      	               
 
-        return response()
-                ->json($user); 
+        return view('users.show',compact('user', 'roles', 'roles_ids'));
     }
 
     public function create()
@@ -61,8 +45,7 @@ class UserController extends Controller
 
         $roles = Role::all();
 
-        return response()
-                ->json($roles);
+        return view('users.create',compact('roles'));
     }
 
     public function store(StoreUserRequest $request)
@@ -78,17 +61,8 @@ class UserController extends Controller
         $user->roles()->sync($roles);
 
         $this->flashMessage('check', 'User successfully added!', 'success');
-        $user->profil()->create([
-            'entreprise' => '', 
-            'tel'  => 0,
-            'adresse'  => '',
-            'etat' => '',
-            'langue'  => '',
-            'photo'  => ''
-        ]);
 
-        return response()
-                ->json(['message'=> 'User successfully added!']);
+        return redirect()->route('user.create');
     }
 
     public function edit($id)
@@ -106,8 +80,7 @@ class UserController extends Controller
 
 		$roles_ids = Role::rolesUser($user);       	               
 
-        return response()
-                ->json([$user,$roles,$roles_ids]);
+        return view('users.edit',compact('user', 'roles', 'roles_ids'));
     }
 
     public function update(UpdateUserRequest $request,$id)
@@ -129,8 +102,7 @@ class UserController extends Controller
 
         $this->flashMessage('check', 'User updated successfully!', 'success');
 
-        return response()
-                ->json(['message'=> 'User updated successfully!']);
+        return redirect()->route('user');
     }
 
     public function updatePassword(UpdatePasswordUserRequest $request,$id)
@@ -150,8 +122,7 @@ class UserController extends Controller
 
         $this->flashMessage('check', 'User password updated successfully!', 'success');
 
-        return response()
-                ->json(['message'=> 'User password updated successfully!']);
+        return redirect()->route('user');
     }
 
     public function editPassword($id)
@@ -165,8 +136,7 @@ class UserController extends Controller
             return redirect()->route('user');
         }              	               
 
-        return response()
-                ->json($user);
+        return view('users.edit_password',compact('user'));
     }
 
     public function destroy($id)
@@ -184,7 +154,6 @@ class UserController extends Controller
 
         $this->flashMessage('check', 'User successfully deleted!', 'success');
 
-        return response()
-                ->json(['message'=> 'User successfully deleted!']);
+        return redirect()->route('user');
     }
 }

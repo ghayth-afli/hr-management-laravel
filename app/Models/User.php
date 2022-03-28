@@ -14,11 +14,10 @@ use App\Models\Etat_Candidat;
 use App\Models\Rapport;
 use App\Models\Entretien;
 use Cache;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
 
 
     /**

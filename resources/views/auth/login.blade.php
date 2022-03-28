@@ -1,87 +1,147 @@
-@section('title', 'Login')
-@section('layout_css')
-    <style>
-        #box-login-personalize{
-            width: 360px;
-            margin: 3% auto;
-        }
-    </style>
-@stop
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
 
-        @include('layouts.AdminLTE._includes._head')
+<html class="loading" lang="en" data-textdirection="ltr">
+  
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <link rel="apple-touch-icon" href="{{ asset("app-assets/images/ico/apple-icon-120.html")}}">
+    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani" rel="stylesheet">
 
-    </head>
-    <body class="hold-transition login-page">
-        <div id="box-login-personalize">
-            <div class="login-logo">
-                
-                @if(\App\Models\Config::find(1)->img_login == 'T')
-                    <img src="{{ asset(\App\Models\Config::find(1)->caminho_img_login) }}" width="{{ \App\Models\Config::find(1)->tamanho_img_login }}%"/>
-                    <br/>
-                @endif
-               
-                {!! \App\Models\Config::find(1)->titulo_login !!}             
-            </div>
-            <div class="login-box-body">
-                <p class="login-box-msg">Sign in to start your session</p>
-                <form  method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <div class="form-group has-feedback">
-                        <input id="email" type="text" class="form-control" placeholder="Usuário" name="email" value="{{ old('email') }}" autofocus required="" AUTOCOMPLETE='off'>
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input id="password" type="password" class="form-control" placeholder="Senha" name="password" required="" AUTOCOMPLETE='off'>
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        @if ($errors->has('email'))
-                            <br/>
-                            <span class="help-block">
-                                <strong><p class="text-red">{{ $errors->first('email') }}</p></strong>
-                            </span>
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/vendors/css/vendors.min.css")}}">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/bootstrap.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/bootstrap-extended.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/colors.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/components.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/themes/dark-layout.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/themes/bordered-layout.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/themes/semi-dark-layout.min.css")}}">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/core/menu/menu-types/vertical-menu.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/plugins/forms/form-validation.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("app-assets/css/pages/authentication.css")}}">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset("assets/css/style.css")}}">
+    <!-- END: Custom CSS-->
+
+  </head>
+  <!-- END: Head-->
+
+  <!-- BEGIN: Body-->
+  <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+      <div class="content-overlay"></div>
+      <div class="header-navbar-shadow"></div>
+      <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body"><div class="auth-wrapper auth-basic px-2">
+        <div class="auth-inner my-2">
+          <!-- Login basic -->
+          <div class="card mb-0">
+            <div class="card-body">
+            <a href="" class="brand-logo">
+                <img class="img-fluid" src="{{ asset("app-assets\images\logo\ama.png")}}" alt="Login V2"/>
+              </a>
+              <h4 class="card-title mb-1">Bienvenue sur Ama Group ! 👋</h4>
+              <p class="card-text mb-2">Veuillez vous connecter à votre compte</p>
+
+              <form class="auth-login-form mt-2" method="POST" action="{{ route('login') }}">
+              @csrf
+                <div class="mb-1">
+                  <label for="login-email" class="form-label">Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="login-email"
+                    name="email"
+                    value="{{ old('email') }}"
+                    placeholder="john@example.com"
+                    aria-describedby="login-email"
+                    tabindex="1"
+                    autofocus
+                  />
+                  @if ($errors->has('email'))
+                            <span id="login-email-error" class="error">{{ $errors->first('email') }}</span>
+                    @endif
+                </div>
+
+                <div class="mb-1">
+                  <label for="login-password" class="form-label">Mot de passe</label>
+                  <div class="input-group input-group-merge form-password-toggle">
+                    <input
+                      type="password"
+                      class="form-control form-control-merge"
+                      id="login-password"
+                      name="password"
+                      tabindex="2"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      aria-describedby="login-password"
+                    />
+                    @if ($errors->has('password'))
+                            <span id="login-email-error" class="error">{{ $errors->first('password') }}</span>
                         @endif
-                        @if ($errors->has('password'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="row">  
-                        <!--<div class="col-xs-8">
-                          <div class="checkbox icheck">
-                            <label>
-                              <input name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}> Remember me
-                            </label>
-                          </div>
-                        </div>-->
-                        <div class="col-xs-12">
-                          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                        </div>  
-                        <br/><br/><br/>
-                        <!--<div class="col-xs-12">
-                            <center>
-                                <a href="{{ route('password.request') }}">Forgot password?</a>
-                                <br/>
-                                <a href="{{ route('register') }}">Sign up</a>
-                            </center> -->                     
-                        </div>
-                    </div>                  
-                </form> 
+                    <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                  </div>
+                </div>
+                <div class="mb-1">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="remember-me" tabindex="3" />
+                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                  </div>
+                </div>
+                <button class="btn btn-primary w-100" tabindex="4">S'identifier </button>
+              </form>
             </div>
+          </div>
+          <!-- /Login basic -->
+        </div>
         </div>
 
-        @include('layouts.AdminLTE._includes._script_footer')
-        <script>
-          $(function () {
-            $('input').iCheck({
-              checkboxClass: 'icheckbox_square-blue',
-              radioClass: 'iradio_square-blue',
-              increaseArea: '20%'
-            });
-          });
-        </script>
-    </body>
+        </div>
+      </div>
+    </div>
+    <!-- END: Content-->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="{{ asset("app-assets/vendors/js/vendors.min.js")}}"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="{{ asset("app-assets/vendors/js/forms/validation/jquery.validate.min.js")}}"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="{{ asset("app-assets/js/core/app-menu.min.js")}}"></script>
+    <script src="{{ asset("app-assets/js/core/app.min.js")}}"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="{{ asset("app-assets/js/scripts/pages/auth-login.js")}}"></script>
+    <!-- END: Page JS-->
+
+    <script>
+      $(window).on('load',  function(){
+        if (feather) {
+          feather.replace({ width: 14, height: 14 });
+        }
+      })
+    </script>
+  </body>
+  <!-- END: Body-->
+
 </html>
