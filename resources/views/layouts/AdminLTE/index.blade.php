@@ -60,7 +60,6 @@
             <script src="../../../app-assets/js/core/app-menu.min.js"></script>
             <script src="../../../app-assets/js/core/app.min.js"></script>
             <script src="../../../app-assets/js/scripts/customizer.min.js"></script>
-            <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.min.js"></script>
             
             <script>
                 feather.replace()

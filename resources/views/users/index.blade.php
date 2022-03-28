@@ -2,98 +2,91 @@
 
 
 @section('css')
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>List responsables</title>
-    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.html">
-    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani" rel="stylesheet">
 
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css">
-    <!-- END: Vendor CSS-->
-
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.min.css">
-
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
-    <!-- END: Page CSS-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
     <!-- END: Custom CSS-->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .kkkk {
           padding: 15px;
         }
     </style>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection
 
 
 @section('content')
+
         <div class="app-content content ">
       <div class="content-overlay"></div>
       <div class="header-navbar-shadow"></div>
       <div class="content-wrapper container-xxl p-0">
         <div class="content-header row">
         </div>
+        
         <div class="content-body">
           <!-- users list start -->
+
           <section class="app-user-list">
             <!-- list and filter start -->
+
             <div class="card">
               <div class="card-datatable table-responsive pt-0">
                 <div class="kkkk">
                     <table id="example" class="display user-list-table table" style="width:100%" >
+                    <button data-v-32017d0f="" type="button" class="btn btn-primary " ><span data-v-32017d0f="" class="text-nowrap">Ajouter</span></button>
+
                         <thead class="table-light">
                             <tr>
+                                <th></th>
                                 <th>Nom</th>
                                 <th>E-mail</th>
-                                <th>Status</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Statut</th>
+                                <th>Créé</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
-                        </tbody>
+                            <tbody>
+                            @foreach($users as $user)
+                                <tr>
+                                    <td>
+                                        <div class="avatar">
+                                            <img src="{{ asset($user->avatar) }}" alt="avatar" width="32" height="32"/>
+                                        </div>
+                                    </td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    @if($user->isOnline())
+                                        <td><span data-v-32017d0f="" class="badge text-capitalize badge-light-success badge-pill"> active </span></td>
+                                    @else
+                                        <td><span data-v-32017d0f="" class="badge text-capitalize badge-light-secondary badge-pill"> inactive </span></td>
+                                    @endif
+                                    <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
+                                    
+                                        <td>
+                                        @if ($user->id != 1)
+                                            <a href=""><i class="fa-solid fa-delete-left"></i></a>
+                                            <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href=""><i class="fa-solid fa-eye"></i></a>
+                                        @endif
+                                        </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
                         <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th></th>
+                                <th>Nom</th>
+                                <th>E-mail</th>
+                                <th>Statut</th>
+                                <th>Créé</th>
+                                <th>Actions</th>
                             </tr>
                         </tfoot>
                     </table> 
@@ -167,7 +160,6 @@
 
 @section('js')
 
-    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
     <script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
     <script src="../../../app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
     <script src="../../../app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
@@ -183,19 +175,15 @@
     <script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <script src="../../../app-assets/vendors/js/forms/cleave/cleave.min.js"></script>
     <script src="../../../app-assets/vendors/js/forms/cleave/addons/cleave-phone.us.js"></script>
-    <script src="../../../app-assets/js/core/app-menu.min.js"></script>
     <script src="../../../app-assets/js/core/app.min.js"></script>
-    <script src="../../../app-assets/js/scripts/customizer.min.js"></script>
-    <script>
-      $(window).on('load',  function(){
-        if (feather) {
-          feather.replace({ width: 14, height: 14 });
-        }
-      })
-    </script>
+    
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
         } );
     </script>
+
+            <script>
+                feather.replace()
+            </script>
 @endsection
