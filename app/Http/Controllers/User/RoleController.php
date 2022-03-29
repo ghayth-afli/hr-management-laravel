@@ -60,6 +60,10 @@ class RoleController extends Controller
 
         $this->flashMessage('check', 'Permission successfully added!', 'success');
 
+        
+
+
+
         return redirect()->route('role.create');
     }
 

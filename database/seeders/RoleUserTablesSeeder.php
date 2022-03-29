@@ -25,23 +25,24 @@ class RoleUserTablesSeeder extends Seeder
 
     private function createAdmins()
     {
+        
+        
+        User::create([
+            'email' => 'admin@admin.com', 
+            'name'  => 'Administrator',
+            //'prenom'  => 'f',
+            'password' => bcrypt('admin'),
+            'avatar'  => 'img/config/nopic.png',
+        ]);
+
         Profil::create([
+            'user_id' => 1,
             'entreprise' => '', 
             'tel'  => 0,
             'adresse'  => '',
             'etat' => '',
             'langue'  => '',
             'photo'  => ''
-        ]);
-        
-        User::create([
-            'profil_id' => 1,
-            'email' => 'admin@admin.com', 
-            'name'  => 'Administrator',
-            //'prenom'  => 'f',
-            'password' => bcrypt('admin'),
-            'avatar'  => 'img/config/nopic.png',
-            'active'  => true
         ]);
 
     }

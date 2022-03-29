@@ -30,25 +30,37 @@
                                             <div class="col-md-6 col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="first-name-column">Nom</label>
-                                                    <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="name" />
+                                                    <input type="text" id="first-name-column" class="form-control" placeholder="Nom" name="name" />
+                                                    @if($errors->has('name'))
+                                                        <span id="login-email-error" class="error">{{ $errors->first('name') }}</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="last-name-column">Email</label>
-                                                    <input type="text" id="last-name-column" class="form-control" placeholder="email" name="lname-column" />
+                                                    <input type="email" name="email" id="last-name-column" class="form-control" placeholder="email" name="lname-column" />
+                                                    @if($errors->has('email'))
+                                                        <span id="login-email-error" class="error">{{ $errors->first('email') }}</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="city-column">Mot de passe</label>
-                                                    <input type="password" id="city-column" class="form-control" placeholder="City" name="password" />
+                                                    <input type="password" id="city-column" class="form-control" placeholder="Mot de passe" name="password" />
+                                                    @if($errors->has('password'))
+                                                        <span id="login-email-error" class="error">{{ $errors->first('password') }}</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="country-floating">Confirmez le mot de passe </label>
-                                                    <input type="text" id="country-floating" class="form-control" name="password_confirmation" placeholder="Country" />
+                                                    <input type="password" id="country-floating" class="form-control" name="password_confirmation" placeholder="Confirmez le mot de passe" />
+                                                    @if($errors->has('password-confirm'))
+                                                        <span id="login-email-error" class="error">{{ $errors->first('password-confirm') }}</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             
@@ -59,6 +71,9 @@
                                                         <option value="{{ $role->id}}"> {{ $role->name}} </option>
                                                 @endforeach
                                                 </select>
+                                                @if($errors->has('roles'))
+                                                        <span id="login-email-error" class="error">{{ $errors->first('roles') }}</span>
+                                                    @endif
                                             </div>
                                             <div class="col-12">
                                                 <button type="submit" class="btn btn-primary me-1">Ajouter</button>

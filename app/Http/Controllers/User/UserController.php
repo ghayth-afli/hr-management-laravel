@@ -60,6 +60,10 @@ class UserController extends Controller
 
         $user->roles()->sync($roles);
 
+        $user->profil()->create(
+            
+        );
+
         $this->flashMessage('check', 'User successfully added!', 'success');
 
         return redirect()->route('user.create');
