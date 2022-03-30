@@ -39,7 +39,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function credentials(Request $request) {
+    /*protected function credentials(Request $request) {
         return ['email' => $request->{$this->username()}, 'password' => $request->password, 'active' => 1];
     }
 
@@ -59,5 +59,5 @@ class LoginController extends Controller
         return redirect()->back()
             ->withInput($request->only($this->username(), 'remember'))
             ->withErrors($errors);
-    }
+    }*/
 }

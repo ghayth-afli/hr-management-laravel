@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\User\StoreRoleRequest;  
 use App\Http\Requests\User\UpdateRoleRequest;  
 use App\Models\Role; 
+use App\Models\User; 
 use App\Models\PermissionGroup; 
 use App\Models\Permission; 
 
@@ -14,11 +15,14 @@ class RoleController extends Controller
 { 
     public function index()
     { 
-        $this->authorize('show-role', Role::class);
-
+        $this->authorize('show-role','create-role', Role::class);
+        $rolesc = Role::withCount('users')->get();
         $roles = Role::paginate(15);
+        $permission_groups = PermissionGroup::all();
 
-        return view('users.roles.index', compact('roles'));
+        $users_roles = User::with(['roles'])->get();
+
+        return view('users.roles.index', compact('users_roles','roles','rolesc','permission_groups'));
     }
 
     public function show($id)
@@ -60,11 +64,7 @@ class RoleController extends Controller
 
         $this->flashMessage('check', 'Permission successfully added!', 'success');
 
-        
-
-
-
-        return redirect()->route('role.create');
+        return redirect()->route('role');
     }
 
     public function edit($id)

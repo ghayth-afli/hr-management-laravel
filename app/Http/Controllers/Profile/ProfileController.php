@@ -44,8 +44,25 @@ class ProfileController extends Controller
             return redirect()->route('profile');
     	}
 
-        $user->update($request->all());        
 
+            $req = $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+            ]);
+    
+            $user->update($req);
+    
+            $pro = $request->validate([
+                'entreprise' => 'required',
+                'tel' => 'required',
+                'adresse' => 'required',
+                'etat' => 'required',
+                'langue' => 'required',
+            ]);
+            $profil = Profil::find(Auth::user()->profil_id);
+            $profil->update($pro);
+
+        
         $this->flashMessage('check', 'Profile updated successfully!', 'success');
 
         return redirect()->route('profile');

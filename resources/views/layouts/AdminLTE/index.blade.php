@@ -11,7 +11,7 @@
             <meta name="author" content="PIXINVENT">
             <title>Tableau de bord </title>
             <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.html">
-            <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/ico/favicon.ico">
+            <link rel="shortcut icon" type="image/x-icon" href="https://amagroup.tn/wp-content/uploads/2021/10/logobleu.png">
             <link href="https://fonts.googleapis.com/css2?family=Rajdhani" rel="stylesheet">
 
             <!-- BEGIN: Vendor CSS-->

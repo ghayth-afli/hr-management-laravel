@@ -16,7 +16,6 @@ class Profil extends Model
         'adresse',
         'etat',
         'langue',
-        'photo',
     ];
 
     public function user()

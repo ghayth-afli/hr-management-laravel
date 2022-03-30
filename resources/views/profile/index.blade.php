@@ -47,11 +47,12 @@
             <label for="account-upload" class="btn btn-sm btn-primary mb-75 me-75">Upload</label>
             <form action="{{ route('profile.update.avatar',$user->id) }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <input type="file" id="account-upload" name="_method" hidden accept="image/*" />
+                <input type="hidden" name="_method" value="put">
+                <input type="file" id="account-upload" name="avatar" hidden accept="image/*" />
                 <!--button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-save"></i> Save Avatar</button>-->
-            </form>
+                <button type="submit" id="account-reset" class="btn btn-sm btn-outline-secondary mb-75">Update</button>
+              </form>
 
-            <button type="button" id="account-reset" class="btn btn-sm btn-outline-secondary mb-75">Reset</button>
             <p class="mb-0">Allowed file types: png, jpg, jpeg.</p>
           </div>
         </div>
@@ -60,7 +61,9 @@
       <!--/ header section -->
 
       <!-- form -->
-      <form class="validate-form mt-2 pt-50">
+      <form class="validate-form mt-2 pt-50" action="{{ route('profile.update.profile',$user->id) }}" method="post">
+        {{ csrf_field() }}
+        <input type="hidden" name="_method" value="put">
         <div class="row">
           <div class="col-12 col-sm-6 mb-1">
             <label class="form-label" for="accountFirstName">Nom</label>
@@ -68,22 +71,9 @@
               type="text"
               class="form-control"
               id="accountFirstName"
-              name="firstName"
-              placeholder="Fouleni"
-              value="John"
+              value="{{Auth::user()->name}}"
+              name="name"
               data-msg="Please enter first name"
-            />
-          </div>
-          <div class="col-12 col-sm-6 mb-1">
-            <label class="form-label" for="accountLastName">Prenom</label>
-            <input
-              type="text"
-              class="form-control"
-              id="accountLastName"
-              name="lastName"
-              placeholder="Foulen"
-              value="Doe"
-              data-msg="Please enter last name"
             />
           </div>
           <div class="col-12 col-sm-6 mb-1">
@@ -94,7 +84,7 @@
               id="accountEmail"
               name="email"
               placeholder="Email"
-              value="Foulen@gmail.com"
+              value="{{$user->email}}"
             />
           </div>
           <div class="col-12 col-sm-6 mb-1">
@@ -103,9 +93,9 @@
               type="text"
               class="form-control"
               id="accountOrganization"
-              name="organization"
+              name="entreprise"
               placeholder="Organization name"
-              value="Ama"
+              value="{{$user->profil->entreprise}}"
             />
           </div>
           <div class="col-12 col-sm-6 mb-1">
@@ -113,24 +103,24 @@
             <input
               type="text"
               class="form-control account-number-mask"
-              id="accountPhoneNumber"
-              name="phoneNumber"
+              id="tel"
+              name="tel"
               placeholder="Tel"
-              value="75 712 237"
+              value="{{$user->profil->tel}}"
             />
           </div>
           <div class="col-12 col-sm-6 mb-1">
             <label class="form-label" for="accountAddress">Address</label>
-            <input type="text" class="form-control" id="accountAddress" name="address" placeholder="Your Address" />
+            <input type="text" class="form-control" id="accountAddress" name="addresse" placeholder="Your Address"  value="{{$user->profil->adresse}}"/>
           </div>
           <div class="col-12 col-sm-6 mb-1">
             <label class="form-label" for="accountState">État</label>
-            <input type="text" class="form-control" id="accountState" name="state" placeholder="State" />
+            <input type="text" class="form-control" id="accountState" name="etat" placeholder="State" value="{{$user->profil->etat}}" />
           </div>
           <div class="col-12 col-sm-6 mb-1">
             <label for="language" class="form-label">Langue</label>
             <select id="language" class="select2 form-select">
-              <option value="">Choisir la langue</option>
+              <option value="" name="langue">Choisir la langue</option>
               <option value="en">English</option>
               <option value="fr">French</option>
             </select>

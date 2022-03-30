@@ -106,17 +106,15 @@ class ProfilController extends Controller
                 'adresse' => 'required',
                 'etat' => 'required',
                 'langue' => 'required',
-                'photo' => 'required',
             ]);
             $profil = Profil::find(Auth::user()->profil_id);
             $profil->update($pro);
 
-            return response()
-                ->json(['message'=> 'Profil updated successfully!']);
+            return Redirect::back()->with('msg', 'Mise à jour du profil réussie !');
+            
         }
         else{
-            return response()
-                ->json(['message'=> 'Access denied !']);
+            return Redirect::back()->with('msg', 'Accès refusé');
         }
         
     }
