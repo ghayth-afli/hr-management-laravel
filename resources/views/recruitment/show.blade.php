@@ -1,3 +1,6 @@
+
+@extends('layouts.AdminLTE.index')
+
 @section('title')
 
 @endsection
