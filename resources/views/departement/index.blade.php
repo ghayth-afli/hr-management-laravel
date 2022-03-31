@@ -44,7 +44,7 @@
               <div class="card-datatable table-responsive pt-0">
                 <div class="kkkk">
                     <table id="example" class="display user-list-table table" style="width:100%" >
-                    <a href="{{ route('user.create') }}"><button data-v-32017d0f="" type="button" class="btn btn-primary " ><span data-v-32017d0f="" class="text-nowrap">Ajouter</span></button></a>
+                    <a href=""><button data-v-32017d0f="" type="button" class="btn btn-primary " ><span data-v-32017d0f="" class="text-nowrap">Ajouter</span></button></a>
 
                         <thead class="table-light">
                             <tr>
