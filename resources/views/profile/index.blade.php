@@ -2,21 +2,42 @@
 
 @section('icon_page', 'user') 
 
+@section('css')
+
+@endsection
+
 @section('content') 
 
 <!-- BEGIN: Content-->
+
 <div class="app-content content ">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper container-xxl p-0">
-      <div class="content-body"><div class="row">
+        @if(session()->has('success'))
+          <div class="demo-spacing-0">
+          <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <div class="alert-body">
+            {{ session()->get('success') }}
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+        @endif
+    <div class="content-body"><div class="row">
+        
 <div class="col-12">
 
   <!-- profile -->
+  
+
   <div class="card">
     <div class="card-header border-bottom">
       <h4 class="card-title">Profile</h4>
     </div>
+
+    
+
     <div class="card-body py-2 my-25">
       <!-- header section -->
       <div class="d-flex">
@@ -111,7 +132,7 @@
           </div>
           <div class="col-12 col-sm-6 mb-1">
             <label class="form-label" for="accountAddress">Address</label>
-            <input type="text" class="form-control" id="accountAddress" name="addresse" placeholder="Your Address"  value="{{$user->profil->adresse}}"/>
+            <input type="text" class="form-control" id="accountAddress" name="adresse" placeholder="Your Address"  value="{{$user->profil->adresse}}"/>
           </div>
           <div class="col-12 col-sm-6 mb-1">
             <label class="form-label" for="accountState">État</label>
@@ -119,8 +140,8 @@
           </div>
           <div class="col-12 col-sm-6 mb-1">
             <label for="language" class="form-label">Langue</label>
-            <select id="language" class="select2 form-select">
-              <option value="" name="langue">Choisir la langue</option>
+            <select id="language" class="select2 form-select" name="langue">
+              <option value="" >Choisir la langue</option>
               <option value="en">English</option>
               <option value="fr">French</option>
             </select>
@@ -142,6 +163,7 @@
       </div>
     </div>
   </div>
+  
   <!-- END: Content-->
 
 @endsection

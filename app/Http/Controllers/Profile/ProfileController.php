@@ -30,7 +30,7 @@ class ProfileController extends Controller
 		return view('profile.index',compact('user', 'roles', 'roles_ids'));
 	}
 
-	public function updateProfile(UpdateProfileRequest $request,$id)
+	public function updateProfile(Request $request,$id)
     {
     	$user = User::find($id);
 
@@ -49,7 +49,6 @@ class ProfileController extends Controller
                 'name' => 'required',
                 'email' => 'required',
             ]);
-    
             $user->update($req);
     
             $pro = $request->validate([
@@ -59,14 +58,14 @@ class ProfileController extends Controller
                 'etat' => 'required',
                 'langue' => 'required',
             ]);
-            $profil = Profil::find(Auth::user()->profil_id);
-            $profil->update($pro);
+            $user->profil->update($pro);
+
 
         
-        $this->flashMessage('check', 'Profile updated successfully!', 'success');
 
-        return redirect()->route('profile');
+            return redirect()->back()->with('success', 'Mise à jour du profil réussie !');   
     }
+
 
 	public function updatePassword(UpdatePasswordProfileRequest $request,$id)
     {
