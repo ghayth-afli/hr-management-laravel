@@ -8,17 +8,7 @@ use App\Models\Departement;
 
 class DepartementController extends Controller
 {
-    public function __construct() {
-        $this->middleware('guest', ['except' => [
-            'index',
-             'show',
-              'create',
-               'store',
-                'edit',
-                 'update',
-                    'destroy'
-        ]]);
-    }
+   
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +16,11 @@ class DepartementController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('show-departement', Departement::class);
+
+        $departements = Departement::all();
+
+        return view('departement.index', ['departements' =>  $departements]);
     }
 
     /**
@@ -36,7 +30,8 @@ class DepartementController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create-departement', Departement::class);
+        return view('departement.create');
     }
 
     /**
@@ -47,7 +42,23 @@ class DepartementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('create-departement', Departement::class);
+        $req = $request->validate([
+            'nom' => 'required',
+            'etat_recrutement' => 'required',
+        ],[
+            'nom.required' => 'Nom de departement est requis',
+            'etat_recrutement.required' => 'Etat recrutement est requis',
+        ]);
+
+        
+        $departement = Departement::create([
+        'nom' => request('nom'),
+        'etat_recrutement' => request('etat_recrutement'),
+        'user_id' => auth()->id()
+        ]);
+
+        return redirect('/departement')->with('success','Departement a été ajouté!');
     }
 
     /**
@@ -58,7 +69,9 @@ class DepartementController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->authorize('show-departement', Departement::class);
+        $departement = Departement::find($id);
+        return view('departement.show', ['departement' => $departement]);
     }
 
     /**
@@ -69,7 +82,9 @@ class DepartementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->authorize('edit-departement', Departement::class);
+        $departement = Departement::find($id);
+        return view('departement.edit', ['departement' => $departement]);
     }
 
     /**
@@ -81,7 +96,22 @@ class DepartementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->authorize('edit-departement', Departement::class);
+        $req = $request->validate([
+            'nom' => 'required',
+            'etat_recrutement' => 'required',
+        ],[
+            'nom.required' => 'nom is required',
+            'etat_recrutement.required' => 'etat_recrutement is required',
+        ]);
+        $departement=Departement::find($id);
+        $departement->update([
+            'nom' => request('nom'),
+            'etat_recrutement' => request('etat_recrutement'),
+            ]);
+
+        return redirect('/departement')->with('success','Mis à jour avec succès ! ');
+
     }
 
     /**
@@ -92,6 +122,8 @@ class DepartementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->authorize('destroy-departement', Departement::class);
+        Departement::destroy($id);
+        return redirect('/departement')->with('success','Département supprimé avec succès ! ');
     }
 }

@@ -41,3 +41,14 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function (){
 	Route::get('/role/show/{id}', 'RoleController@show')->name('role.show');
 	Route::get('/role/destroy/{id}', 'RoleController@destroy')->name('role.destroy');
 });
+
+Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 
+	// Departements
+	Route::get('/departement', 'DepartementController@index')->name('departement');
+	Route::get('/departement/create', 'DepartementController@create')->name('departement.create');
+	Route::post('/departement/store', 'DepartementController@store')->name('departement.store');
+	Route::get('/departement/edit/{id}', 'DepartementController@edit')->name('departement.edit');
+	Route::put('/departement/update/{id}', 'DepartementController@update')->name('departement.update');
+	Route::get('/departement/show/{id}', 'DepartementController@show')->name('departement.show');
+	Route::get('/departement/destroy/{id}', 'DepartementController@destroy')->name('departement.destroy');
+});

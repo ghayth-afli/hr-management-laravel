@@ -18,9 +18,9 @@
         @endif
         <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('role')}}"><i data-feather="shield"></i><span class="menu-title text-truncate" data-i18n="Roles &amp; Permission">Roles &amp; Permission</span></a>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="recruitement.html"><i data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Feather">Recruitment</span></a>
+        <li class=" nav-item"><a class="d-flex align-items-center" href=""><i data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Feather">Recruitment</span></a>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="depatement.html"><i data-feather="grid"></i><span class="menu-title text-truncate" data-i18n="Kanban">Département</span></a>
+        <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('departement')}}"><i data-feather="grid"></i><span class="menu-title text-truncate" data-i18n="Kanban">Département</span></a>
         </li>
         <li class=" nav-item"><a class="d-flex align-items-center" href="entretien.html"><i data-feather="briefcase"></i><span class="menu-title text-truncate" data-i18n="Components">Entretien</span></a>
         </li>

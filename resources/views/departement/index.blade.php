@@ -44,7 +44,7 @@
               <div class="card-datatable table-responsive pt-0">
                 <div class="kkkk">
                     <table id="example" class="display user-list-table table" style="width:100%" >
-                    <a href=""><button data-v-32017d0f="" type="button" class="btn btn-primary " ><span data-v-32017d0f="" class="text-nowrap">Ajouter</span></button></a>
+                    <a href="{{ route('departement.create')}}"><button data-v-32017d0f="" type="button" class="btn btn-primary " ><span data-v-32017d0f="" class="text-nowrap">Ajouter</span></button></a>
 
                         <thead class="table-light">
                             <tr>
@@ -54,15 +54,18 @@
                             </tr>
                         </thead>
                             <tbody>
+                            @foreach($departements as $departement)
                                 <tr>
-
-                                    <td></td>
+                                    <td>{{$departement->nom}}</td>
+                                        @if($departement->etat_recrutement == 'Ouvert')
                                         <td><span data-v-32017d0f="" class="badge text-capitalize badge-light-success badge-pill"> Ouvert </span></td>
+                                        @else
                                         <td><span data-v-32017d0f="" class="badge text-capitalize badge-light-secondary badge-pill"> Fermé </span></td>
+                                        @endif
                                         <td>
-                                            <a href=""><i class="fa-solid fa-delete-left"></i></a>
-                                            <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a href=""><i class="fa-solid fa-eye"></i></a>
+                                            <a href="{{ route('departement.destroy', $departement->id) }}" ><i class="fa-solid fa-delete-left"></i></a>
+                                            <a href="{{ route('departement.edit', $departement->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href="{{ route('departement.show', $departement->id) }}"><i class="fa-solid fa-eye"></i></a>
                                         </td>
                                 </tr>
                             @endforeach
