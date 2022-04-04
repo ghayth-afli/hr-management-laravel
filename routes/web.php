@@ -52,3 +52,14 @@ Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], functio
 	Route::get('/departement/show/{id}', 'DepartementController@show')->name('departement.show');
 	Route::get('/departement/destroy/{id}', 'DepartementController@destroy')->name('departement.destroy');
 });
+
+Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 
+	// Recrutements
+	Route::get('/recrutement', 'RecrutementController@index')->name('recrutement');
+	Route::get('/recrutement/create', 'RecrutementController@create')->name('recrutement.create');
+	Route::post('/recrutement/store', 'RecrutementController@store')->name('recrutement.store');
+	Route::get('/recrutement/edit/{id}', 'RecrutementController@edit')->name('recrutement.edit');
+	Route::put('/recrutement/update/{id}', 'RecrutementController@update')->name('recrutement.update');
+	Route::get('/recrutement/show/{id}', 'RecrutementController@show')->name('recrutement.show');
+	Route::get('/recrutement/destroy/{id}', 'RecrutementController@destroy')->name('recrutement.destroy');
+});

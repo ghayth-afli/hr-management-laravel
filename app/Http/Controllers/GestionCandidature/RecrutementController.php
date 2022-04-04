@@ -8,17 +8,7 @@ use App\Models\Recrutement;
 
 class RecrutementController extends Controller
 {
-    public function __construct() {
-        $this->middleware('guest', ['except' => [
-            'index',
-             'show',
-              'create',
-               'store',
-                'edit',
-                 'update',
-                    'destroy'
-        ]]);
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +16,11 @@ class RecrutementController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('show-recrutement', Recrutement::class);
+
+        $recrutements = Recrutement::all();
+
+        return view('recrutement.index', ['recrutements' =>  $recrutements]);
     }
 
     /**
@@ -36,7 +30,8 @@ class RecrutementController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create-recrutement', Recrutement::class);
+        return view('recrutement.create');
     }
 
     /**
@@ -58,7 +53,9 @@ class RecrutementController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->authorize('show-recrutement', Recrutement::class);
+        $recrutement = Recrutement::find($id);
+        return view('recrutement.show', ['recrutement' => $recrutement]);
     }
 
     /**
@@ -69,7 +66,9 @@ class RecrutementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->authorize('edit-recrutement', Recrutement::class);
+        $recrutement = Recrutement::find($id);
+        return view('recrutement.edit', ['recrutement' => $recrutement]);
     }
 
     /**
@@ -92,6 +91,8 @@ class RecrutementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->authorize('destroy-recrutement', Recrutement::class);
+        Recrutement::destroy($id);
+        return redirect('/recrutement')->with('success','recrutement supprimé avec succès ! ');
     }
 }
