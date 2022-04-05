@@ -26,6 +26,7 @@ class CreateRecrutementsTable extends Migration
             $table->text('exigences');
             $table->date('date_expiration');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('departement_id')->constrained();
             $table->timestamps();
         });
     }

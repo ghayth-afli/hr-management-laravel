@@ -17,8 +17,8 @@ class RecrutementController extends Controller
     public function index()
     {
         $this->authorize('show-recrutement', Recrutement::class);
-
-        $recrutements = Recrutement::all();
+        $recrutements = Recrutement::withCount('candidats')->get();
+        //$recrutements = Recrutement::all();
 
         return view('recrutement.index', ['recrutements' =>  $recrutements]);
     }
