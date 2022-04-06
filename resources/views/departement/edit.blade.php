@@ -41,7 +41,14 @@
                                                     <label class="form-label" for="first-name-column">Nom de departement :</label>
                                                     <input type="text" id="first-name-column" class="form-control" placeholder="Departement" name="nom" value="{{$departement->nom}}"/>
                                                     @if($errors->has('nom'))
-                                                        <span id="login-email-error" class="error">{{ $errors->first('nom') }}</span>
+                                                        <div class="demo-spacing-0">
+                                                            <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                                <div class="alert-body d-flex align-items-center">
+                                                                    <i data-feather="info" class="me-50"></i>
+                                                                    <span>{{ $errors->first('nom') }}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     @endif
                                                 </div>
                                             </div>
@@ -59,7 +66,14 @@
                                                             <label class="form-check-label" for="Fermé">Fermé</label>
                                                         </div>
                                                         @if($errors->has('etat_recrutements'))
-                                                            <span id="login-email-error" class="error">{{ $errors->first('etat_recrutements') }}</span>
+                                                            <div class="demo-spacing-0">
+                                                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                                    <div class="alert-body d-flex align-items-center">
+                                                                        <i data-feather="info" class="me-50"></i>
+                                                                        <span>{{ $errors->first('etat_recrutements') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         @endif
                                                     </div>
                                                 @else
@@ -75,7 +89,14 @@
                                                             <label class="form-check-label" for="Fermé">Fermé</label>
                                                         </div>
                                                         @if($errors->has('etat_recrutements'))
-                                                            <span id="login-email-error" class="error">{{ $errors->first('etat_recrutements') }}</span>
+                                                            <div class="demo-spacing-0">
+                                                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                                    <div class="alert-body d-flex align-items-center">
+                                                                        <i data-feather="info" class="me-50"></i>
+                                                                        <span>{{ $errors->first('etat_recrutements') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         @endif
                                                     </div>
                                                 @endif

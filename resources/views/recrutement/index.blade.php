@@ -59,11 +59,16 @@
                             <tbody>
                             @foreach($recrutements as $recrutement)
                                 <tr>
-                                        <td>{{$recrutement->poste}}</td>
-                                        <td>{{$recrutement->departement()->nom}}</td>
-                                        <td>{{$recrutement->genre}}</td>
-                                        <td>{{$recrutement->nbr_poste}}</td>
-                                        <td>{{$recrutement->candidats_count}}</td>
+                                        <td>
+                                            <span class="badge bg-secondary">
+                                                <i data-feather="star" class="me-25"></i>
+                                                <span>{{$recrutement->poste}}</span>
+                                            </span>
+                                        </td>
+                                        <td><span class="badge badge-light-secondary">{{$recrutement->departement->nom}}</span></td>
+                                        <td><span class="badge rounded-pill bg-primary">{{$recrutement->genre}}</span></td>
+                                        <td><span class="badge bg-dark">{{$recrutement->nbr_poste}}</span></td>
+                                        <td><span class="badge rounded-pill bg-danger ">{{$recrutement->candidats_count}}</span></td>
                                         <td>
                                             <a href="{{ route('recrutement.destroy', $recrutement->id) }}" ><i class="fa-solid fa-delete-left"></i></a>
                                             <a href="{{ route('recrutement.edit', $recrutement->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>

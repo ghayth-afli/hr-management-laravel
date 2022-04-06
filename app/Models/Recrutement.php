@@ -24,8 +24,18 @@ class Recrutement extends Model
         'description',
         'exigences',
         'date_expiration',
-        'user_id'
+        'user_id',
+        'departement_id'
     ];
+    public function setTypeAttribute($value)
+    {
+        $this->attributes['type'] = json_encode($value);
+    }
+
+    public function getTypeAttribute($value)
+    {
+        return $this->attributes['type'] = json_decode($value);
+    }
 
     public function user()
     {

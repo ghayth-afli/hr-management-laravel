@@ -32,7 +32,14 @@
                                                     <label class="form-label" for="first-name-column">Nom</label>
                                                     <input type="text" id="first-name-column" class="form-control" placeholder="Nom" name="name" />
                                                     @if($errors->has('name'))
-                                                        <span id="login-email-error" class="error">{{ $errors->first('name') }}</span>
+                                                        <div class="demo-spacing-0">
+                                                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                                    <div class="alert-body d-flex align-items-center">
+                                                                        <i data-feather="info" class="me-50"></i>
+                                                                        <span>{{ $errors->first('name') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                     @endif
                                                 </div>
                                             </div>
@@ -41,7 +48,14 @@
                                                     <label class="form-label" for="last-name-column">Email</label>
                                                     <input type="email" name="email" id="last-name-column" class="form-control" placeholder="email" name="lname-column" />
                                                     @if($errors->has('email'))
-                                                        <span id="login-email-error" class="error">{{ $errors->first('email') }}</span>
+                                                        <div class="demo-spacing-0">
+                                                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                                    <div class="alert-body d-flex align-items-center">
+                                                                        <i data-feather="info" class="me-50"></i>
+                                                                        <span>{{ $errors->first('email') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                     @endif
                                                 </div>
                                             </div>
@@ -50,7 +64,14 @@
                                                     <label class="form-label" for="city-column">Mot de passe</label>
                                                     <input type="password" id="city-column" class="form-control" placeholder="Mot de passe" name="password" />
                                                     @if($errors->has('password'))
-                                                        <span id="login-email-error" class="error">{{ $errors->first('password') }}</span>
+                                                        <div class="demo-spacing-0">
+                                                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                                    <div class="alert-body d-flex align-items-center">
+                                                                        <i data-feather="info" class="me-50"></i>
+                                                                        <span>{{ $errors->first('password') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                     @endif
                                                 </div>
                                             </div>
@@ -59,7 +80,14 @@
                                                     <label class="form-label" for="country-floating">Confirmez le mot de passe </label>
                                                     <input type="password" id="country-floating" class="form-control" name="password_confirmation" placeholder="Confirmez le mot de passe" />
                                                     @if($errors->has('password-confirm'))
-                                                        <span id="login-email-error" class="error">{{ $errors->first('password-confirm') }}</span>
+                                                        <div class="demo-spacing-0">
+                                                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                                    <div class="alert-body d-flex align-items-center">
+                                                                        <i data-feather="info" class="me-50"></i>
+                                                                        <span>{{ $errors->first('password-confirm') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                     @endif
                                                 </div>
                                             </div>
@@ -72,8 +100,15 @@
                                                 @endforeach
                                                 </select>
                                                 @if($errors->has('roles'))
-                                                        <span id="login-email-error" class="error">{{ $errors->first('roles') }}</span>
-                                                    @endif
+                                                        <div class="demo-spacing-0">
+                                                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                                    <div class="alert-body d-flex align-items-center">
+                                                                        <i data-feather="info" class="me-50"></i>
+                                                                        <span>{{ $errors->first('roles') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                @endif
                                             </div>
                                             <div class="col-12">
                                                 <button type="submit" class="btn btn-primary me-1">Ajouter</button>
