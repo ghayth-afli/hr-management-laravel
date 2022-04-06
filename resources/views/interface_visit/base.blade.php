@@ -13,7 +13,7 @@
     <body>
         <div class="preloader"></div>
         <div id="main-wrapper">
-            @include('layouts.header')
+            @include('interface_visit.layouts.header')
             @yield('content')
         </div>
         @yield('js') 

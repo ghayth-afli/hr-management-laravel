@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'App\Http\Controllers\HomeController@index');
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('/config', 'App\Http\Controllers\ConfigController@index')->name('config');
 Route::put('/config/update/{id}', 'App\Http\Controllers\ConfigController@update')->name('config.update');
@@ -62,4 +61,11 @@ Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], functio
 	Route::put('/recrutement/update/{id}', 'RecrutementController@update')->name('recrutement.update');
 	Route::get('/recrutement/show/{id}', 'RecrutementController@show')->name('recrutement.show');
 	Route::get('/recrutement/destroy/{id}', 'RecrutementController@destroy')->name('recrutement.destroy');
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\InterfaceVisiteur'], function (){ 
+	// Recrutements
+	Route::get('/', 'OffreController@index');
+	Route::get('/career', 'OffreController@index')->name('career');
+	Route::get('/offre/show/{id}', 'OffreController@show')->name('offre.show');
 });
