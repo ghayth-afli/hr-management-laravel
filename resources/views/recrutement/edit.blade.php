@@ -34,13 +34,14 @@
                                     <h4 class="card-title">Nouvel offres d'emploi</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form" action="{{ route('recrutement.update') }}" method="post">
+                                    <form class="form" action="{{ route('recrutement.update',$recrutement->id) }}" method="post">
                                         {{ csrf_field() }}
+                                        <input type="hidden" name="_method" value="put">
                                         <div class="row">
                                             <div class="col-md-6 col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="poste">Poste :</label>
-                                                    <input type="text" id="poste" class="form-control" placeholder="Ex : Développeurs Web" name="poste" />
+                                                    <input type="text" id="poste" class="form-control" placeholder="Ex : Développeurs Web" value="{{$recrutement->poste}}" name="poste" />
                                                     @if($errors->has('poste'))
                                                         <div class="demo-spacing-0">
                                                             <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
@@ -59,23 +60,23 @@
                                                     <label class="form-label" for="first-name-column">Type d'emploi désiré :</label>
                                                             <div class="demo-inline-spacing">
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="CDI" value="CDI" checked />
+                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="CDI" value="CDI" {{ str_contains($recrutement->type, 'CDI') ? 'checked' : '' }} />
                                                                     <label class="form-check-label" for="CDI">CDI</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="CDD" value="CDD" />
+                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="CDD" value="CDD" {{ str_contains($recrutement->type, 'CDD') ? 'checked' : '' }}/>
                                                                     <label class="form-check-label" for="CDD">CDD</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="SIVP" value="SIVP" />
+                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="SIVP" value="SIVP" {{ str_contains($recrutement->type, 'SIVP') ? 'checked' : '' }}/>
                                                                     <label class="form-check-label" for="SIVP">SIVP</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="Stage" value="Stage" />
+                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="Stage" value="Stage" {{ str_contains($recrutement->type, 'Stage') ? 'checked' : '' }} />
                                                                     <label class="form-check-label" for="Stage">Stage</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="Alternance" value="Alternance" />
+                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="Alternance" value="Alternance" {{ str_contains($recrutement->type, 'Alternance') ? 'checked' : '' }}/>
                                                                     <label class="form-check-label" for="Alternance">Alternance</label>
                                                                 </div>
                                                             </div>
@@ -94,7 +95,7 @@
                                             <div class="col-md-6 col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="niveau_etude">Niveau d'étude :</label>
-                                                    <input type="text" id="niveau_etude" class="form-control" placeholder="Ex : Bac + 3" name="niveau_etude" />
+                                                    <input type="text" id="niveau_etude" class="form-control" placeholder="Ex : Bac + 3" value="{{$recrutement->niveau_etude}}" name="niveau_etude" />
                                                     @if($errors->has('niveau_etude'))
                                                         <div class="demo-spacing-0">
                                                             <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
@@ -120,7 +121,7 @@
                                                                 </svg>
                                                             </button>
                                                         </span>
-                                                        <input type="number" class="touchspin-icon form-control" name="nbr_poste" value=1 id=demoInput type=number min=1>
+                                                        <input type="number" class="touchspin-icon form-control" name="nbr_poste" value="{{$recrutement->nbr_poste}}" id=demoInput type=number min=1>
                                                         <span class="input-group-btn bootstrap-touchspin-injected">
                                                             <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="increment()">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
@@ -147,9 +148,9 @@
                                                 <div class="mb-1">
                                                     <label class="form-label" for="genre">Genre :</label>
                                                     <select class="form-select" id="genre" name="genre">
-                                                            <option value="Indifférent">Indifférent</option>
-                                                            <option value="Femme">Femme</option>
-                                                            <option value="Homme">Homme</option>
+                                                            <option value="Indifférent" {{ $recrutement->genre == "Indifférent"  ? 'selected' : '' }}>Indifférent</option>
+                                                            <option value="Femme" {{ $recrutement->genre == "Femme"  ? 'selected' : '' }}>Femme</option>
+                                                            <option value="Homme" {{ $recrutement->genre == "Homme"  ? 'selected' : '' }}>Homme</option>
                                                     </select>
                                                     @if($errors->has('genre'))
                                                         <div class="demo-spacing-0">
@@ -177,7 +178,7 @@
                                                                 </svg>
                                                             </button>
                                                         </span>
-                                                        <input type="number" class="touchspin-icon form-control" id=demoInput1 value=0 type=number min=0 name="experience">
+                                                        <input type="number" class="touchspin-icon form-control" id=demoInput1  type=number min=0 name="experience" value="{{$recrutement->experience}}">
                                                         <span class="input-group-btn bootstrap-touchspin-injected">
                                                             <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="increment1()">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
@@ -203,7 +204,7 @@
                                             <div class="col-md-6 col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="langue">Langue :</label>
-                                                    <input type="text" id="langue" class="form-control" placeholder="Ex : Français, Anglais, Arabe" name="langue" />
+                                                    <input type="text" id="langue" class="form-control" placeholder="Ex : Français, Anglais, Arabe" name="langue" value="{{$recrutement->langue}}"/>
                                                     @if($errors->has('langue'))
                                                         <div class="demo-spacing-0">
                                                             <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
@@ -219,7 +220,7 @@
                                             <div class="col-md-6 col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="date_expiration">Date d'expiration :</label>
-                                                    <input type="date" id="date_expiration" class="form-control" name="date_expiration" />
+                                                    <input type="date" id="date_expiration" class="form-control" name="date_expiration" value="{{$recrutement->date_expiration}}"/>
 
                                                     @if($errors->has('date_expiration'))
                                                         <div class="demo-spacing-0">
@@ -237,7 +238,7 @@
                                                     <label class="form-label" for="departement">Département :</label>
                                                     <select class="form-select" id="departement" name="departement">
                                                         @foreach($departements as $departement)
-                                                            <option value="{{$departement->id}}">{{$departement->nom}}</option>
+                                                            <option value="{{$departement->id}}" {{ $recrutement->departement_id == $departement->id  ? 'selected' : '' }}>{{$departement->nom}}</option>
                                                         @endforeach
                                                     </select>
                                                     @if($errors->has('departement'))
@@ -253,7 +254,7 @@
                                                 </div>
                                                 <div class="mb-1">
                                                     <label class="form-label" for="description">Description de l'emploi :</label>
-                                                    <textarea class="form-control" placeholder="Ex : Ama Group est à la recherche des développeurs Web qui maîtrisent les technologies PHP (Laravel ou Symfony) ou JS (ReactJS, VueJS, NodeJS, etc)" id="description" name="description" style="height: 100px"></textarea>
+                                                    <textarea class="form-control" placeholder="Ex : Ama Group est à la recherche des développeurs Web qui maîtrisent les technologies PHP (Laravel ou Symfony) ou JS (ReactJS, VueJS, NodeJS, etc)" id="description" name="description" style="height: 100px">{{$recrutement->description}}</textarea>
                                                     @if($errors->has('description'))
                                                         <div class="demo-spacing-0">
                                                             <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
@@ -267,7 +268,7 @@
                                                 </div>
                                                 <div class="mb-1">
                                                     <label class="form-label" for="exigences">Exigences de l'emploi :</label>
-                                                    <textarea class="form-control" placeholder="Ex : Comportement positif,Autonomie et responsabilisation..." id="exigences" name="exigences" style="height: 100px"></textarea>
+                                                    <textarea class="form-control" placeholder="Ex : Comportement positif,Autonomie et responsabilisation..." id="exigences"  name="exigences" style="height: 100px">{{$recrutement->exigences}}</textarea>
                                                     @if($errors->has('exigences'))
                                                         <div class="demo-spacing-0">
                                                             <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">

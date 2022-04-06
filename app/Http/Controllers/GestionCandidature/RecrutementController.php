@@ -88,7 +88,6 @@ class RecrutementController extends Controller
         ]);
 
         return redirect('/recrutement')->with('success','Nouvel offre d\'emploi a été ajouté!');
-        dd($request);
     }
 
     /**
@@ -114,7 +113,8 @@ class RecrutementController extends Controller
     {
         $this->authorize('edit-recrutement', Recrutement::class);
         $recrutement = Recrutement::find($id);
-        return view('recrutement.edit', ['recrutement' => $recrutement]);
+        $departements = Departement::all();
+        return view('recrutement.edit', ['recrutement' => $recrutement,'departements' => $departements]);
     }
 
     /**
@@ -126,7 +126,50 @@ class RecrutementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->authorize('edit-recrutement', Recrutement::class);
+        $req = $request->validate([
+            'poste' => 'required',
+            'nbr_poste' => 'required',
+            'type' => 'required',
+            'experience' => 'required',
+            'niveau_etude' => 'required',
+            'langue' => 'required',
+            'genre' => 'required',
+            'description' => 'required',
+            'exigences' => 'required',
+            'date_expiration' => 'required',
+            'departement' => 'required',
+        ],[
+            'poste.required' => 'ce champ doit obligatoirement être rempli',
+            'nbr_poste.required' => 'ce champ doit obligatoirement être rempli',
+            'type.required' => 'ce champ doit obligatoirement être rempli',
+            'experience.required' => 'ce champ doit obligatoirement être rempli',
+            'niveau_etude.required' => 'ce champ doit obligatoirement être rempli',
+            'langue.required' => 'ce champ doit obligatoirement être rempli',
+            'genre.required' => 'ce champ doit obligatoirement être rempli',
+            'description.required' => 'ce champ doit obligatoirement être rempli',
+            'exigences.required' => 'ce champ doit obligatoirement être rempli',
+            'date_expiration.required' => 'ce champ doit obligatoirement être rempli',
+            'departement.required' => 'ce champ doit obligatoirement être rempli',
+        ]);
+
+        $recrutement=Recrutement::find($id);
+        $recrutement->update([
+        'poste' => request('poste'),
+        'nbr_poste' => request('nbr_poste'),
+        'type' => request('type'),
+        'experience' => request('experience'),
+        'niveau_etude' => request('niveau_etude'),
+        'langue' => request('langue'),
+        'genre' => request('genre'),
+        'description' => request('description'),
+        'exigences' => request('exigences'),
+        'date_expiration' => request('date_expiration'),
+        'departement_id' => request('departement'),
+        'user_id' => auth()->id()
+        ]);
+
+        return redirect('/recrutement')->with('success','Nouvel offre d\'emploi a été modifié!');
     }
 
     /**

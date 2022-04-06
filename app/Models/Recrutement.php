@@ -32,10 +32,10 @@ class Recrutement extends Model
         $this->attributes['type'] = json_encode($value);
     }
 
-    public function getTypeAttribute($value)
+    /*public function getTypeAttribute($value)
     {
         return $this->attributes['type'] = json_decode($value);
-    }
+    }*/
 
     public function user()
     {
