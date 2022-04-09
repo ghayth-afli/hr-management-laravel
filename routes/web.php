@@ -64,7 +64,7 @@ Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], functio
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\InterfaceVisiteur'], function (){ 
-	// Recrutements
+	// Career
 	Route::get('/', 'OffreController@index');
 	Route::get('/career', 'OffreController@index')->name('career');
 	Route::get('/offre/show/{id}', 'OffreController@show')->name('offre.show');

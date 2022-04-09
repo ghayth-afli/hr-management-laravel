@@ -34,7 +34,7 @@
                                     <h4 class="card-title">Nouvel offres d'emploi</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form" action="{{ route('recrutement.update',$recrutement->id) }}" method="post">
+                                    <form class="form" action="{{ route('recrutement.update',recrutement) }}" method="post">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="put">
                                         <div class="row">
@@ -60,24 +60,20 @@
                                                     <label class="form-label" for="first-name-column">Type d'emploi désiré :</label>
                                                             <div class="demo-inline-spacing">
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="CDI" value="CDI" {{ str_contains($recrutement->type, 'CDI') ? 'checked' : '' }} />
-                                                                    <label class="form-check-label" for="CDI">CDI</label>
+                                                                    <input class="form-check-input" type="radio" name="type" id="Freelance" value="Freelance" {{ $recrutement->type == "Freelance" ? 'checked' : '' }}>
+                                                                    <label class="form-check-label" for="Freelance">Freelance</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="CDD" value="CDD" {{ str_contains($recrutement->type, 'CDD') ? 'checked' : '' }}/>
-                                                                    <label class="form-check-label" for="CDD">CDD</label>
+                                                                    <input class="form-check-input" type="radio" name="type" id="Mi-temps" value="Mi-temps" {{ $recrutement->type == "Mi-temps" ? 'checked' : '' }}>
+                                                                    <label class="form-check-label" for="Mi-temps">Mi-temps</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="SIVP" value="SIVP" {{ str_contains($recrutement->type, 'SIVP') ? 'checked' : '' }}/>
-                                                                    <label class="form-check-label" for="SIVP">SIVP</label>
+                                                                    <input class="form-check-input" type="radio" name="type" id="Temps plein" value="Temps plein" {{ $recrutement->type == "Temps plein" ? 'checked' : '' }}>
+                                                                    <label class="form-check-label" for="Temps plein">Temps plein</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="Stage" value="Stage" {{ str_contains($recrutement->type, 'Stage') ? 'checked' : '' }} />
+                                                                    <input class="form-check-input" type="radio" name="type" id="Stage" value="Stage" {{ $recrutement->type == "Stage" ? 'checked' : '' }}>
                                                                     <label class="form-check-label" for="Stage">Stage</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="Alternance" value="Alternance" {{ str_contains($recrutement->type, 'Alternance') ? 'checked' : '' }}/>
-                                                                    <label class="form-check-label" for="Alternance">Alternance</label>
                                                                 </div>
                                                             </div>
                                                     @if($errors->has('type'))

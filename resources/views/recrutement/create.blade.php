@@ -59,24 +59,20 @@
                                                     <label class="form-label" for="first-name-column">Type d'emploi désiré :</label>
                                                             <div class="demo-inline-spacing">
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="CDI" value="CDI" checked />
-                                                                    <label class="form-check-label" for="CDI">CDI</label>
+                                                                    <input class="form-check-input" type="radio" name="type" id="Freelance" value="Freelance" >
+                                                                    <label class="form-check-label" for="Freelance">Freelance</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="CDD" value="CDD" />
-                                                                    <label class="form-check-label" for="CDD">CDD</label>
+                                                                    <input class="form-check-input" type="radio" name="type" id="Mi-temps" value="Mi-temps" >
+                                                                    <label class="form-check-label" for="Mi-temps">Mi-temps</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="SIVP" value="SIVP" />
-                                                                    <label class="form-check-label" for="SIVP">SIVP</label>
+                                                                    <input class="form-check-input" type="radio" name="type" id="Temps plein" value="Temps plein" >
+                                                                    <label class="form-check-label" for="Temps plein">Temps plein</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="Stage" value="Stage" />
+                                                                    <input class="form-check-input" type="radio" name="type" id="Stage" value="Stage" >
                                                                     <label class="form-check-label" for="Stage">Stage</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" name="type[]" type="checkbox" id="Alternance" value="Alternance" />
-                                                                    <label class="form-check-label" for="Alternance">Alternance</label>
                                                                 </div>
                                                             </div>
                                                     @if($errors->has('type'))

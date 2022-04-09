@@ -27,10 +27,10 @@ class Recrutement extends Model
         'user_id',
         'departement_id'
     ];
-    public function setTypeAttribute($value)
+    /*public function setTypeAttribute($value)
     {
         $this->attributes['type'] = json_encode($value);
-    }
+    }*/
 
     /*public function getTypeAttribute($value)
     {

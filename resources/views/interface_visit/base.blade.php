@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/x-icon" href="https://amagroup.tn/wp-content/uploads/2021/10/logobleu.png">
         @yield('css')
+        @livewireStyles
     </head>
 
     <body>
@@ -16,6 +17,7 @@
             @include('interface_visit.layouts.header')
             @yield('content')
         </div>
+        @livewireScripts
         @yield('js') 
     </body>
 
