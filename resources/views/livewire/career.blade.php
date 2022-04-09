@@ -146,12 +146,9 @@
 										<div class="col-xl-9 col-lg-8 col-md-7 col-sm-12">
 											<div class="filter_wraps elspo_wrap d-flex align-items-center justify-content-end">
 												<div class="single_fitres mr-2 br-right">
-													<select class="custom-select simple">
-													  <option value="1" selected="">Tri par défaut</option>
-													  <option value="2">Recent jobs</option>
-													  <option value="3">Featured jobs</option>
-													  <option value="4">Trending Jobs</option>
-													  <option value="5">Premium jobs</option>
+													<select class="custom-select simple" wire:model="SortBy">
+													  <option value="asc" selected="">Ordre croissant</option>
+													  <option value="desc">Ordre décroissant</option>
 													</select>
 												</div>
 											</div>
@@ -171,7 +168,7 @@
                                                 <div class="cats-box rounded bg-white d-flex align-items-center">
                                                     <div class="text-center"><img src="assets1/img/logobleu.png" class="img-fluid" width="55" alt=""></div>
                                                     <div class="cats-box-caption px-2">
-                                                        <h4 class="fs-md mb-0 ft-medium">{{$recrutement->poste}} (3 Year Exp.)</h4>
+                                                        <h4 class="fs-md mb-0 ft-medium">{{$recrutement->poste}}</h4>
                                                         <div class="d-block mb-2 position-relative">
                                                             <span class="text-muted medium"><i class="lni lni-map-marker mr-1"></i>Burundi</span>
                                                             <span class="muted medium ml-2 theme-cl"><i class="lni lni-briefcase mr-1"></i>{{$recrutement->type}}</span>

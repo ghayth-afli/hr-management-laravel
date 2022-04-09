@@ -11,6 +11,7 @@ class Career extends Component
     public $Departement;
     public $Lieu;
     public $Search;
+    public $SortBy="desc";
     public function render()
     {
         return view('livewire.career',[
@@ -22,6 +23,7 @@ class Career extends Component
                     ->when($this->Lieu, function ($query) {
                             $query->where('lieu', $this->Lieu);})
                     ->search(trim($this->Search))
+                    ->orderBy("created_at", $this->SortBy)
                     ->get(),
             //'recrutements'=>Recrutement::all(),
         ]);
