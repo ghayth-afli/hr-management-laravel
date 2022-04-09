@@ -17,7 +17,7 @@
 										
 										<div class="filter-search-box px-4 pt-3 pb-0">
 											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Mots-clés">
+												<input type="text" class="form-control" placeholder="Mots-clés" wire:model.debounce.1ms="Search">
 											</div>
 										</div>
 										

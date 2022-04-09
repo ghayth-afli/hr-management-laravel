@@ -51,4 +51,16 @@ class Recrutement extends Model
     {
         return $this->belongsTo(Departement::class);
     }
+    public function scopeSearch($query,$term)
+    {
+        $term = "%$term%";
+        $query->where(function($query) use ($term){
+            $query->where('poste','like',$term)
+                    ->orWhere('type','like',$term)
+                    ->orWhere('langue','like',$term)
+                    ->orWhere('genre','like',$term)
+                    ->orWhere('exigences','like',$term)
+                    ->orWhere('description','like',$term);
+        });
+    }
 }

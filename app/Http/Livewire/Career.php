@@ -10,6 +10,7 @@ class Career extends Component
     public $Type;
     public $Departement;
     public $Lieu;
+    public $Search;
     public function render()
     {
         return view('livewire.career',[
@@ -20,6 +21,7 @@ class Career extends Component
                             $query->where('departement_id', $this->Departement);})
                     ->when($this->Lieu, function ($query) {
                             $query->where('lieu', $this->Lieu);})
+                    ->search(trim($this->Search))
                     ->get(),
             //'recrutements'=>Recrutement::all(),
         ]);
