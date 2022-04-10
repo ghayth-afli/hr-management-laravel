@@ -3,7 +3,7 @@
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
 							<a class="nav-brand" href="#">
-								<img src="assets/img/ama.png" class="logo" alt="" width=110 height=59 />
+								<img src="{{asset("assets/img/ama.png")}}" class="logo" alt="" width=110 height=59 />
 							</a>
 							<div class="nav-toggle"></div>
 							<div class="mobile_nav">
@@ -19,41 +19,41 @@
 						<div class="nav-menus-wrapper" style="transition-property: none;">
 							<ul class="nav-menu">
 							
-								<li><a href="#">ACCUEIL</a>
+								<li><a href="https://amagroup.tn">ACCUEIL</a>
 								</li>
 								
 								<li><a href="javascript:void(0);">A PROPOS</a>
 									<ul class="nav-dropdown nav-submenu">
-										<li><a href="">A Propos</a></li>
-										<li><a href="">25 ans d’histoire</a></li>
-										<li><a href="">Défi 3 en 1</a></li>
-										<li><a href="">Certificats</a></li>
-										<li><a href="">R&D</a></li>
+										<li><a href="https://amagroup.tn/a-propos/">A Propos</a></li>
+										<li><a href="https://amagroup.tn/25-ans-dhistoire/">25 ans d’histoire</a></li>
+										<li><a href="https://amagroup.tn/defi-3-en-1/">Défi 3 en 1</a></li>
+										<li><a href="https://amagroup.tn/certificats/">Certificats</a></li>
+										<li><a href="https://amagroup.tn/rd/">R&D</a></li>
 									</ul>
 								</li>
 								
 								<li><a href="javascript:void(0);">ACTIVITÉS</a>
 									<ul class="nav-dropdown nav-submenu">
-										<li><a href="">Construction</a></li>
-										<li><a href="">Ingénierie et Management de Projets</a></li>
-										<li><a href="">Facility Management</a></li>
-										<li><a href="">BIM</a></li>
+										<li><a href="https://amagroup.tn/construction/">Construction</a></li>
+										<li><a href="https://amagroup.tn/ingenierie-et-management-de-projets/">Ingénierie et Management de Projets</a></li>
+										<li><a href="https://www.fmii.pro/">Facility Management</a></li>
+										<li><a href="https://amagroup.tn/bim/">BIM</a></li>
 									</ul>
 								</li>
 								
 								
-								<li><a href="javascript:void(0);">PROJETS</a>
+								<li><a href="https://amagroup.tn/projets/">PROJETS</a>
 								</li>
 
-								<li><a href="javascript:void(0);">ACTUALITÉS</a>
-
-								</li>
-
-								<li><a href="javascript:void(0);">CARRIÈRE</a>
+								<li><a href="https://amagroup.tn/actualites/">ACTUALITÉS</a>
 
 								</li>
 
-								<li><a href="javascript:void(0);">CONTACT</a>
+								<li><a href="{{route('career')}}">CARRIÈRE</a>
+
+								</li>
+
+								<li><a href="https://amagroup.tn/contact/">CONTACT</a>
 
 								</li>
 								

@@ -17,6 +17,7 @@ class Recrutement extends Model
         'poste', 
         'nbr_poste',
         'type',
+        'lieu',
         'experience',
         'niveau_etude',
         'langue',

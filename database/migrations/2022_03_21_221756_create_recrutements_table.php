@@ -17,6 +17,7 @@ class CreateRecrutementsTable extends Migration
             $table->id();
             $table->string('poste');
             $table->integer('nbr_poste');
+            $table->string('lieu');
             $table->string('type');
             $table->integer('experience');
             $table->string('niveau_etude');

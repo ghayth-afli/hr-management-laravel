@@ -248,6 +248,23 @@
                                                     @endif
                                                 </div>
                                                 <div class="mb-1">
+                                                    <label class="form-label" for="lieu">Lieu :</label>
+                                                    <select class="form-select" id="lieu" name="lieu">
+                                                            <option value="Tunis">Tunis</option>
+                                                            <option value="Burundi">Burundi</option>
+                                                    </select>
+                                                    @if($errors->has('lieu'))
+                                                        <div class="demo-spacing-0">
+                                                            <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                                <div class="alert-body d-flex align-items-center">
+                                                                    <i data-feather="info" class="me-50"></i>
+                                                                    <span>{{ $errors->first('lieu') }}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <div class="mb-1">
                                                     <label class="form-label" for="description">Description de l'emploi :</label>
                                                     <textarea class="form-control" placeholder="Ex : Ama Group est à la recherche des développeurs Web qui maîtrisent les technologies PHP (Laravel ou Symfony) ou JS (ReactJS, VueJS, NodeJS, etc)" id="description" name="description" style="height: 100px"></textarea>
                                                     @if($errors->has('description'))

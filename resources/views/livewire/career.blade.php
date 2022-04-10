@@ -170,12 +170,12 @@
                                                     <div class="cats-box-caption px-2">
                                                         <h4 class="fs-md mb-0 ft-medium">{{$recrutement->poste}}</h4>
                                                         <div class="d-block mb-2 position-relative">
-                                                            <span class="text-muted medium"><i class="lni lni-map-marker mr-1"></i>Burundi</span>
+                                                            <span class="text-muted medium"><i class="lni lni-map-marker mr-1"></i>{{$recrutement->lieu}}</span>
                                                             <span class="muted medium ml-2 theme-cl"><i class="lni lni-briefcase mr-1"></i>{{$recrutement->type}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="text-center mlb-last"><a href="job-detail.html" class="btn gray ft-medium apply-btn fs-sm rounded">Voir<i class="lni lni-arrow-right-circle ml-1"></i></a></div>
+                                                <div class="text-center mlb-last"><a href="{{ route('offre.show', $recrutement->id) }}" class="btn gray ft-medium apply-btn fs-sm rounded">Voir<i class="lni lni-arrow-right-circle ml-1"></i></a></div>
                                             </div>
                                         </div>
                                         </div>

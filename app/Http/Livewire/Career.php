@@ -25,7 +25,6 @@ class Career extends Component
                     ->search(trim($this->Search))
                     ->orderBy("created_at", $this->SortBy)
                     ->get(),
-            //'recrutements'=>Recrutement::all(),
         ]);
     }
 }

@@ -49,6 +49,7 @@ class RecrutementController extends Controller
             'poste' => 'required',
             'nbr_poste' => 'required',
             'type' => 'required',
+            'lieu' => 'required',
             'experience' => 'required',
             'niveau_etude' => 'required',
             'langue' => 'required',
@@ -60,6 +61,7 @@ class RecrutementController extends Controller
         ],[
             'poste.required' => 'ce champ doit obligatoirement être rempli',
             'nbr_poste.required' => 'ce champ doit obligatoirement être rempli',
+            'lieu.required' => 'ce champ doit obligatoirement être rempli',
             'type.required' => 'ce champ doit obligatoirement être rempli',
             'experience.required' => 'ce champ doit obligatoirement être rempli',
             'niveau_etude.required' => 'ce champ doit obligatoirement être rempli',
@@ -76,6 +78,7 @@ class RecrutementController extends Controller
         'poste' => request('poste'),
         'nbr_poste' => request('nbr_poste'),
         'type' => request('type'),
+        'lieu' => request('lieu'),
         'experience' => request('experience'),
         'niveau_etude' => request('niveau_etude'),
         'langue' => request('langue'),
@@ -130,6 +133,7 @@ class RecrutementController extends Controller
         $req = $request->validate([
             'poste' => 'required',
             'nbr_poste' => 'required',
+            'lieu' => 'required',
             'type' => 'required',
             'experience' => 'required',
             'niveau_etude' => 'required',
@@ -142,6 +146,7 @@ class RecrutementController extends Controller
         ],[
             'poste.required' => 'ce champ doit obligatoirement être rempli',
             'nbr_poste.required' => 'ce champ doit obligatoirement être rempli',
+            'lieu.required' => 'ce champ doit obligatoirement être rempli',
             'type.required' => 'ce champ doit obligatoirement être rempli',
             'experience.required' => 'ce champ doit obligatoirement être rempli',
             'niveau_etude.required' => 'ce champ doit obligatoirement être rempli',
@@ -157,6 +162,7 @@ class RecrutementController extends Controller
         $recrutement->update([
         'poste' => request('poste'),
         'nbr_poste' => request('nbr_poste'),
+        'lieu' => request('lieu'),
         'type' => request('type'),
         'experience' => request('experience'),
         'niveau_etude' => request('niveau_etude'),
