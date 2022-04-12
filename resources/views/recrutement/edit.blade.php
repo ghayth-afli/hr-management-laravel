@@ -34,7 +34,7 @@
                                     <h4 class="card-title">Nouvel offres d'emploi</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form" action="{{ route('recrutement.update',recrutement) }}" method="post">
+                                    <form class="form" action="{{ route('recrutement.update',$recrutement->id) }}" method="post">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="put">
                                         <div class="row">

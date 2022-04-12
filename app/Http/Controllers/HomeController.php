@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Recrutement;
+use App\Models\Candidat;
+use App\Models\Departement;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -24,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {  
-        return view('home');       
+        $recrutements = Recrutement::all();
+        $candidats = Candidat::all();
+        $departements = Departement::all();
+        return view('home', ['recrutements' =>  $recrutements, 'candidats' =>  $candidats, 'departements' =>  $departements]);       
     }
 }

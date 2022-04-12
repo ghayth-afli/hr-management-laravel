@@ -64,7 +64,7 @@ class RoleController extends Controller
 
         $this->flashMessage('check', 'Permission successfully added!', 'success');
 
-        return redirect()->route('role');
+        return redirect()->route('role')->with('success', 'Role ajouté avec succès !');
     }
 
     public function edit($id)
@@ -104,7 +104,7 @@ class RoleController extends Controller
 
         $this->flashMessage('check', 'Permission successfully updated!', 'success');
 
-        return redirect()->route('role');
+        return redirect()->route('role')->with('success', 'Mise à jour du role réussie !');
     }
 
     public function destroy($id)
@@ -122,6 +122,6 @@ class RoleController extends Controller
 
         $this->flashMessage('check', 'Permission successfully deleted!', 'success');
 
-        return redirect()->route('role');
+        return redirect()->route('role')->with('success', 'Role supprimé avec succès !');
     }
 }
