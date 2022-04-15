@@ -25,7 +25,7 @@
                 <i data-feather="eye" class="font-medium-5"></i>
               </div>
             </div>
-            <h2 class="fw-bolder">36.9k</h2>
+            <h2 class="fw-bolder" wire:poll>{{count($recrutements)}}</h2>
             <p class="card-text">Recruitment</p>
           </div>
         </div>
@@ -39,8 +39,8 @@
                 <i data-feather="users" class="font-medium-5"></i>
               </div>
             </div>
-            <h2 class="fw-bolder">26.8</h2>
-            <p class="card-text">Total</p>
+            <h2 class="fw-bolder" wire:poll>{{count($candidats)}}</h2>
+            <p class="card-text">Candidats</p>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@
                 <i data-feather="user-check" class="font-medium-5"></i>
               </div>
             </div>
-            <h2 class="fw-bolder">689</h2>
+            <h2 class="fw-bolder"  wire:poll>689</h2>
             <p class="card-text">Accepté</p>
           </div>
         </div>
@@ -66,7 +66,7 @@
 
               </div>
             </div>
-            <h2 class="fw-bolder">2.1k</h2>
+            <h2 class="fw-bolder" wire:poll>2.1k</h2>
             <p class="card-text">Refusé</p>
 
           </div>
@@ -85,134 +85,67 @@
   <div class="row match-height">
     <!-- Company Table Card -->
     <div class="col-lg-8 col-12">
-      <div class="card card-company-table">
-        <div class="card-body p-0">
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Departement</th>
-                  <th>NOMBRE DE CANDIDATURES REÇUES</th>
-                  <th>RECRUITMENT</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <div class="avatar rounded">
-                        <div class="avatar-content">
-                          <img src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/toolbox.svg" alt="Toolbar svg" />
+    <div class="row" id="basic-table">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Table Basic</h4>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Project</th>
+                                            <th>Client</th>
+                                            <th>Users</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="fw-bold">Angular Project</span>
+                                            </td>
+                                            <td>Peter Charls</td>
+                                            <td>
+                                                <div class="avatar-group">
+                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="Lilian Nenez">
+                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                                                    </div>
+                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="Alberto Glotzbach">
+                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                                                    </div>
+                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="Alberto Glotzbach">
+                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">
+                                                            <i data-feather="edit-2" class="me-50"></i>
+                                                            <span>Edit</span>
+                                                        </a>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i data-feather="trash" class="me-50"></i>
+                                                            <span>Delete</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                      </div>
-                      <div>
-                        <div class="fw-bolder">Dixons</div>
-                        <div class="font-small-2 text-muted">meguc@ruj.io</div>
-                      </div>
                     </div>
-                  </td>
-                  <td class="text-nowrap">
-                    <div class="d-flex flex-column">
-                      <span class="fw-bolder mb-25">23.4k</span>
-                      <span class="font-small-2 text-muted">in 24 hours</span>
-                    </div>
-                  </td>
-                  <td><span class="badge rounded-pill badge-light-primary me-1">Ouvert</span></td>
-                 
-                </tr>
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <div class="avatar rounded">
-                        <div class="avatar-content">
-                          <img src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/parachute.svg" alt="Parachute svg" />
-                        </div>
-                      </div>
-                      <div>
-                        <div class="fw-bolder">Motels</div>
-                        <div class="font-small-2 text-muted">vecav@hodzi.co.uk</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="text-nowrap">
-                    <div class="d-flex flex-column">
-                      <span class="fw-bolder mb-25">78k</span>
-                      <span class="font-small-2 text-muted">in 2 days</span>
-                    </div>
-                  </td>
-                  <td><span class="badge rounded-pill badge-light-success me-1">Fermé</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <div class="avatar rounded">
-                        <div class="avatar-content">
-                          <img src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/parachute.svg" alt="Parachute svg" />
-                        </div>
-                      </div>
-                      <div>
-                        <div class="fw-bolder">Motels</div>
-                        <div class="font-small-2 text-muted">vecav@hodzi.co.uk</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="text-nowrap">
-                    <div class="d-flex flex-column">
-                      <span class="fw-bolder mb-25">78k</span>
-                      <span class="font-small-2 text-muted">in 2 days</span>
-                    </div>
-                  </td>
-                  <td><span class="badge rounded-pill badge-light-primary me-1">Ouvert</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <div class="avatar rounded">
-                        <div class="avatar-content">
-                          <img src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/parachute.svg" alt="Parachute svg" />
-                        </div>
-                      </div>
-                      <div>
-                        <div class="fw-bolder">Motels</div>
-                        <div class="font-small-2 text-muted">vecav@hodzi.co.uk</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="text-nowrap">
-                    <div class="d-flex flex-column">
-                      <span class="fw-bolder mb-25">78k</span>
-                      <span class="font-small-2 text-muted">in 2 days</span>
-                    </div>
-                  </td>
-                  <td><span class="badge rounded-pill badge-light-success me-1">Fermé</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <div class="avatar rounded">
-                        <div class="avatar-content">
-                          <img src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/icons/parachute.svg" alt="Parachute svg" />
-                        </div>
-                      </div>
-                      <div>
-                        <div class="fw-bolder">Motels</div>
-                        <div class="font-small-2 text-muted">vecav@hodzi.co.uk</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="text-nowrap">
-                    <div class="d-flex flex-column">
-                      <span class="fw-bolder mb-25">78k</span>
-                      <span class="font-small-2 text-muted">in 2 days</span>
-                    </div>
-                  </td>
-                  <td><span class="badge rounded-pill badge-light-success me-1">Fermé</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+                </div>
     </div>
     <!--/ Company Table Card -->
 
