@@ -85,12 +85,7 @@ class OffreController extends Controller
      */
     public function postuler(Request $request)
     {
-        $request->validate([
-            'addMoreInputFields.*.subject' => 'required'
-        ]);
-        foreach ($request->addMoreInputFields as $key => $value) {
-            dd($value);
-        }
+            dd($request);
     }
 
     /**

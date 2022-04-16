@@ -41,7 +41,8 @@
 									</div>
 									
 									<div class="_dashboard_content_body py-3 px-3">
-										<form class="row">
+										<form class="row" action="{{ route('recrutement.postuler') }}" method="post">
+                                            @csrf
 											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
 												<div class="custom-file avater_uploads">
 												  <input type="file" class="custom-file-input" id="customFile">
@@ -54,49 +55,48 @@
 													<div class="col-xl-6 col-lg-6">
 														<div class="form-group">
 															<label class="text-dark ft-medium">Votre nom</label>
-															<input type="text" class="form-control rounded" placeholder="Votre nom">
+															<input type="text" class="form-control rounded" placeholder="Votre nom" name="nom">
 														</div>
 													</div>
 													<div class="col-xl-6 col-lg-6">
 														<div class="form-group">
 															<label class="text-dark ft-medium">Titre professionnel</label>
-															<input type="text" class="form-control rounded" placeholder="Ex : Web Designer">
+															<input type="text" class="form-control rounded" placeholder="Ex : Web Designer" name="titre_pro">
 														</div>
 													</div>
 													<div class="col-xl-6 col-lg-6">
 														<div class="form-group">
 															<label class="text-dark ft-medium">Email</label>
-															<input type="email" class="form-control rounded"  placeholder="Ex@ex.com">
+															<input type="email" class="form-control rounded"  placeholder="Ex@ex.com" name="email">
 														</div>
 													</div>
 													<div class="col-xl-6 col-lg-6">
 														<div class="form-group">
 															<label class="text-dark ft-medium">Tel</label>
-															<input type="text" class="form-control rounded"  placeholder="+216 33 333 333">
+															<input type="text" class="form-control rounded"  placeholder="+216 33 333 333" name="tel">
 														</div>
 													</div>
 													<div class="col-xl-12 col-lg-12">
 														<div class="form-group">
 															<label class="text-dark ft-medium">Linkedin</label>
-															<input type="text" class="form-control rounded" >
+															<input type="text" class="form-control rounded" name="linkedin">
 														</div>
 													</div>
                                                     <div class="col-xl-12 col-lg-12">
 														<div class="form-group">
 															<label class="text-dark ft-medium">Adresse</label>
-															<input type="text" class="form-control rounded"  placeholder="Ex : Ariana,Tunisie">
+															<input type="text" class="form-control rounded"  placeholder="Ex : Ariana,Tunisie" name="adresse">
 														</div>
 													</div>
 													<div class="col-xl-12 col-lg-12">
 														<div class="form-group">
 															<label class="text-dark ft-medium">Présentez-vous</label>
-															<textarea class="form-control with-light" placeholder="Présentez-vous"></textarea>
+															<textarea class="form-control with-light" placeholder="Présentez-vous" name="profil"></textarea>
 														</div>
 													</div>
 												</div>
 											</div>
 											
-										</form>
 									</div>
 								</div>
 							</div>
@@ -114,33 +114,32 @@
 									</div>
 									
 									<div class="_dashboard_content_body py-3 px-3">
-										<form class="row">
 											<div class="col-xl-12 col-lg-12 fvrduplicate2">
 												<div class="gray rounded p-3 mb-3 position-relative entry2">
 													<button type="button" class="aps-clone btn-remove2"><i class="fas fa-times"></i></button>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Ecole</label>
-														<input type="text" class="form-control rounded" placeholder="Ecole">
+														<input type="text" class="form-control rounded" placeholder="Ecole" name="ecole[]">
 													</div>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Domaine</label>
-														<input type="text" class="form-control rounded" placeholder="Domaine">
+														<input type="text" class="form-control rounded" placeholder="Domaine" name="domaine[]">
 													</div>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Diplome</label>
-														<input type="text" class="form-control rounded" placeholder="Diplome">
+														<input type="text" class="form-control rounded" placeholder="Diplome" name="diplome[]">
 													</div>
 													<div class="form-row">
 														<div class="col-6">
 															<div class="form-group">
 																<label class="text-dark ft-medium">Date de début</label>
-																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy">
+																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_deb[]">
 															</div>
 														</div>
 														<div class="col-6">
 															<div class="form-group">
 																<label class="text-dark ft-medium">Date de fin</label>
-																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy">
+																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date _fin[]">
 															</div>
 														</div>
 													</div>
@@ -151,7 +150,6 @@
 													</div>
 												</div>
 											</div>
-										</form>
 									</div>
 								</div>
 							</div>	
@@ -168,39 +166,38 @@
 									</div>
 									
 									<div class="_dashboard_content_body py-3 px-3">
-										<form class="row">
 											<div class="col-xl-12 col-lg-12 fvrduplicate1">
 												<div class="gray rounded p-3 mb-3 position-relative entry1">
 													<button type="button" class="aps-clone btn-remove1"><i class="fas fa-times"></i></button>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Titre</label>
-														<input type="text" class="form-control rounded" placeholder="Titre">
+														<input type="text" class="form-control rounded" placeholder="Titre" name="titre[]">
 													</div>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Entreprise</label>
-														<input type="text" class="form-control rounded" placeholder="Entreprise">
+														<input type="text" class="form-control rounded" placeholder="Entreprise" name="entreprise[]">
 													</div>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Emplacement</label>
-														<input type="text" class="form-control rounded" placeholder="Ex : Tunis,Tunisie">
+														<input type="text" class="form-control rounded" placeholder="Ex : Tunis,Tunisie" name="emplacement[]">
 													</div>
 													<div class="form-row">
 														<div class="col-6">
 															<div class="form-group">
 																<label class="text-dark ft-medium">Date de début</label>
-																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy">
+																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_debExp[]">
 															</div>
 														</div>
 														<div class="col-6">
 															<div class="form-group">
 																<label class="text-dark ft-medium">Date de fin</label>
-																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy">
+																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_finExp[]">
 															</div>
 														</div>
 													</div>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Tâches effectuées</label>
-														<textarea class="form-control ht-80" placeholder="Tâches effectuées"></textarea>
+														<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="taches[]"></textarea>
 													</div>
 													<div class="col-xl-12 col-lg-12">
 														<div class="form-group">
@@ -209,7 +206,6 @@
 													</div>
 												</div>
 											</div>
-										</form>
 									</div>
 								</div>
 							</div>	
@@ -225,24 +221,23 @@
 									</div>
 									
 									<div class="_dashboard_content_body py-3 px-3">
-										<form class="row">
 											<div class="col-xl-12 col-lg-12 fvrduplicate1">
 												<div class="gray rounded p-3 mb-3 position-relative entry1">
 													<button type="button" class="aps-clone btn-remove1"><i class="fas fa-times"></i></button>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Nom</label>
-														<input type="text" class="form-control rounded" placeholder="Nom">
+														<input type="text" class="form-control rounded" placeholder="Nom" name="nomCert[]">
 													</div>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Organisme émetteur</label>
-														<input type="text" class="form-control rounded" placeholder="Organisme émetteur">
+														<input type="text" class="form-control rounded" placeholder="Organisme émetteur" name="organisme[]">
 													</div>
 													
 													<div class="form-row">
 														<div class="col-6">
 															<div class="form-group">
 																<label class="text-dark ft-medium">Date d'émission</label>
-																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy">
+																<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date[]">
 															</div>
 														</div>
 													</div>
@@ -254,7 +249,6 @@
 													</div>
 												</div>
 											</div>
-										</form>
 									</div>
 								</div>
 							</div>	
@@ -271,13 +265,12 @@
 									</div>
 									
 									<div class="_dashboard_content_body py-3 px-3 repeater-default">
-										<form class="row">
 											<div class="col-xl-12 col-lg-12 fvrduplicate">
 												<div class="gray rounded p-3 mb-3 position-relative entry">
 													<button class="aps-clone btn-remove" type="button"><i class="fas fa-times"></i></button>
 													<div class="form-group">
 														<label class="text-dark ft-medium">Nom de compétence</label>
-														<input type="text" class="form-control rounded" placeholder="Nom de compétence">
+														<input type="text" class="form-control rounded" placeholder="Nom de compétence" name="competence[]">
 													</div>
 													<div class="col-xl-12 col-lg-12">
 														<div class="form-group">
@@ -286,7 +279,6 @@
 													</div>
 												</div>
 											</div>
-										</form>
 									</div>
 								</div>
 							</div>	
@@ -298,7 +290,8 @@
 								<button type="submit" class="btn btn-md ft-medium text-light rounded theme-bg">Valider</button>
 							</div>	
 						</div>
-	
+                        </form>
+
 					</div>
 				</div>
 			</section>
