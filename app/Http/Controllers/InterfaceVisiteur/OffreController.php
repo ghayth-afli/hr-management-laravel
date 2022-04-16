@@ -16,7 +16,9 @@ class OffreController extends Controller
            'store',
             'edit',
              'update',
-                'destroy'
+                'destroy',
+                'candidature',
+                'postuler'
     ]]);
 }
     /**
@@ -61,6 +63,34 @@ class OffreController extends Controller
     {
         $offre = Recrutement::find($id);
         return view('interface_visit.offreDetails', ['offre' => $offre]);
+    }
+
+    /**
+     * candidature.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function candidature($id)
+    {
+        $offre = Recrutement::find($id);
+        return view('interface_visit.candidature', ['offre' => $offre]);
+    }
+
+     /**
+     * postuler.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postuler(Request $request)
+    {
+        $request->validate([
+            'addMoreInputFields.*.subject' => 'required'
+        ]);
+        foreach ($request->addMoreInputFields as $key => $value) {
+            dd($value);
+        }
     }
 
     /**

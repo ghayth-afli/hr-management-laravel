@@ -12,10 +12,11 @@ class Formation extends Model
 
     protected $fillable = [
         'candidat_id', 
-        'lieu',
+        'ecole',
         'diplome',
+        'domaine',
         'date_debut',
-        'date_fin'
+        'date_fin',
     ];
 
     public function candidat()

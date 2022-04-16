@@ -68,4 +68,7 @@ Route::group(['namespace' => 'App\Http\Controllers\InterfaceVisiteur'], function
 	Route::get('/', 'OffreController@index');
 	Route::get('/career', 'OffreController@index')->name('career');
 	Route::get('/offre/show/{id}', 'OffreController@show')->name('offre.show');
+	Route::get('/offre/candidature/{id}', 'OffreController@candidature')->name('offre.candidature');
+	Route::post('/offre/postuler', 'OffreController@postuler')->name('recrutement.postuler');
+
 });

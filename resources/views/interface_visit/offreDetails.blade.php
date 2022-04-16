@@ -35,7 +35,7 @@
 										</div>
 									</div>
 									<div class="jbd-01-right text-right hide-1023">
-										<div class="jbl_button mb-2"><a href="javascript:void(0);" class="btn rounded theme-bg-light theme-cl fs-sm ft-medium">Postuler</a></div>
+										<div class="jbl_button mb-2"><a href="{{route('offre.candidature',$offre->id)}}" class="btn rounded theme-bg-light theme-cl fs-sm ft-medium">Postuler</a></div>
 										<div class="jbl_button"><a href="https://amagroup.tn" class="btn rounded bg-white border fs-sm ft-medium">Voir l'entreprise</a></div>
 									</div>
 								</div>
@@ -92,7 +92,7 @@
 										</div>
 										<div class="jbd-02-aply">
 											<div class="jbl_button mb-2">
-												<a href="#" class="btn btn-md rounded theme-bg text-light fs-sm ft-medium">Postuler</a>
+												<a href="{{route('offre.candidature',$offre->id)}}" class="btn btn-md rounded theme-bg text-light fs-sm ft-medium">Postuler</a>
 											</div>
 										</div>
 									</div>

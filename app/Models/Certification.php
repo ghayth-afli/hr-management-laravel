@@ -4,20 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Candidat;
 
-class Experience extends Model
+class Certification extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
         'candidat_id', 
-        'titre',
-        'entreprise',
-        'emplacement',
-        'date_debut',
-        'date_fin',
-        'taches'
+        'nom',
+        'organisme',
+        'date', 
     ];
 
     public function candidat()
