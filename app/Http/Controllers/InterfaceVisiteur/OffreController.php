@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Recrutement;
 
 class OffreController extends Controller
-{ 
+{
     public function __construct() {
     $this->middleware('guest', ['except' => [
         'index',
@@ -85,7 +85,7 @@ class OffreController extends Controller
      */
     public function postuler(Request $request)
     {
-            dd($request);
+            dd($request->request->all());
     }
 
     /**
