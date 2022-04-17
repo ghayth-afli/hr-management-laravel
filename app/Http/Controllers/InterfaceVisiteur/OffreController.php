@@ -84,8 +84,66 @@ class OffreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function postuler(Request $request)
-    {
-            dd($request->request->all());
+    {   
+        $req = $request->validate([
+            'photo' => 'required',
+            'nom' => 'required',
+            'titre_pro' => 'required',
+            'email' => 'required|string|email|max:255',
+            'tel' => 'required',
+            'linkedin' => 'required',
+            'adresse' => 'required',
+            'profil' => 'required',
+
+            'ecole[]' => 'required',
+            'domaine[]' => 'required',
+            'diplome[]' => 'required',
+            'date_deb[]' => 'required',
+            'date_fin[]' => 'required',
+
+            'titre[]' => 'required',
+            'entreprise[]' => 'required',
+            'emplacement[]' => 'required',
+            'date_debExp[]' => 'required',
+            'date_finExp[]' => 'required',
+            'taches[]' => 'required',
+
+            'nomCert[]' => 'required',
+            'organisme[]' => 'required',
+            'date[]' => 'required',
+
+            'competence[]' => 'required',
+        ],[
+
+            'photo.required' => 'ce champ doit obligatoirement être rempli',
+            'nom.required' => 'ce champ doit obligatoirement être rempli',
+            'titre_pro.required' => 'ce champ doit obligatoirement être rempli',
+            'email.required' => 'ce champ doit obligatoirement être rempli en respectant le format',
+            'tel.required' => 'ce champ doit obligatoirement être rempli',
+            'linkedin.required' => 'ce champ doit obligatoirement être rempli',
+            'adresse.required' => 'ce champ doit obligatoirement être rempli',
+            'profil.required' => 'ce champ doit obligatoirement être rempli',
+
+            'ecole[].required' => 'ce champ doit obligatoirement être rempli',
+            'domaine[].required' => 'ce champ doit obligatoirement être rempli',
+            'diplome[].required' => 'ce champ doit obligatoirement être rempli',
+            'date_deb[].required' => 'ce champ doit obligatoirement être rempli',
+            'date_fin[].required' => 'ce champ doit obligatoirement être rempli',
+
+            'titre[].required' => 'ce champ doit obligatoirement être rempli',
+            'entreprise[].required' => 'ce champ doit obligatoirement être rempli',
+            'emplacement[].required' => 'ce champ doit obligatoirement être rempli',
+            'date_debExp[].required' => 'ce champ doit obligatoirement être rempli',
+            'date_finExp[].required' => 'ce champ doit obligatoirement être rempli',
+            'taches[].required' => 'ce champ doit obligatoirement être rempli',
+
+            'nomCert[].required' => 'ce champ doit obligatoirement être rempli',
+            'organisme[].required' => 'ce champ doit obligatoirement être rempli',
+            'date[].required' => 'ce champ doit obligatoirement être rempli',
+
+            'competence[].required' => 'ce champ doit obligatoirement être rempli',
+        ]);
+        dd($request->request->all());
     }
 
     /**

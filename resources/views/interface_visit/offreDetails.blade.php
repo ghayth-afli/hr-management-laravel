@@ -1,7 +1,7 @@
 @extends('interface_visit.base')
 
 @section('title')
-    <title>{{$offre->poste}}</title>
+    <title>Postuler | {{$offre->poste}}</title>
 @endsection
 
 
