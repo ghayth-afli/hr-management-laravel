@@ -143,6 +143,8 @@ class OffreController extends Controller
 
             'competence[].required' => 'ce champ doit obligatoirement être rempli',
         ]);
+
+        
         dd($request->request->all());
     }
 
