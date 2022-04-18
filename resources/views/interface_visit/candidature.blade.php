@@ -47,7 +47,7 @@
 												<div class="row">
 													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
 														<div class="custom-file avater_uploads">
-															<input type="file" class="custom-file-input" id="customFile" name="photo">
+															<input type="file" class="custom-file-input" id="customFile" name="photo" required>
 															<label class="custom-file-label" for="customFile"><i class="fa fa-user"></i></label>
 														</div>
 														@if($errors->has('photo'))
@@ -66,7 +66,7 @@
 															<div class="col-xl-6 col-lg-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Votre nom</label>
-																	<input type="text" class="form-control rounded" placeholder="Votre nom" name="nom">
+																	<input type="text" class="form-control rounded" placeholder="Votre nom" name="nom" required>
 																</div>
 																@if($errors->has('nom'))
 																	<div class="demo-spacing-0">
@@ -82,7 +82,7 @@
 															<div class="col-xl-6 col-lg-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Titre professionnel</label>
-																	<input type="text" class="form-control rounded" placeholder="Ex : Web Designer" name="titre_pro">
+																	<input type="text" class="form-control rounded" placeholder="Ex : Web Designer" name="titre_pro" required>
 																</div>
 																@if($errors->has('titre_pro'))
 																	<div class="demo-spacing-0">
@@ -98,7 +98,7 @@
 															<div class="col-xl-6 col-lg-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Email</label>
-																	<input type="email" class="form-control rounded"  placeholder="Ex@ex.com" name="email">
+																	<input type="email" class="form-control rounded"  placeholder="Ex@ex.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="ce champ doit obligatoirement être rempli en respectant le format" required>
 																</div>
 																@if($errors->has('email'))
 																	<div class="demo-spacing-0">
@@ -114,7 +114,7 @@
 															<div class="col-xl-6 col-lg-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Tel</label>
-																	<input type="tel" class="form-control rounded"  placeholder="+216 33 333 333" name="tel">
+																	<input type="tel" class="form-control rounded"  placeholder="+216 33 333 333" name="tel" required>
 																</div>
 																@if($errors->has('tel'))
 																	<div class="demo-spacing-0">
@@ -130,7 +130,7 @@
 															<div class="col-xl-12 col-lg-12">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Linkedin</label>
-																	<input type="text" class="form-control rounded" name="linkedin">
+																	<input type="text" class="form-control rounded" name="linkedin" required>
 																</div>
 																@if($errors->has('linkedin'))
 																	<div class="demo-spacing-0">
@@ -146,7 +146,7 @@
 															<div class="col-xl-12 col-lg-12">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Adresse</label>
-																	<input type="text" class="form-control rounded"  placeholder="Ex : Ariana,Tunisie" name="adresse">
+																	<input type="text" class="form-control rounded"  placeholder="Ex : Ariana,Tunisie" name="adresse" required>
 																</div>
 																@if($errors->has('adresse'))
 																	<div class="demo-spacing-0">
@@ -162,7 +162,7 @@
 															<div class="col-xl-12 col-lg-12">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Langue(s)</label>
-																	<input type="text" class="form-control rounded"  placeholder="Ex : Fr" name="langue">
+																	<input type="text" class="form-control rounded"  placeholder="Ex : Fr" name="langue" required>
 																</div>
 																@if($errors->has('langue'))
 																	<div class="demo-spacing-0">
@@ -178,7 +178,7 @@
 															<div class="col-xl-12 col-lg-12">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Présentez-vous</label>
-																	<textarea class="form-control with-light" placeholder="Présentez-vous" name="profil"></textarea>
+																	<textarea class="form-control with-light" placeholder="Présentez-vous" name="profil" required></textarea>
 																</div>
 																@if($errors->has('profil'))
 																	<div class="demo-spacing-0">
@@ -216,7 +216,7 @@
 														<button type="button" class="aps-clone btn-remove2"><i class="fas fa-times"></i></button>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Ecole</label>
-															<input type="text" class="form-control rounded" placeholder="Ecole" name="ecole[]">
+															<input type="text" class="form-control rounded" placeholder="Ecole" name="ecole[]" required>
 														</div>
 														@if($errors->has('ecole.*'))
 															<div class="demo-spacing-0">
@@ -230,7 +230,7 @@
 														@endif
 														<div class="form-group">
 															<label class="text-dark ft-medium">Domaine</label>
-															<input type="text" class="form-control rounded" placeholder="Domaine" name="domaine[]">
+															<input type="text" class="form-control rounded" placeholder="Domaine" name="domaine[]" required>
 														</div>
 														@if($errors->has('domaine.*'))
 															<div class="demo-spacing-0">
@@ -244,7 +244,7 @@
 														@endif
 														<div class="form-group">
 															<label class="text-dark ft-medium">Diplome</label>
-															<input type="text" class="form-control rounded" placeholder="Diplome" name="diplome[]">
+															<input type="text" class="form-control rounded" placeholder="Diplome" name="diplome[]" required>
 														</div>
 														@if($errors->has('diplome.*'))
 															<div class="demo-spacing-0">
@@ -260,7 +260,7 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Date de début</label>
-																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_deb[]">
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_deb[]" required>
 																</div>
 																@if($errors->has('date_deb.*'))
 																	<div class="demo-spacing-0">
@@ -276,7 +276,7 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Date de fin</label>
-																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_fin[]">
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_fin[]" required>
 																</div>
 																@if($errors->has('date_fin.*'))
 																	<div class="demo-spacing-0">
@@ -318,7 +318,7 @@
 														<button type="button" class="aps-clone btn-remove1"><i class="fas fa-times"></i></button>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Titre</label>
-															<input type="text" class="form-control rounded" placeholder="Titre" name="titre[]">
+															<input type="text" class="form-control rounded" placeholder="Titre" name="titre[]" required>
 														</div>
 														@if($errors->has('titre.*'))
 															<div class="demo-spacing-0">
@@ -332,7 +332,7 @@
 														@endif
 														<div class="form-group">
 															<label class="text-dark ft-medium">Entreprise</label>
-															<input type="text" class="form-control rounded" placeholder="Entreprise" name="entreprise[]">
+															<input type="text" class="form-control rounded" placeholder="Entreprise" name="entreprise[]" required>
 														</div>
 														@if($errors->has('entreprise.*'))
 															<div class="demo-spacing-0">
@@ -346,7 +346,7 @@
 														@endif
 														<div class="form-group">
 															<label class="text-dark ft-medium">Emplacement</label>
-															<input type="text" class="form-control rounded" placeholder="Ex : Tunis,Tunisie" name="emplacement[]">
+															<input type="text" class="form-control rounded" placeholder="Ex : Tunis,Tunisie" name="emplacement[]" required>
 														</div>
 														@if($errors->has('emplacement.*'))
 															<div class="demo-spacing-0">
@@ -362,7 +362,7 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Date de début</label>
-																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_debExp[]">
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_debExp[]" required>
 																</div>
 																@if($errors->has('date_debExp.*'))
 																	<div class="demo-spacing-0">
@@ -378,7 +378,7 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Date de fin</label>
-																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_finExp[]">
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_finExp[]" required>
 																</div>
 																@if($errors->has('date_finExp.*'))
 																	<div class="demo-spacing-0">
@@ -394,7 +394,7 @@
 														</div>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Tâches effectuées</label>
-															<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="taches[]"></textarea>
+															<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="taches[]" required></textarea>
 														</div>
 														@if($errors->has('taches.*'))
 															<div class="demo-spacing-0">
@@ -433,7 +433,7 @@
 														<button type="button" class="aps-clone btn-remove1"><i class="fas fa-times"></i></button>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Nom</label>
-															<input type="text" class="form-control rounded" placeholder="Nom" name="nomCert[]">
+															<input type="text" class="form-control rounded" placeholder="Nom" name="nomCert[]" required>
 														</div>
 														@if($errors->has('nomCert.*'))
 															<div class="demo-spacing-0">
@@ -447,7 +447,7 @@
 														@endif
 														<div class="form-group">
 															<label class="text-dark ft-medium">Organisme émetteur</label>
-															<input type="text" class="form-control rounded" placeholder="Organisme émetteur" name="organisme[]">
+															<input type="text" class="form-control rounded" placeholder="Organisme émetteur" name="organisme[]" required>
 														</div>
 														@if($errors->has('organisme.*'))
 															<div class="demo-spacing-0">
@@ -463,7 +463,7 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Date d'émission</label>
-																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date[]">
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date[]" required>
 																</div>
 																@if($errors->has('date.*'))
 																	<div class="demo-spacing-0">
@@ -506,7 +506,7 @@
 														<button class="aps-clone btn-remove" type="button"><i class="fas fa-times"></i></button>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Nom de compétence</label>
-															<input type="text" class="form-control rounded" placeholder="Nom de compétence" name="competence[]">
+															<input type="text" class="form-control rounded" placeholder="Nom de compétence" name="competence[]" required>
 														</div>
 														@if($errors->has('competence.*'))
 															<div class="demo-spacing-0">
