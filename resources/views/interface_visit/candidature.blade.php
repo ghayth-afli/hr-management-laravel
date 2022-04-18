@@ -34,6 +34,7 @@
 					<div class="dashboard-widg-bar d-block">
 						<form action="{{ route('recrutement.postuler') }}" method="post">
                             @csrf
+							<input type="text" value="{{$offre->id}}" name="recrutement_id" hidden>
 							<div class="row">
 								<div class="col-xl-12 col-lg-12 col-md-12">
 									<div class="_dashboard_content bg-white rounded mb-4">
@@ -160,6 +161,22 @@
 															</div>
 															<div class="col-xl-12 col-lg-12">
 																<div class="form-group">
+																	<label class="text-dark ft-medium">Langue(s)</label>
+																	<input type="text" class="form-control rounded"  placeholder="Ex : Fr" name="langue">
+																</div>
+																@if($errors->has('langue'))
+																	<div class="demo-spacing-0">
+																		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+																			<div class="alert-body d-flex align-items-center">
+																				<i data-feather="info" class="me-50"></i>
+																				<span>{{ $errors->first('langue') }}</span>
+																			</div>
+																		</div>
+																	</div>
+																@endif
+															</div>
+															<div class="col-xl-12 col-lg-12">
+																<div class="form-group">
 																	<label class="text-dark ft-medium">Présentez-vous</label>
 																	<textarea class="form-control with-light" placeholder="Présentez-vous" name="profil"></textarea>
 																</div>
@@ -201,12 +218,12 @@
 															<label class="text-dark ft-medium">Ecole</label>
 															<input type="text" class="form-control rounded" placeholder="Ecole" name="ecole[]">
 														</div>
-														@if($errors->has('ecole[]'))
+														@if($errors->has('ecole.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('ecole[]') }}</span>
+																		<span>{{ $errors->first('ecole.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -215,12 +232,12 @@
 															<label class="text-dark ft-medium">Domaine</label>
 															<input type="text" class="form-control rounded" placeholder="Domaine" name="domaine[]">
 														</div>
-														@if($errors->has('domaine[]'))
+														@if($errors->has('domaine.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('domaine[]') }}</span>
+																		<span>{{ $errors->first('domaine.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -229,12 +246,12 @@
 															<label class="text-dark ft-medium">Diplome</label>
 															<input type="text" class="form-control rounded" placeholder="Diplome" name="diplome[]">
 														</div>
-														@if($errors->has('diplome[]'))
+														@if($errors->has('diplome.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('diplome[]') }}</span>
+																		<span>{{ $errors->first('diplome.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -245,12 +262,12 @@
 																	<label class="text-dark ft-medium">Date de début</label>
 																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_deb[]">
 																</div>
-																@if($errors->has('date_deb[]'))
+																@if($errors->has('date_deb.*'))
 																	<div class="demo-spacing-0">
 																		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																			<div class="alert-body d-flex align-items-center">
 																				<i data-feather="info" class="me-50"></i>
-																				<span>{{ $errors->first('date_deb[]') }}</span>
+																				<span>{{ $errors->first('date_deb.*') }}</span>
 																			</div>
 																		</div>
 																	</div>
@@ -259,14 +276,14 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Date de fin</label>
-																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date _fin[]">
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_fin[]">
 																</div>
-																@if($errors->has('date_fin[]'))
+																@if($errors->has('date_fin.*'))
 																	<div class="demo-spacing-0">
 																		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																			<div class="alert-body d-flex align-items-center">
 																				<i data-feather="info" class="me-50"></i>
-																				<span>{{ $errors->first('date_fin[]') }}</span>
+																				<span>{{ $errors->first('date_fin.*') }}</span>
 																			</div>
 																		</div>
 																	</div>
@@ -303,12 +320,12 @@
 															<label class="text-dark ft-medium">Titre</label>
 															<input type="text" class="form-control rounded" placeholder="Titre" name="titre[]">
 														</div>
-														@if($errors->has('titre[]'))
+														@if($errors->has('titre.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('titre[]') }}</span>
+																		<span>{{ $errors->first('titre.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -317,12 +334,12 @@
 															<label class="text-dark ft-medium">Entreprise</label>
 															<input type="text" class="form-control rounded" placeholder="Entreprise" name="entreprise[]">
 														</div>
-														@if($errors->has('entreprise[]'))
+														@if($errors->has('entreprise.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('entreprise[]') }}</span>
+																		<span>{{ $errors->first('entreprise.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -331,12 +348,12 @@
 															<label class="text-dark ft-medium">Emplacement</label>
 															<input type="text" class="form-control rounded" placeholder="Ex : Tunis,Tunisie" name="emplacement[]">
 														</div>
-														@if($errors->has('emplacement[]'))
+														@if($errors->has('emplacement.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('emplacement[]') }}</span>
+																		<span>{{ $errors->first('emplacement.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -347,12 +364,12 @@
 																	<label class="text-dark ft-medium">Date de début</label>
 																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_debExp[]">
 																</div>
-																@if($errors->has('date_debExp[]'))
+																@if($errors->has('date_debExp.*'))
 																	<div class="demo-spacing-0">
 																		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																			<div class="alert-body d-flex align-items-center">
 																				<i data-feather="info" class="me-50"></i>
-																				<span>{{ $errors->first('date_debExp[]') }}</span>
+																				<span>{{ $errors->first('date_debExp.*') }}</span>
 																			</div>
 																		</div>
 																	</div>
@@ -363,12 +380,12 @@
 																	<label class="text-dark ft-medium">Date de fin</label>
 																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date_finExp[]">
 																</div>
-																@if($errors->has('date_finExp[]'))
+																@if($errors->has('date_finExp.*'))
 																	<div class="demo-spacing-0">
 																		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																			<div class="alert-body d-flex align-items-center">
 																				<i data-feather="info" class="me-50"></i>
-																				<span>{{ $errors->first('date_finExp[]') }}</span>
+																				<span>{{ $errors->first('date_finExp.*') }}</span>
 																			</div>
 																		</div>
 																	</div>
@@ -379,12 +396,12 @@
 															<label class="text-dark ft-medium">Tâches effectuées</label>
 															<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="taches[]"></textarea>
 														</div>
-														@if($errors->has('taches[]'))
+														@if($errors->has('taches.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('taches[]') }}</span>
+																		<span>{{ $errors->first('taches.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -418,12 +435,12 @@
 															<label class="text-dark ft-medium">Nom</label>
 															<input type="text" class="form-control rounded" placeholder="Nom" name="nomCert[]">
 														</div>
-														@if($errors->has('nomCert[]'))
+														@if($errors->has('nomCert.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('nomCert[]') }}</span>
+																		<span>{{ $errors->first('nomCert.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -432,12 +449,12 @@
 															<label class="text-dark ft-medium">Organisme émetteur</label>
 															<input type="text" class="form-control rounded" placeholder="Organisme émetteur" name="organisme[]">
 														</div>
-														@if($errors->has('organisme[]'))
+														@if($errors->has('organisme.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('organisme[]') }}</span>
+																		<span>{{ $errors->first('organisme.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -448,12 +465,12 @@
 																	<label class="text-dark ft-medium">Date d'émission</label>
 																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date[]">
 																</div>
-																@if($errors->has('date[]'))
+																@if($errors->has('date.*'))
 																	<div class="demo-spacing-0">
 																		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																			<div class="alert-body d-flex align-items-center">
 																				<i data-feather="info" class="me-50"></i>
-																				<span>{{ $errors->first('date[]') }}</span>
+																				<span>{{ $errors->first('date.*') }}</span>
 																			</div>
 																		</div>
 																	</div>
@@ -491,12 +508,12 @@
 															<label class="text-dark ft-medium">Nom de compétence</label>
 															<input type="text" class="form-control rounded" placeholder="Nom de compétence" name="competence[]">
 														</div>
-														@if($errors->has('competence[]'))
+														@if($errors->has('competence.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('competence[]') }}</span>
+																		<span>{{ $errors->first('competence.*') }}</span>
 																	</div>
 																</div>
 															</div>

@@ -16,7 +16,7 @@ class Candidat extends Model
 
     protected $fillable = [
         'nom', 
-        'prenom', 
+        'titre_pro', 
         'email', 
         'linkedin', 
         'tel', 
@@ -40,6 +40,16 @@ class Candidat extends Model
     public function experiences()
     {
         return $this->hasMany(Experience::class);
+    }
+
+    public function formations()
+    {
+        return $this->hasMany(Formation::class);
+    }
+
+    public function certifications()
+    {
+        return $this->hasMany(Certification::class);
     }
 
     public function competances()

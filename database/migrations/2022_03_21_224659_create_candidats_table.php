@@ -22,7 +22,7 @@ class CreateCandidatsTable extends Migration
             $table->integer('tel');
             $table->text('adresse');
             $table->string('profil_candidat');
-            $table->json('langue');
+            $table->String('langue');
             $table->text('photo');
             $table->foreignId('recrutement_id')->constrained();
             $table->timestamps();
