@@ -148,6 +148,9 @@ class OffreController extends Controller
             'competence.*.required' => 'ce champ doit obligatoirement être rempli',
         ]);
 
+        $photo = time() . $request->nom . '.' . $request->file('photo')->extension();
+        $request->file('photo')->move(public_path('images\cvPhoto'),$photo);
+
         //Store candidate
         $candidat = Candidat::create([
             'nom' => request('nom'),
@@ -158,7 +161,7 @@ class OffreController extends Controller
             'adresse' => request('adresse'),
             'profil_candidat' => request('profil'),
             'langue' => request('langue'),
-            'photo' => request('photo'),
+            'photo' => $photo,
             'recrutement_id' => request('recrutement_id'),
         ]);
 
@@ -210,6 +213,7 @@ class OffreController extends Controller
         }
 
         return redirect('/career')->with('success','Votre candidature a été envoyé!');
+
     }
 
     /**

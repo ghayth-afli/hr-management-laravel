@@ -32,7 +32,7 @@
 					</div>
 
 					<div class="dashboard-widg-bar d-block">
-						<form action="{{ route('recrutement.postuler') }}" method="post">
+						<form action="{{ route('recrutement.postuler') }}" method="post" enctype="multipart/form-data">
                             @csrf
 							<input type="text" value="{{$offre->id}}" name="recrutement_id" hidden>
 							<div class="row">
