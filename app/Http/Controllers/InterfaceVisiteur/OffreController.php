@@ -86,6 +86,7 @@ class OffreController extends Controller
      */
     public function postuler(Request $request)
     {   
+        //Validate request
         $req = $request->validate([
             'photo' => 'required',
             'nom' => 'required',
@@ -147,6 +148,7 @@ class OffreController extends Controller
             'competence.*.required' => 'ce champ doit obligatoirement être rempli',
         ]);
 
+        //Store candidate
         $candidat = Candidat::create([
             'nom' => request('nom'),
             'titre_pro' => request('titre_pro'),
@@ -160,6 +162,7 @@ class OffreController extends Controller
             'recrutement_id' => request('recrutement_id'),
         ]);
 
+        //Store candidate trainings
         for ($i = 0; $i < count($request->ecole); $i++) {
 
             $candidat->formations()->create([
@@ -172,6 +175,7 @@ class OffreController extends Controller
 
         }
 
+        //Store candidate experiences
         for ($i = 0; $i < count($request->titre); $i++) {
 
             $candidat->experiences()->create([
@@ -185,6 +189,7 @@ class OffreController extends Controller
 
         }
 
+        //Store candidate certifications
         for ($i = 0; $i < count($request->nomCert); $i++) {
 
             $candidat->certifications()->create([
@@ -195,6 +200,7 @@ class OffreController extends Controller
 
         }
 
+        //Store candidate skills
         for ($i = 0; $i < count($request->competence); $i++) {
 
             $candidat->competances()->create([
