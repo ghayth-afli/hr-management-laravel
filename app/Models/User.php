@@ -13,6 +13,7 @@ use App\Models\Recrutement;
 use App\Models\Etat_Candidat;
 use App\Models\Rapport;
 use App\Models\Entretien;
+use App\Models\NotificationView;
 use Cache;
 
 class User extends Authenticatable
@@ -94,5 +95,10 @@ class User extends Authenticatable
     public function entretiens()
     {
         return $this->hasMany(Entretien::class);
+    }
+
+    public function notificationViews()
+    {
+        return $this->HasMany(NotificationView::class);
     }
 }

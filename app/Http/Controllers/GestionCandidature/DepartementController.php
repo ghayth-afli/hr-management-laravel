@@ -5,6 +5,8 @@ namespace App\Http\Controllers\GestionCandidature;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Departement;
+use App\Models\Notification;
+use Illuminate\Support\Facades\Auth;
 
 class DepartementController extends Controller
 {
@@ -58,6 +60,11 @@ class DepartementController extends Controller
         'user_id' => auth()->id()
         ]);
 
+        $notification = Notification::create([
+            'content' => Auth::user()->name.' a ajouté un nouvelle departement',
+            'type' => 'system',
+            ]);
+        
         return redirect('/departement')->with('success','Departement a été ajouté!');
     }
 
