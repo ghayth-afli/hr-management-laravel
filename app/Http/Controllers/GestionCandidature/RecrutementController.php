@@ -90,6 +90,11 @@ class RecrutementController extends Controller
         'user_id' => auth()->id()
         ]);
 
+        $notification = Notification::create([
+            'content' => ' a postulé une nouvelle offre de travail',
+            'source' => Auth::user()->id,
+            'type' => 'Système',
+        ]);
         return redirect('/recrutement')->with('success','Nouvel offre d\'emploi a été ajouté!');
     }
 
@@ -175,6 +180,12 @@ class RecrutementController extends Controller
         'user_id' => auth()->id()
         ]);
 
+        $notification = Notification::create([
+            'content' => ' a modifié une offre de travail',
+            'source' => Auth::user()->id,
+            'type' => 'Système',
+        ]);
+
         return redirect('/recrutement')->with('success','Nouvel offre d\'emploi a été modifié!');
     }
 
@@ -188,6 +199,11 @@ class RecrutementController extends Controller
     {
         $this->authorize('destroy-recrutement', Recrutement::class);
         Recrutement::destroy($id);
+        $notification = Notification::create([
+            'content' => ' a supprimé une offre de travail',
+            'source' => Auth::user()->id,
+            'type' => 'Système',
+        ]);
         return redirect('/recrutement')->with('success','recrutement supprimé avec succès ! ');
     }
 }

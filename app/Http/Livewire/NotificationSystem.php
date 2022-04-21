@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 use App\Models\NotificationView;
 use App\Models\Notification;
+use App\Models\Candidat;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -10,7 +12,10 @@ class NotificationSystem extends Component
 {
     public function render()
     {
-        return view('livewire.notification-system');
+        $Users = User::all();
+        $Candidats = Candidat::all();
+        $Notifications = Notification::all();
+        return view('livewire.notification-system',['Users' => $Users,'Candidats' => $Candidats,'Notifications' => $Notifications]);
     }
 
     public function seen()

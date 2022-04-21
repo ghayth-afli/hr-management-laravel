@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Recrutement;
 use App\Models\Candidat;
+use App\Models\Notification;
 
 class OffreController extends Controller
 {
@@ -211,7 +212,11 @@ class OffreController extends Controller
             ]);
 
         }
-
+        $notification = Notification::create([
+            'content' => 'Nouvelle candidature',
+            'source' => $candidat->id,
+            'type' => 'Candidature',
+        ]);
         return redirect('/career')->with('success','Votre candidature a été envoyé!');
 
     }

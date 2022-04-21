@@ -61,10 +61,11 @@ class DepartementController extends Controller
         ]);
 
         $notification = Notification::create([
-            'content' => Auth::user()->name.' a ajouté un nouvelle departement',
-            'type' => 'system',
-            ]);
-        
+            'content' => ' a ajouté une nouvelle departement',
+            'source' => Auth::user()->id,
+            'type' => 'Système',
+        ]);
+
         return redirect('/departement')->with('success','Departement a été ajouté!');
     }
 
@@ -116,7 +117,11 @@ class DepartementController extends Controller
             'nom' => request('nom'),
             'etat_recrutement' => request('etat_recrutement'),
             ]);
-
+        $notification = Notification::create([
+            'content' => ' a modifié un departement',
+            'source' => Auth::user()->id,
+            'type' => 'Système',
+        ]);
         return redirect('/departement')->with('success','Mis à jour avec succès ! ');
 
     }
@@ -131,6 +136,11 @@ class DepartementController extends Controller
     {
         $this->authorize('destroy-departement', Departement::class);
         Departement::destroy($id);
+        $notification = Notification::create([
+            'content' => ' a supprimé un departement',
+            'source' => Auth::user()->id,
+            'type' => 'Système',
+        ]);
         return redirect('/departement')->with('success','Département supprimé avec succès ! ');
     }
 }
