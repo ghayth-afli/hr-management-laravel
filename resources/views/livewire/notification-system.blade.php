@@ -4,7 +4,6 @@
               <li class="dropdown-menu-header">
                 <div class="dropdown-header d-flex">
                   <h4 class="notification-title mb-0 me-auto">Notifications</h4>
-                  <div class="badge rounded-pill badge-light-primary" >6 Nouveau</div>
                 </div>
               </li>
               <li class="scrollable-container media-list"><a class="d-flex" href="#">
@@ -36,7 +35,7 @@
                   @endif
                 @endforeach
               </li>
-              <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Read all notifications</a></li>
+              <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Toutes les notifications</a></li>
             </ul>
         </li>
 </div>
