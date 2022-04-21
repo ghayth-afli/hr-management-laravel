@@ -12,7 +12,7 @@
                   @if($Notification -> type == 'Candidature')
                     <div class="list-item d-flex align-items-start">
                       <div class="me-1">
-                        <div class="avatar"><img src=""{{ asset("app-assets/images/portrait/small/avatar-s-15.jpg")}}" alt="avatar" width="32" height="32"/></div>
+                        <div class="avatar"><img src="{{ asset("images/cvPhoto/".$Candidats->find($Notification->source)->photo)}}" alt="avatar" width="32" height="32"/></div>
                       </div>
                       <div class="list-item-body flex-grow-1">
                         <p class="media-heading"><span class="fw-bolder">{{$Notification->content}} </span>reçue !</p><small class="notification-text"> {{$Candidats->find($Notification->source)->email}}.</small>
@@ -20,26 +20,19 @@
                     </div></a><a class="d-flex" href="#">
                   @endif
 
-                    <div class="list-item d-flex align-items-start">
-                      <div class="me-1">
-                        <div class="avatar"><img src=""{{ asset("app-assets/images/portrait/small/avatar-s-3.jpg")}}" alt="avatar" width="32" height="32"/></div>
-                      </div>
-                      <div class="list-item-body flex-grow-1">
-                        <p class="media-heading"><span class="fw-bolder">New message</span>&nbsp;received</p><small class="notification-text"> You have 10 unread messages</small>
-                      </div>
-                    </div></a><a class="d-flex" href="#">
-
                   @if($Notification -> type == 'Système')
-                    <div class="list-item d-flex align-items-start">
-                      <div class="me-1">
-                        <div class="avatar bg-light-danger">
-                          <div class="avatar-content">MD</div>
+                    @if($Users->find($Notification->source)->id != Auth::user()->id)
+                      <div class="list-item d-flex align-items-start">
+                        <div class="me-1">
+                          <div class="avatar bg-light-danger">
+                            <div class="avatar-content">Sys</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="list-item-body flex-grow-1">
-                        <p class="media-heading"><span class="fw-bolder">Revised Order 👋</span>&nbsp;checkout</p><small class="notification-text"> MD Inc. order updated</small>
-                      </div>
-                    </div></a>
+                        <div class="list-item-body flex-grow-1">
+                          <p class="media-heading"><span class="fw-bolder">Rapports système 👋</span>&nbsp;Vérifie ça</p><small class="notification-text"> {{$Users->find($Notification->source)->name}}.{{$Notification->content}}</small>
+                        </div>
+                      </div></a>
+                    @endif
                   @endif
                 @endforeach
               </li>

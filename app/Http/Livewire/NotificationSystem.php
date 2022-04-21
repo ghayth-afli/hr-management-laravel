@@ -23,10 +23,21 @@ class NotificationSystem extends Component
         $Notifications = Notification::all();
         foreach($Notifications as $Notification)
         {
-            if (count($Notification->notificationViews()->where('user_id', '=', Auth::user()->id)->get()) == 0) {
-                $Notification->notificationViews()->create([
-                    'user_id' => Auth::user()->id,
-                ]);
+            if ($Notification->type =='Système') {
+                if ($Notification->source != Auth::user()->id) {
+                    if (count($Notification->notificationViews()->where('user_id', '=', Auth::user()->id)->get()) == 0) {
+                        $Notification->notificationViews()->create([
+                            'user_id' => Auth::user()->id,
+                        ]);
+                    }
+                }
+            }
+            else {
+                if (count($Notification->notificationViews()->where('user_id', '=', Auth::user()->id)->get()) == 0) {
+                    $Notification->notificationViews()->create([
+                        'user_id' => Auth::user()->id,
+                    ]);
+                }
             }
         }
     }

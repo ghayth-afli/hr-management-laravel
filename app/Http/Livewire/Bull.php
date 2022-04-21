@@ -13,7 +13,7 @@ class Bull extends Component
     {
         $Notifications = Notification::all();
         $UserNotifications = NotificationView::where('user_id', '=', Auth::user()->id)->get();
-        $NotificationsNumber = count($Notifications) - count($UserNotifications);
+        $NotificationsNumber = count($Notifications) - count($UserNotifications) - count(Notification::where('source', '=', Auth::user()->id)->where('type', '=', 'Système')->get());
         return view('livewire.bull',['NotificationsNumber' => $NotificationsNumber]);
     }
     
