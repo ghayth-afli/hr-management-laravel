@@ -14,13 +14,26 @@ class NotificationSystem extends Component
     {
         $Users = User::all();
         $Candidats = Candidat::all();
-        $Notifications = Notification::all();
+        if (Auth::user()->can('show-rapport', '')){
+            $Notifications = Notification::all();
+        }
+        else {
+            $Notifications = Notification::where('type', '=', 'Candidature')->get();
+
+        }
+        
         return view('livewire.notification-system',['Users' => $Users,'Candidats' => $Candidats,'Notifications' => $Notifications]);
     }
 
     public function seen()
     {
-        $Notifications = Notification::all();
+        if (Auth::user()->can('show-rapport', '')){
+            $Notifications = Notification::all();
+        }
+        else {
+            $Notifications = Notification::where('type', '=', 'Candidature')->get();
+
+        }
         foreach($Notifications as $Notification)
         {
             if ($Notification->type =='Système') {

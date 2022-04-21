@@ -11,9 +11,17 @@ class Bull extends Component
 {
     public function render()
     {
-        $Notifications = Notification::all();
-        $UserNotifications = NotificationView::where('user_id', '=', Auth::user()->id)->get();
-        $NotificationsNumber = count($Notifications) - count($UserNotifications) - count(Notification::where('source', '=', Auth::user()->id)->where('type', '=', 'Système')->get());
+        if (Auth::user()->can('show-rapport', '')){
+            $Notifications = Notification::all();
+            $UserNotifications = NotificationView::where('user_id', '=', Auth::user()->id)->get();
+            $NotificationsNumber = count($Notifications) - count($UserNotifications) - count(Notification::where('source', '=', Auth::user()->id)->where('type', '=', 'Système')->get());
+        }
+        else {
+            $Notifications = Notification::where('type', '=', 'Candidature')->get();
+            $UserNotifications = NotificationView::where('user_id', '=', Auth::user()->id)->get();
+            $NotificationsNumber = count($Notifications) - count($UserNotifications);
+        }
+        
         return view('livewire.bull',['NotificationsNumber' => $NotificationsNumber]);
     }
     
