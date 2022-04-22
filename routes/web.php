@@ -8,6 +8,7 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('/config', 'App\Http\Controllers\ConfigController@index')->name('config');
 Route::put('/config/update/{id}', 'App\Http\Controllers\ConfigController@update')->name('config.update');
+Route::get('/notification', 'App\Http\Controllers\Notification@index')->name('notification');
 
 Route::group(['namespace' => 'App\Http\Controllers\Profile'], function (){ 
 	Route::get('/profile', 'ProfileController@index')->name('profile');

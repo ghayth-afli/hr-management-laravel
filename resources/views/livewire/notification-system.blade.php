@@ -7,7 +7,7 @@
                 </div>
               </li>
               <livewire:notification-content />
-              <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Toutes les notifications</a></li>
+              <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="{{route('notification')}}">Toutes les notifications</a></li>
             </ul>
         </li>
 </div>
