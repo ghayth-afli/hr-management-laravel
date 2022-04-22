@@ -59,8 +59,9 @@
                 </a>-->
               <h4 class="card-title mb-1">Saisissez un nouveau mot de passe !</h4>
 
-              <form class="auth-login-form mt-2" method="POST" action="{{ route('password.request') }}">
-              @csrf
+              <form class="auth-login-form mt-2" method="POST" action="{{ route('changePassword.change') }}">
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="put">
                 <div class="mb-1">
                   <label for="login-password" class="form-label">Nouveau mot de passe</label>
                   <div class="input-group input-group-merge form-password-toggle">

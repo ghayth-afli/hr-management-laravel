@@ -6,6 +6,8 @@ use App\Http\Middleware\ChangePassword;
 
 Auth::routes();
 Route::get('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@index')->name('changePassword');
+Route::put('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@change')->name('changePassword.change');
+
 Route::middleware([ChangePassword::class])->group(function () {
 	Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 	Route::get('/config', 'App\Http\Controllers\ConfigController@index')->name('config');
