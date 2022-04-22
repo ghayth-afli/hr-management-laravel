@@ -13,7 +13,7 @@
                             <div class="d-flex flex-row">
                                 <div class="avatar bg-light-primary rounded">
                                     <div class="avatar-content">
-                                        <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                        <img src="{{ asset("images/cvPhoto/".$Candidats->find($Notification->source)->photo)}}" alt="avatar" width="32" height="32"/>
                                     </div>
                                 </div>
                                 <div class="transaction-info">
@@ -31,7 +31,7 @@
                                 <div class="d-flex flex-row">
                                     <div class="avatar bg-light-primary rounded">
                                         <div class="avatar-content">
-                                            <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                            <div class="avatar-content">Sys</div>
                                         </div>
                                     </div>
                                     <div class="transaction-info">
