@@ -1,5 +1,5 @@
-<div wire:poll>
-    <div class="row" id="table-hover-row" wire:ignore>
+<div wire:ignore>
+    <div class="row" id="table-hover-row" wire:poll>
         <div class="col-12">
         <div class="card">
             <div class="card card-transaction">
@@ -11,7 +11,7 @@
                     @if($Notification -> type == 'Candidature')
                         <a href=""><div class="transaction-item">
                             <div class="d-flex flex-row">
-                                <div class="avatar bg-light-primary rounded">
+                                <div class="avatar bg-light-primary">
                                     <div class="avatar-content">
                                         <img src="{{ asset("images/cvPhoto/".$Candidats->find($Notification->source)->photo)}}" alt="avatar" width="32" height="32"/>
                                     </div>
@@ -21,7 +21,7 @@
                                     <small>{{$Candidats->find($Notification->source)->email}}.</small>
                                 </div>
                             </div>
-                            <div class="fw-bolder text-danger">- $74</div>
+                            <div class="fw-bolder text-danger">{{$Notification->created_at->diffForHumans()}}</div>
                         </div></a>
                         <hr>
                     @endif
