@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('avatar')->default('img/config/nopic.png');
+            $table->string('etatPassword')->default('not changed');
             $table->rememberToken();
             $table->timestamps();
         });
