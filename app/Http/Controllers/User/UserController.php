@@ -9,6 +9,10 @@ use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\UpdatePasswordUserRequest;
 use App\Models\User; 
 use App\Models\Role; 
+use App\Mail\NewPasswordMail;
+use Hash;
+use Mail;
+use Illuminate\Support\Str;
 
 class UserController extends Controller 
 { 
@@ -52,9 +56,14 @@ class UserController extends Controller
     {
         $this->authorize('create-user', User::class);
 
-        $request->merge(['password' => bcrypt($request->get('password'))]);
+        $pass = Str::random(8);
+        $password = Hash::make($pass);
 
-        $user = User::create($request->all());
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $password,
+        ]);
 
         $roles = $request->input('roles') ? $request->input('roles') : [];
 
@@ -63,6 +72,10 @@ class UserController extends Controller
         $user->profil()->create(
             
         );
+
+        $recipient = $request->name;
+
+        Mail::to($request->email)->send(new NewPasswordMail($pass,$request->email,$recipient));
 
         $this->flashMessage('check', 'User successfully added!', 'success');
 

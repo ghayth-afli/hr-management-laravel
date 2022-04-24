@@ -59,39 +59,6 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="city-column">Mot de passe</label>
-                                                    <input type="password" id="city-column" class="form-control" placeholder="Mot de passe" name="password" />
-                                                    @if($errors->has('password'))
-                                                        <div class="demo-spacing-0">
-                                                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-                                                                    <div class="alert-body d-flex align-items-center">
-                                                                        <i data-feather="info" class="me-50"></i>
-                                                                        <span>{{ $errors->first('password') }}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="country-floating">Confirmez le mot de passe </label>
-                                                    <input type="password" id="country-floating" class="form-control" name="password_confirmation" placeholder="Confirmez le mot de passe" />
-                                                    @if($errors->has('password-confirm'))
-                                                        <div class="demo-spacing-0">
-                                                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-                                                                    <div class="alert-body d-flex align-items-center">
-                                                                        <i data-feather="info" class="me-50"></i>
-                                                                        <span>{{ $errors->first('password-confirm') }}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicSelect">Role</label>
                                                 <select class="form-select" id="basicSelect" name="roles[]">

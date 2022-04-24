@@ -71,9 +71,11 @@
                                     
                                         <td>
                                         @if ($user->id != 1)
-                                            <a href=""><i class="fa-solid fa-delete-left"></i></a>
-                                            <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a href=""><i class="fa-solid fa-eye"></i></a>
+                                            @if (Auth::user()->can('create-user', 'edit-user', 'destroy-user'))
+                                                <a href="{{ route('user.destroy', $user->id) }}"><i class="fa-solid fa-delete-left"></i></a>
+                                                <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href=""><i class="fa-solid fa-eye"></i></a>
+                                            @endif
                                         @endif
                                         </td>
                                 </tr>
