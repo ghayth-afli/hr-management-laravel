@@ -53,7 +53,7 @@
           <!-- Login basic -->
           <div class="card mb-0">
             <div class="card-body">
-            <a href="" class="brand-logo">
+              <a href="" class="brand-logo">
                 <img class="img-fluid" src="{{ asset("app-assets\images\logo\ama.png")}}" alt="Login V2"/>
               </a>
               <h4 class="card-title mb-1">Bienvenue sur Ama Group ! 👋</h4>
@@ -81,6 +81,7 @@
 
                 <div class="mb-1">
                   <label for="login-password" class="form-label">Mot de passe</label>
+                  
                   <div class="input-group input-group-merge form-password-toggle">
                     <input
                       type="password"
@@ -93,15 +94,12 @@
                     />
                     @if ($errors->has('password'))
                             <span id="login-email-error" class="error">{{ $errors->first('password') }}</span>
-                        @endif
+                    @endif
                     <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                   </div>
-                </div>
-                <div class="mb-1">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" tabindex="3" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
-                  </div>
+                  <a href="{{route('forgotPassword')}}">
+                    <small>Mot de passe oublié ?</small>
+                  </a>
                 </div>
                 <button class="btn btn-primary w-100" tabindex="4">S'identifier </button>
               </form>

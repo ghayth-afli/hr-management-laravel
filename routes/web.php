@@ -6,6 +6,8 @@ use App\Http\Middleware\ChangePassword;
 
 Auth::routes();
 Route::get('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@index')->name('changePassword');
+Route::get('/mot-de-passe-oublié', 'App\Http\Controllers\Auth\ForgotPasswordController@index')->name('forgotPassword');
+Route::post('/mot-de-passe-envoyé', 'App\Http\Controllers\Auth\ForgotPasswordController@send')->name('sendPassword');
 Route::put('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@change')->name('changePassword.change');
 
 Route::middleware([ChangePassword::class])->group(function () {
