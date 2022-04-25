@@ -34,6 +34,7 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/css/style.css")}}">
     <!-- END: Custom CSS-->
+    <link rel="shortcut icon" type="image/x-icon" href="https://amagroup.tn/wp-content/uploads/2021/10/logobleu.png">
 
 </head>
 <!-- END: Head-->

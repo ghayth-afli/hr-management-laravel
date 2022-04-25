@@ -30,7 +30,7 @@ class ResetPassword extends Mailable
      */
     public function build()
     {
-        return $this->subject('Nouveau compte')
+        return $this->subject('Nouveau mot de passe')
                     ->view('mailTemplate.resetPassword',['email' => $this->email,'pass' => $this->pass,'recipient' => $this->recipient]);
     }
 }
