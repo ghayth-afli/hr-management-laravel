@@ -69,6 +69,11 @@ Route::middleware([ChangePassword::class])->group(function () {
 		Route::get('/recrutement/show/{id}', 'RecrutementController@show')->name('recrutement.show');
 		Route::get('/recrutement/destroy/{id}', 'RecrutementController@destroy')->name('recrutement.destroy');
 	});
+
+	Route::group(['namespace' => 'App\Http\Controllers\Candidat'], function (){ 
+		// Candidats
+		Route::get('/candidat', 'CandidatController@index')->name('candidat');
+	});
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\InterfaceVisiteur'], function (){ 

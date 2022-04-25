@@ -44,6 +44,10 @@
             <!-- BEGIN: Custom CSS-->
             <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
             <!-- END: Custom CSS-->
+
+
+
+    <!-- END: Custom CSS-->
             @livewireStyles
             @yield('css')
     </head>
@@ -52,7 +56,7 @@
             @include('layouts.AdminLTE._includes._menu_superior')
             @include('layouts.AdminLTE._includes._menu_lateral')
             @yield('content')
-            @include('layouts.AdminLTE._includes._footer')
+            
             
             <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
             <script src="../../../app-assets/vendors/js/charts/apexcharts.min.js"></script>
