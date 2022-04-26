@@ -15,6 +15,7 @@ class CandidatController extends Controller
      */
     public function index($id)
     {
+        //$this->authorize('show-candidat', Departement::class);
         return view('candidat.index',['id_recrutement' => $id]);
     }
 
@@ -36,7 +37,7 @@ class CandidatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -47,7 +48,9 @@ class CandidatController extends Controller
      */
     public function show($id)
     {
-        //
+        //$this->authorize('show-candidat', Departement::class);
+        $candidat = Candidat::find($id);
+        return view('candidat.cvBuilder',['candidat' => $candidat]);
     }
 
     /**

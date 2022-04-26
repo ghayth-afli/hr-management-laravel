@@ -57,7 +57,7 @@
                 @foreach($Candidats as $Candidat)
                     <div class="card ecommerce-card">
                         <div class="item-img text-center">
-                            <a href="app-ecommerce-details.html">
+                            <a href="{{ route('candidat.show', $Candidat->id) }}" target="_blank">
                                 <img class="img-fluid card-img-top" src='{{ asset("images/cvPhoto/".$Candidat->photo)}}' alt="img-placeholder"/>
                             </a>
                         </div>
@@ -66,7 +66,7 @@
                                 <div>
                                     <h6 class="item-price"><span class="badge bg-secondary">#Experiences : 4 ans</span></h6>
                                     <h6 class="item-name">
-                                        <a class="text-body" href="app-ecommerce-details.html">{{$Candidat->nom}}</a>
+                                        <a class="text-body" href="{{ route('candidat.show', $Candidat->id) }}" target="_blank">{{$Candidat->nom}}</a>
                                         <span class="card-text item-company"><a class="company-name">{{$Candidat->titre_pro}}</a></span>
                                     </h6>
                                 </div>
