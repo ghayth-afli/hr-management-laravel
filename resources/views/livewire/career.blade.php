@@ -166,7 +166,7 @@
                                         <div class="jbr-wrap text-left border rounded">
                                             <div class="cats-box mlb-res rounded bg-white d-flex align-items-center justify-content-between px-3 py-3">
                                                 <div class="cats-box rounded bg-white d-flex align-items-center">
-                                                    <div class="text-center"><img src="assets1/img/logobleu.png" class="img-fluid" width="55" alt=""></div>
+                                                    <div class="text-center"><img src="{{asset("assets/img/logobleu.png")}}" class="img-fluid" width="55" alt=""></div>
                                                     <div class="cats-box-caption px-2">
                                                         <h4 class="fs-md mb-0 ft-medium">{{$recrutement->poste}}</h4>
                                                         <div class="d-block mb-2 position-relative">

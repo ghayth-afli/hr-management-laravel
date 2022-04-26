@@ -58,7 +58,7 @@
                     <div class="card ecommerce-card">
                         <div class="item-img text-center">
                             <a href="app-ecommerce-details.html">
-                                <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/2.png" alt="img-placeholder" />
+                                <img class="img-fluid card-img-top" src='{{ asset("images/cvPhoto/".$Candidat->photo)}}' alt="img-placeholder" width="350" height="250" />
                             </a>
                         </div>
                         <div class="card-body">
@@ -66,7 +66,7 @@
                                 <div>
                                     <h6 class="item-price"><span class="badge bg-secondary">Experiences : 4 ans</span></h6>
                                     <h6 class="item-name">
-                                        <a class="text-body" href="app-ecommerce-details.html">{{$Candidat->name}}</a>
+                                        <a class="text-body" href="app-ecommerce-details.html">{{$Candidat->nom}}</a>
                                         <span class="card-text item-company"><a class="company-name">{{$Candidat->titre_pro}}</a></span>
                                     </h6>
                                 </div>
