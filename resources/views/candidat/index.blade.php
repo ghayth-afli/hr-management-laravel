@@ -102,8 +102,8 @@
                                     <div>
                                         <h6 class="item-price"><span class="badge bg-secondary">Experiences : 4 ans</span></h6>
                                         <h6 class="item-name">
-                                            <a class="text-body" href="app-ecommerce-details.html">Apple iPhone 11 (64GB, Black)</a>
-                                            <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
+                                            <a class="text-body" href="app-ecommerce-details.html">Mohamed Ghayth Afli</a>
+                                            <span class="card-text item-company"><a class="company-name">Développeur web</a></span>
                                         </h6>
                                     </div>
                                 </div>
