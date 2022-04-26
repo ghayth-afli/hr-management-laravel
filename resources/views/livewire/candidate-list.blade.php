@@ -58,13 +58,13 @@
                     <div class="card ecommerce-card">
                         <div class="item-img text-center">
                             <a href="app-ecommerce-details.html">
-                                <img class="img-fluid card-img-top" src='{{ asset("images/cvPhoto/".$Candidat->photo)}}' alt="img-placeholder" width="350" height="250" />
+                                <img class="img-fluid card-img-top" src='{{ asset("images/cvPhoto/".$Candidat->photo)}}' alt="img-placeholder"/>
                             </a>
                         </div>
                         <div class="card-body">
                             <div class="item-wrapper">
                                 <div>
-                                    <h6 class="item-price"><span class="badge bg-secondary">Experiences : 4 ans</span></h6>
+                                    <h6 class="item-price"><span class="badge bg-secondary">#Experiences : 4 ans</span></h6>
                                     <h6 class="item-name">
                                         <a class="text-body" href="app-ecommerce-details.html">{{$Candidat->nom}}</a>
                                         <span class="card-text item-company"><a class="company-name">{{$Candidat->titre_pro}}</a></span>
@@ -80,7 +80,7 @@
                         <div class="item-options text-center">
                             <div class="item-wrapper">
                                 <div class="item-cost">
-                                    <h4 class="item-price"><span>Experiences :</span> 4 ans</h4>
+                                    <h4 class="item-price"><span>#Experiences :</span> 4 ans</h4>
                                 </div>
                             </div>
                             <a href="#" class="btn btn-light btn-wishlist">
