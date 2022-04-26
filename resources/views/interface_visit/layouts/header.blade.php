@@ -3,7 +3,7 @@
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
 							<a class="nav-brand" href="#">
-								<img src="{{asset("assets1/img/ama.png")}}" class="logo" alt="" width=110 height=59 />
+								<img src="{{asset("assets/img/ama.png")}}" class="logo" alt="" width=110 height=59 />
 							</a>
 							<div class="nav-toggle"></div>
 							<div class="mobile_nav">

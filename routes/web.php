@@ -72,7 +72,7 @@ Route::middleware([ChangePassword::class])->group(function () {
 
 	Route::group(['namespace' => 'App\Http\Controllers\Candidat'], function (){ 
 		// Candidats
-		Route::get('/candidat', 'CandidatController@index')->name('candidat');
+		Route::get('{id}/candidats', 'CandidatController@index')->name('candidat');
 	});
 });
 

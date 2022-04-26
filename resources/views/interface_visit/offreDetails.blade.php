@@ -7,7 +7,7 @@
 
 
 @section('css')
-    <link href="{{asset("assets1/css/styles.css")}}" rel="stylesheet">
+    <link href="{{asset("assets/css/styles.css")}}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Rajdhani" rel="stylesheet">
 @endsection
 
@@ -24,7 +24,7 @@
 								<div class="jbd-01 d-flex align-items-center justify-content-between">
 									<div class="jbd-flex d-flex align-items-center justify-content-start">
 										<div class="jbd-01-thumb">
-											<img src="{{asset("assets1/img/logobleu.png")}}" class="img-fluid" width="90" alt="" />
+											<img src="{{asset("assets/img/logobleu.png")}}" class="img-fluid" width="90" alt="" />
 										</div>
 										<div class="jbd-01-caption pl-3">
 											<div class="tbd-title"><h4 class="mb-0 ft-medium fs-md">{{$offre->poste}}</h4></div>
@@ -110,13 +110,13 @@
 
 
 @section('js')
-    <script src="{{asset("assets1/js/jquery.min.js")}}"></script>
-	<script src="{{asset("assets1/js/popper.min.js")}}"></script>
-	<script src="{{asset("assets1/js/bootstrap.min.js")}}"></script>
-	<script src="{{asset("assets1/js/slick.js")}}"></script>
-	<script src="{{asset("assets1/js/slider-bg.js")}}"></script>
-	<script src="{{asset("assets1/js/smoothproducts.js")}}"></script>
-	<script src="{{asset("assets1/js/snackbar.min.js")}}"></script>
-	<script src="{{asset("assets1/js/jQuery.style.switcher.js")}}"></script>
-	<script src="{{asset("assets1/js/custom.js")}}"></script>
+    <script src="{{asset("assets/js/jquery.min.js")}}"></script>
+	<script src="{{asset("assets/js/popper.min.js")}}"></script>
+	<script src="{{asset("assets/js/bootstrap.min.js")}}"></script>
+	<script src="{{asset("assets/js/slick.js")}}"></script>
+	<script src="{{asset("assets/js/slider-bg.js")}}"></script>
+	<script src="{{asset("assets/js/smoothproducts.js")}}"></script>
+	<script src="{{asset("assets/js/snackbar.min.js")}}"></script>
+	<script src="{{asset("assets/js/jQuery.style.switcher.js")}}"></script>
+	<script src="{{asset("assets/js/custom.js")}}"></script>
 @endsection

@@ -166,7 +166,7 @@ $(function() {
 	// Snackbar for wishlist Product
 	$('.snackbar-wishlist').click(function() { 
 		Snackbar.show({
-			text: 'Your Job was Ajouté à la liste d'attente ❤️ successfully!',
+			text: 'Your Job was added to wishlist successfully!',
 			pos: 'top-right',
 			showAction: false,
 			actionText: "Dismiss",
