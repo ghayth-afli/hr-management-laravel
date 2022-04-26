@@ -227,6 +227,33 @@
                                 <div class="multi-range-price">
                                     <h6 class="filter-title mt-0">Formation</h6>
                                     <ul class="list-unstyled price-range" id="price-range">
+                                        <select class="form-select" id="basicSelect">
+                                            <option>IT</option>
+                                            <option>Blade Runner</option>
+                                            <option>Thor Ragnarok</option>
+                                        </select>
+                                    </ul>
+                                </div>
+                                <!-- Formation Filter ends -->
+
+
+                                <!-- Etat Starts -->
+                                <div id="product-categories">
+                                    <h6 class="filter-title">Etat</h6>
+                                    <ul class="list-unstyled categories-list">
+                                        <select class="form-select" id="basicSelect">
+                                            <option>IT</option>
+                                            <option>Blade Runner</option>
+                                            <option>Thor Ragnarok</option>
+                                        </select>
+                                    </ul>
+                                </div>
+                                <!-- Etat Ends -->
+
+                                <!-- Age starts -->
+                                <div class="brands">
+                                    <h6 class="filter-title">Age</h6>
+                                    <ul class="list-unstyled brand-list">
                                         <li>
                                             <div class="form-check">
                                                 <input type="radio" id="priceAll" name="price-range" class="form-check-input" checked />
@@ -238,49 +265,6 @@
                                                 <input type="radio" id="priceRange1" name="price-range" class="form-check-input" />
                                                 <label class="form-check-label" for="priceRange1">&lt;=$10</label>
                                             </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Formation Filter ends -->
-
-
-                                <!-- Etat Starts -->
-                                <div id="product-categories">
-                                    <h6 class="filter-title">Etat</h6>
-                                    <ul class="list-unstyled categories-list">
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="radio" id="category1" name="category-filter" class="form-check-input" checked />
-                                                <label class="form-check-label" for="category1">Appliances</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="radio" id="category2" name="category-filter" class="form-check-input" />
-                                                <label class="form-check-label" for="category2">Audio</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Etat Ends -->
-
-                                <!-- Age starts -->
-                                <div class="brands">
-                                    <h6 class="filter-title">Age</h6>
-                                    <ul class="list-unstyled brand-list">
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand1" />
-                                                <label class="form-check-label" for="productBrand1">Insignia™</label>
-                                            </div>
-                                            <span>746</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand2" checked />
-                                                <label class="form-check-label" for="productBrand2">Samsung</label>
-                                            </div>
-                                            <span>633</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -312,20 +296,11 @@
                                 <div class="brands">
                                     <h6 class="filter-title">Sexe</h6>
                                     <ul class="list-unstyled brand-list">
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand1" />
-                                                <label class="form-check-label" for="productBrand1">Insignia™</label>
-                                            </div>
-                                            <span>746</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand2" checked />
-                                                <label class="form-check-label" for="productBrand2">Samsung</label>
-                                            </div>
-                                            <span>633</span>
-                                        </li>
+                                        <select class="form-select" id="basicSelect">
+                                                <option>IT</option>
+                                                <option>Blade Runner</option>
+                                                <option>Thor Ragnarok</option>
+                                        </select>
                                     </ul>
                                 </div>
                                 <!-- Sexe ends -->
