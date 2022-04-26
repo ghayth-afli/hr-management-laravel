@@ -80,7 +80,7 @@
                         <div class="item-options text-center">
                             <div class="item-wrapper">
                                 <div class="item-cost">
-                                    <h4 class="item-price"><span>#Experiences :</span> 4 ans</h4>
+                                    <h4 class="item-price"><span>Experiences :</span> 4 ans</h4>
                                 </div>
                             </div>
                             <a href="#" class="btn btn-light btn-wishlist">
