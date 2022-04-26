@@ -48,5 +48,5 @@
     </div>
   </div>
   <script>
-                feather.replace()
-            </script>
+    feather.replace()
+  </script>
