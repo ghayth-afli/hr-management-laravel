@@ -2,7 +2,7 @@
     <div class="content-detached content-right">
         <div class="content-body">
             <!-- E-commerce Content Section Starts -->
-            <section id="ecommerce-header">
+            <section id="ecommerce-header" wire:ignore>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="ecommerce-header-items">
@@ -13,15 +13,6 @@
                                 <div class="search-results">16285 résultats trouvés</div>
                             </div>
                             <div class="view-options d-flex">
-                                <div class="btn-group dropdown-sort">
-                                    <button type="button" class="btn btn-outline-primary dropdown-toggle me-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="active-sorting">Trier par</span>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Expérience</a>
-                                        <a class="dropdown-item" href="#">Candidature</a>
-                                    </div>
-                                </div>
                                 <div class="btn-group" role="group">
                                     <input type="radio" class="btn-check" name="radio_options" id="radio_option1" autocomplete="off" checked />
                                     <label class="btn btn-icon btn-outline-primary view-btn grid-view-btn" for="radio_option1"><i data-feather="grid" class="font-medium-3"></i></label>
@@ -40,11 +31,11 @@
             <!-- background Overlay when sidebar is shown  ends-->
 
             <!-- E-commerce Search Bar Starts -->
-            <section id="ecommerce-searchbar" class="ecommerce-searchbar">
+            <section id="ecommerce-searchbar" class="ecommerce-searchbar" wire:ignore>
                 <div class="row mt-1">
                     <div class="col-sm-12">
                         <div class="input-group input-group-merge">
-                            <input type="text" class="form-control search-product" id="shop-search" placeholder="Rechercher" aria-label="Search..." aria-describedby="shop-search" />
+                            <input type="text" class="form-control search-product" id="shop-search" placeholder="Rechercher" aria-label="Search..." aria-describedby="shop-search" wire:model.debounce.1ms="Search"/>
                             <span class="input-group-text"><i data-feather="search" class="text-muted"></i></span>
                         </div>
                     </div>
@@ -77,7 +68,7 @@
                                 excellent images as well as capable of recording crisp videos. However, expandable storage and a fingerprint scanner would have made it a perfect option to go for around this price range.
                             </p>
                         </div>
-                        <div class="item-options text-center">
+                        <div class="item-options text-center" >
                             <div class="item-wrapper">
                                 <div class="item-cost">
                                     <h4 class="item-price"><span>Experiences :</span> 4 ans</h4>
@@ -99,7 +90,7 @@
 
             <!-- E-commerce Pagination Starts -->
             <section id="ecommerce-pagination">
-                <div class="row">
+                <<div class="row">
                     <div class="col-sm-12">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center mt-2">
@@ -156,6 +147,18 @@
                             </ul>
                         </div>
                         <!-- Etat Ends -->
+                        
+                        <!-- Expérience Starts -->
+                        <div id="product-categories">
+                            <h6 class="filter-title">Expérience :</h6>
+                            <ul class="list-unstyled categories-list">
+                                <select class="form-select" id="basicSelect">
+                                    <option>Ordre croissant</option>
+                                    <option>Ordre décroissant</option>
+                                </select>
+                            </ul>
+                        </div>
+                        <!-- Expérience Ends -->
 
                         <!-- Age starts -->
                         <div class="brands">

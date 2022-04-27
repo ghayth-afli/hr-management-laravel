@@ -61,4 +61,19 @@ class Candidat extends Model
     {
         return $this->belongsToMany(Entretien::class);
     }
+
+    public function scopeSearch($query,$term)
+    {
+        $term = "%$term%";
+        $query->where(function($query) use ($term){
+            $query->where('nom','like',$term)
+                    ->orWhere('titre_pro','like',$term)
+                    ->orWhere('email','like',$term)
+                    ->orWhere('linkedin','like',$term)
+                    ->orWhere('tel','like',$term)
+                    ->orWhere('adresse','like',$term)
+                    ->orWhere('tel','like',$term)
+                    ->orWhere('langue','like',$term);
+        });
+    }
 }
