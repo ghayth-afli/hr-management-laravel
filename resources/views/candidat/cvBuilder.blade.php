@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="shortcut icon" type="image/x-icon" href="https://amagroup.tn/wp-content/uploads/2021/10/logobleu.png">
     <!-- BOX ICONS -->
     <link
       rel="stylesheet"
@@ -13,7 +13,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset("cv/assets/css/styles.css")}}" />
 
-    <title>CV</title>
+    <title>CV | {{$candidat->nom}}</title>
   </head>
   <body>
     <!-- HEADER -->
