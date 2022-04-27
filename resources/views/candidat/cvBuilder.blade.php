@@ -70,7 +70,7 @@
           <section class="home" id="home">
             <div class="home__container section bd-grid">
               <div class="home__data bd-grid">
-                <img src="{{asset("cv/assets/img/me.jpg")}}" alt="" class="home__img" />
+                <img src="{{ asset("images/cvPhoto/".$candidat->photo)}}" alt="" class="home__img" />
 
                 <h1 class="home__title"><b>{{$candidat->nom}}</b></h1>
                 <h3 class="home__profession">{{$candidat->titre_pro}}</h3>
@@ -78,7 +78,7 @@
                 <div>
                   <a
                     download=""
-                    href="{{asset("cv/assets/pdf/AvramStern_CV.pdf")}}"
+                    href=""
                     class="home__button-mobile"
                     >Download</a
                   >
@@ -135,7 +135,7 @@
                 target="_blank"
                 class="social__link"
               >
-                <i class="bx bxl-linkedin-square social__icon"></i>
+                <i class="bx bxl-linkedin-square social__icon"></i>{{$candidat->linkedin}}
               </a>
             </div>
           </section>
@@ -146,29 +146,19 @@
 
           <!-- SKILLS  -->
           <section class="skills section" id="skills">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title">Compétences</h2>
 
             <div class="skills__content bd-grid">
               <ul class="skills__data">
-                <li class="skills__name">
-                  <span class="skills__circle"></span> JavaScripteeeeeeee
-                  <i class="bx bxl-javascript"></i>
-                </li>
-                <li class="skills__name">
-                  <span class="skills__circle"></span> NodeJS
-                  <i class="bx bxl-nodejs"></i>
-                </li>
-                <li class="skills__name">
-                  <span class="skills__circle"></span> Express
-                  <i class="bx bx-code-block"></i>
-                </li>
-                <li class="skills__name">
-                  <span class="skills__circle"></span> Unix
-                  <i class="bx bxs-terminal"></i>
-                </li>
+                @foreach($candidat->competances as $competance)
+                  <li class="skills__name">
+                    <span class="skills__circle"></span> {{$competance->designation}}
+                    <i class="bx bxl-".{{$competance->designation}}></i>
+                  </li>
+                @endforeach
               </ul>
 
-              <ul class="skills__data">
+              <!--<ul class="skills__data">
                 <li class="skills__name">
                   <span class="skills__circle"></span> React
                   <i class="bx bxl-react"></i>
@@ -185,23 +175,17 @@
                   <span class="skills__circle"></span> Git
                   <i class="bx bxl-git"></i>
                 </li>
-              </ul>
+              </ul>-->
             </div>
           </section>
           <!-- LANGUAGES -->
           <section class="languages section">
-            <h2 class="section-title">Languages</h2>
+            <h2 class="section-title">Langues</h2>
 
             <div class="languages__container">
               <ul class="languages__content bd-grid">
                 <li class="languages__name">
-                  <span class="languages__circle"></span> English
-                </li>
-                <li class="languages__name">
-                  <span class="languages__circle"></span> Spanish
-                </li>
-                <li class="languages__name">
-                  <span class="languages__circle"></span> French
+                  <span class="languages__circle"></span> {{$candidat->langue}}
                 </li>
               </ul>
             </div>
@@ -211,14 +195,10 @@
         <div class="resume__right">
           <!-- PROFILE -->
           <section class="profile section" id="profile">
-            <h2 class="section-title">Profile</h2>
+            <h2 class="section-title">PROFIL</h2>
 
             <p class="profile__description">
-              More than 7 years of experience, working with different brands
-              such as American Express, Delta, Kellog's, Dunkin Donuts,
-              Playstation and others. Using agile methodologies on a daily basis
-              for different projects. Fast learner looking forward to keep on
-              acquiring new knowledge throughout my career.
+            {{$candidat->profil_candidat}}
             </p>
           </section>
           <!-- EXPERIENCE -->
@@ -226,115 +206,25 @@
             <h2 class="section-title">Experience</h2>
 
             <div class="experience__container bd-grid">
-              <div class="experience__content">
-                <div class="experience__time">
-                  <span class="experience__rounder"></span>
-                  <span class="experience__line"></span>
-                </div>
+              @foreach($candidat->experiences->sortByDesc("date_fin") as $experience)
+                <div class="experience__content">
+                  <div class="experience__time">
+                    <span class="experience__rounder"></span>
+                    <span class="experience__line"></span>
+                  </div>
 
-                <div class="experience__data bd-grid">
-                  <h3 class="experience__title">Full Stack Engineer</h3>
-                  <span class="experience__company"
-                    >From 2021 | Gorilla Logic</span
-                  >
-                  <p class="experience__description">
-                    <!-- Work in this company dedicating the best responsibility in
-                    the area that corresponds. -->
-                  </p>
+                  <div class="experience__data bd-grid">
+                    <h3 class="experience__title">{{$experience->titre}}</h3>
+                    <span class="experience__company"
+                      >De {{ Carbon\Carbon::parse($experience->date_debut)->format('m-Y') }} à {{ Carbon\Carbon::parse($experience->date_fin)->format('m-Y') }} | {{$experience->entreprise}}</span
+                    >
+                    <p class="experience__description">
+                      <!-- Work in this company dedicating the best responsibility in
+                      the area that corresponds. -->
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div class="experience__content">
-                <div class="experience__time">
-                  <span class="experience__rounder"></span>
-                  <span class="experience__line"></span>
-                </div>
-
-                <div class="experience__data bd-grid">
-                  <h3 class="experience__title">Senior Creative Engineer</h3>
-                  <span class="experience__company"
-                    >From 2018 to 2021 | Prodigious</span
-                  >
-                  <p class="experience__description">
-                    <!-- Work in this company dedicating the best responsibility in
-                    the area that corresponds. -->
-                  </p>
-                </div>
-              </div>
-
-              <div class="experience__content">
-                <div class="experience__time">
-                  <span class="experience__rounder"></span>
-                  <span class="experience__line"></span>
-                </div>
-
-                <div class="experience__data bd-grid">
-                  <h3 class="experience__title">Creative Engineer</h3>
-                  <span class="experience__company"
-                    >From 2016 to 2018 | Prodigious</span
-                  >
-                  <p class="experience__description">
-                    <!-- Delivering the best results for the company and improving
-                    productivity. -->
-                  </p>
-                </div>
-              </div>
-
-              <div class="experience__content">
-                <div class="experience__time">
-                  <span class="experience__rounder"></span>
-                  <span class="experience__line"></span>
-                </div>
-
-                <div class="experience__data bd-grid">
-                  <h3 class="experience__title">Associate Creative Engineer</h3>
-                  <span class="experience__company"
-                    >From 2015 to 2016 | Prodigious</span
-                  >
-                  <p class="experience__description">
-                    <!-- Work in this company dedicating the best responsibility in
-                    the area that corresponds. -->
-                  </p>
-                </div>
-              </div>
-
-              <div class="experience__content">
-                <div class="experience__time">
-                  <span class="experience__rounder"></span>
-                  <span class="experience__line"></span>
-                </div>
-
-                <div class="experience__data bd-grid">
-                  <h3 class="experience__title">
-                    Media Operations Technology Analyst
-                  </h3>
-                  <span class="experience__company"
-                    >From 2013 to 2015 | Bosz Digital/Prodigious</span
-                  >
-                  <p class="experience__description">
-                    <!-- Work in this company dedicating the best responsibility in
-                    the area that corresponds. -->
-                  </p>
-                </div>
-              </div>
-
-              <div class="experience__content">
-                <div class="experience__time">
-                  <span class="experience__rounder"></span>
-                  <!-- <span class="experience__line"></span> -->
-                </div>
-
-                <div class="experience__data bd-grid">
-                  <h3 class="experience__title">Manager</h3>
-                  <span class="experience__company"
-                    >From 2009 to 2013 | Don Döner Restaurant</span
-                  >
-                  <p class="experience__description">
-                    <!-- Work in this company dedicating the best responsibility in
-                    the area that corresponds. -->
-                  </p>
-                </div>
-              </div>
+              @endforeach
             </div>
           </section>
           <!-- EDUCATION -->
@@ -342,52 +232,22 @@
             <h2 class="section-title">Education</h2>
 
             <div class="education__container bd-grid">
-              <div class="education__content">
-                <div class="education__time">
-                  <span class="education__rounder"></span>
-                  <span class="education__line"></span>
-                </div>
+              @foreach($candidat->formations->sortByDesc("date_fin") as $formation)
+                <div class="education__content">
+                  <div class="education__time">
+                    <span class="education__rounder"></span>
+                    <span class="education__line"></span>
+                  </div>
 
-                <div class="education__data bd-grid">
-                  <h3 class="education__title">
-                    Bachelor Degree - Computer Science
-                  </h3>
-                  <span class="education__studies">Ulacit</span>
-                  <span class="education__year">2016</span>
+                  <div class="education__data bd-grid">
+                    <h3 class="education__title">
+                      {{$formation->diplome}}
+                    </h3>
+                    <span class="education__studies">{{$formation->ecole}}</span>
+                    <span class="education__year">De {{ Carbon\Carbon::parse($formation->date_debut)->format('m-Y') }} à {{ Carbon\Carbon::parse($formation->date_fin)->format('m-Y') }} </span>
+                  </div>
                 </div>
-              </div>
-
-              <div class="education__content">
-                <div class="education__time">
-                  <span class="education__rounder"></span>
-                  <span class="education__line"></span>
-                </div>
-
-                <div class="education__data bd-grid">
-                  <h3 class="education__title">
-                    Bachelor Degree - Business Management
-                  </h3>
-                  <span class="education__studies"
-                    >Universidad Interamericana</span
-                  >
-                  <span class="education__year">2011</span>
-                </div>
-              </div>
-
-              <div class="education__content">
-                <div class="education__time">
-                  <span class="education__rounder"></span>
-                  <!-- <span class="education__line"></span> -->
-                </div>
-
-                <div class="education__data bd-grid">
-                  <h3 class="education__title">High-School Degree</h3>
-                  <span class="education__studies"
-                    >British School of Costa Rica</span
-                  >
-                  <span class="education__year">1994 - 2007</span>
-                </div>
-              </div>
+              @endforeach
             </div>
           </section>
           <!-- CERTIFICATES -->
@@ -395,32 +255,22 @@
             <h2 class="section-title">Certificates</h2>
 
             <div class="certificates__container bd-grid-cert">
-              <div class="certificate__content">
-                <h3 class="certificate__title">
-                  <span class="certificate__circle"></span>International
-                  Baccalaureate Diploma
-                </h3>
-
-                <!-- <p class="certificate__description">
-                  For meeting the expectations of leading the team to work the
-                  specified tasks in the labor field.
-                </p> -->
-              </div>
-              <div class="certificate__content">
-                <h3 class="certificate__title">
-                  <span class="certificate__circle"></span>IGCSE Certificate
-                </h3>
-                <!-- <p class="certificate__description">
-                  For meeting the expectations of leading the team to work the
-                  specified tasks in the labor field.
-                </p> -->
-              </div>
+              @foreach($candidat->certifications->sortByDesc("date") as $certification)
+                <div class="certificate__content">
+                  <div class="education__data bd-grid">
+                      <h3 class="education__title">
+                      <span class="certificate__circle"></span>{{$certification->nom}}
+                      </h3>
+                      <span class="education__studies">&emsp;{{$certification->organisme}} | <span class="education__year">{{ Carbon\Carbon::parse($formation->date)->format('m-Y') }}</span></span>
+                  </div>
+                </div>
+              @endforeach
             </div>
           </section>
 
           <!-- REFERENCES -->
 
-
+          
 
         </div>
       </div>
