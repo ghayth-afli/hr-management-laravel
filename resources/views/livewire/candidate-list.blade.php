@@ -90,7 +90,7 @@
 
             <!-- E-commerce Pagination Starts -->
             <section id="ecommerce-pagination">
-                <<div class="row">
+                <div class="row">
                     <div class="col-sm-12">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center mt-2">
