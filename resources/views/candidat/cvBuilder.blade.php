@@ -40,22 +40,17 @@
             </li>
             <li class="nav__item">
               <a href="#skills" class="nav__link">
-                <i class="bx bx-receipt nav__icon"></i>Skills
+                <i class="bx bx-receipt nav__icon"></i>Compétence
               </a>
             </li>
             <li class="nav__item">
               <a href="#experience" class="nav__link">
-                <i class="bx bx-briefcase nav__icon"></i>Experience
+                <i class="bx bx-briefcase nav__icon"></i>Expérience
               </a>
             </li>
             <li class="nav__item">
               <a href="#certificates" class="nav__link">
-                <i class="bx bx-award nav__icon"></i>Certificates
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#references" class="nav__link">
-                <i class="bx bx-link-external nav__icon"></i>References
+                <i class="bx bx-award nav__icon"></i>Certificats
               </a>
             </li>
           </ul>
@@ -77,8 +72,8 @@
               <div class="home__data bd-grid">
                 <img src="{{asset("cv/assets/img/me.jpg")}}" alt="" class="home__img" />
 
-                <h1 class="home__title"><b>AVRAM</b> STERN</h1>
-                <h3 class="home__profession">Full Stack Developer</h3>
+                <h1 class="home__title"><b>{{$candidat->nom}}</b></h1>
+                <h3 class="home__profession">{{$candidat->titre_pro}}</h3>
 
                 <div>
                   <a
@@ -92,7 +87,7 @@
 
               <div class="home__address bd-grid">
                 <span class="home__information">
-                  <i class="bx bx-map home__icon"></i> San José, Costa Rica
+                  <i class="bx bx-map home__icon"></i> {{$candidat->adresse}}
                 </span>
                 <span class="home__information">
                   <i class="bx bx-envelope home__icon"></i>
@@ -100,7 +95,7 @@
                     href="mailto:stern9@gmail.com"
                     target="_blank"
                     class="social__link"
-                    >stern9@gmail.com</a
+                    >{{$candidat->email}}</a
                   >
                 </span>
                 <span class="home__information">
@@ -109,7 +104,7 @@
                     href="tel:+50688165476"
                     target="_blank"
                     class="social__link"
-                    >(506) 8816-5476</a
+                    >(216) {{$candidat->tel}}</a
                   >
                 </span>
               </div>
@@ -131,30 +126,16 @@
 
           <!-- SOCIAL -->
           <section class="social section">
-            <h2 class="section-title">SOCIAL</h2>
+            <h2 class="section-title">LinkedIn</h2>
 
             <div class="social__container bd-grid">
-              <a
-                href="https://github.com/stern9"
-                target="_blank"
-                class="social__link"
-              >
-                <i class="bx bxl-github social__icon"></i> @stern9
-              </a>
+             
               <a
                 href="https://www.linkedin.com/in/stern9/"
                 target="_blank"
                 class="social__link"
               >
-                <i class="bx bxl-linkedin-square social__icon"></i> @stern9
-              </a>
-              <a
-                href="https://stern9.dev/"
-                target="_blank"
-                class="social__link"
-              >
-                <i class="bx bx-globe social__icon"></i>
-                https://stern9.dev/
+                <i class="bx bxl-linkedin-square social__icon"></i>
               </a>
             </div>
           </section>

@@ -21,7 +21,7 @@ class CreateCandidatsTable extends Migration
             $table->string('linkedin');
             $table->integer('tel');
             $table->text('adresse');
-            $table->string('profil_candidat');
+            $table->text('profil_candidat');
             $table->String('langue');
             $table->text('photo');
             $table->foreignId('recrutement_id')->constrained();
