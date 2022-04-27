@@ -16,6 +16,6 @@ class CandidateList extends Component
                     ->sortByDesc("created_at")
                     ->take(4);
 
-        return view('livewire.candidate-list',['Candidats' => $Candidats]);
+        return view('livewire.candidate-list',['Candidats' => $Candidats],['NbPage' => count($Candidats)/6]);
     }
 }
