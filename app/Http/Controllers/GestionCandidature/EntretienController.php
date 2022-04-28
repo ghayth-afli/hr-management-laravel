@@ -5,20 +5,12 @@ namespace App\Http\Controllers\GestionCandidature;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Entretien;
+use App\Models\Notification;
+use Illuminate\Support\Facades\Auth;
 
 class EntretienController extends Controller
 {
-    public function __construct() {
-        $this->middleware('guest', ['except' => [
-            'index',
-             'show',
-              'create',
-               'store',
-                'edit',
-                 'update',
-                    'destroy'
-        ]]);
-    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +18,9 @@ class EntretienController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('show-entretien', Entretien::class);
+        $entretiens = Entretien::all();
+        return view('entretien.index',['entretiens'=>$entretiens]);
     }
 
     /**
@@ -36,7 +30,8 @@ class EntretienController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create-entretien', Entretien::class);
+        return view('entretien.create');
     }
 
     /**
@@ -47,7 +42,31 @@ class EntretienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('create-entretien', Entretien::class);
+        $req = $request->validate([
+            'designation' => 'required',
+            'time' => 'required',
+            'date' => 'required',
+        ],[
+            'designation.required' => 'ce champ doit obligatoirement être rempli',
+            'time.required' => 'ce champ doit obligatoirement être rempli',
+            'date.required' => 'ce champ doit obligatoirement être rempli',
+        ]);
+
+        
+        $entretien = Entretien::create([
+        'designation' => request('designation'),
+        'time' => request('time'),
+        'date' => request('date'),
+        ]);
+
+        $notification = Notification::create([
+            'content' => ' a planifié un entretien',
+            'source' => Auth::user()->id,
+            'type' => 'Système',
+        ]);
+
+        return redirect('/entretien')->with('success','Entretien a été planifié!');
     }
 
     /**
@@ -69,7 +88,9 @@ class EntretienController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->authorize('edit-entretien', Entretien::class);
+        $entretien = Entretien::find($id);
+        return view('entretien.edit',['entretien'=>$entretien]);
     }
 
     /**
@@ -81,7 +102,32 @@ class EntretienController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->authorize('edit-entretien', Entretien::class);
+        $entretien = Entretien::find($id);
+        $req = $request->validate([
+            'designation' => 'required',
+            'time' => 'required',
+            'date' => 'required',
+        ],[
+            'designation.required' => 'ce champ doit obligatoirement être rempli',
+            'time.required' => 'ce champ doit obligatoirement être rempli',
+            'date.required' => 'ce champ doit obligatoirement être rempli',
+        ]);
+
+        
+        $entretien->update([
+        'designation' => request('designation'),
+        'time' => request('time'),
+        'date' => request('date'),
+        ]);
+
+        $notification = Notification::create([
+            'content' => ' a planifié un entretien',
+            'source' => Auth::user()->id,
+            'type' => 'Système',
+        ]);
+
+        return redirect('/entretien')->with('success','Entretien a été planifié!');
     }
 
     /**
@@ -92,6 +138,13 @@ class EntretienController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->authorize('destroy-entretien', Entretien::class);
+        Entretien::destroy($id);
+        $notification = Notification::create([
+            'content' => ' a supprimé un entretien',
+            'source' => Auth::user()->id,
+            'type' => 'Système',
+        ]);
+        return redirect('/entretien')->with('success','Entretien supprimé avec succès ! ');
     }
 }

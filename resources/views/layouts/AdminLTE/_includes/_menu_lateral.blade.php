@@ -29,7 +29,13 @@
           </li>
         @endif
         @if (Auth::user()->can('show-entretien', ''))
-          <li class=" nav-item"><a class="d-flex align-items-center" href="entretien.html"><i data-feather="briefcase"></i><span class="menu-title text-truncate" data-i18n="Components">Entretien</span></a>
+          <li class=" nav-item"><a class="d-flex align-items-center"><i data-feather="briefcase"></i><span class="menu-title text-truncate" data-i18n="Components">Entretien</span></a>
+            <ul class="menu-content">
+              <li><a class="d-flex align-items-center"  href="{{ route('entretien')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Roles">List</span></a>
+              </li>
+              <li><a class="d-flex align-items-center"  href="{{ route('entretien.create')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Permission">Ajouter</span></a>
+              </li>
+            </ul>
           </li>
         @endif
         @if (Auth::user()->can('show-rapport', ''))

@@ -39,7 +39,7 @@ class MailController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create-mail', Mail::class);
+        
     }
 
     /**

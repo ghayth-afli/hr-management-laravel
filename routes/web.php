@@ -77,7 +77,7 @@ Route::middleware([ChangePassword::class])->group(function () {
 	});
 
 	Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 
-		// mails
+		// Mails
 		Route::get('/mail', 'MailController@index')->name('mail');
 		Route::get('/mail/create', 'MailController@create')->name('mail.create');
 		Route::post('/mail/store', 'MailController@store')->name('mail.store');
@@ -85,6 +85,17 @@ Route::middleware([ChangePassword::class])->group(function () {
 		Route::put('/mail/update/{id}', 'MailController@update')->name('mail.update');
 		Route::get('/mail/show/{id}', 'MailController@show')->name('mail.show');
 		Route::get('/mail/destroy/{id}', 'MailController@destroy')->name('mail.destroy');
+	});
+
+	Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 
+		// Entretien
+		Route::get('/entretien', 'EntretienController@index')->name('entretien');
+		Route::get('/entretien/create', 'EntretienController@create')->name('entretien.create');
+		Route::post('/entretien/store', 'EntretienController@store')->name('entretien.store');
+		Route::get('/entretien/edit/{id}', 'EntretienController@edit')->name('entretien.edit');
+		Route::put('/entretien/update/{id}', 'EntretienController@update')->name('entretien.update');
+		Route::get('/entretien/show/{id}', 'EntretienController@show')->name('entretien.show');
+		Route::get('/entretien/destroy/{id}', 'EntretienController@destroy')->name('entretien.destroy');
 	});
 });
 
