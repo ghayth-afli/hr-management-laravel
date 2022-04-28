@@ -40,10 +40,10 @@
                                     </thead>
                                     <tbody>
                                         @foreach($entretiens as $entretien)
-
+                                            @if($entretien->date < Carbon\Carbon::now())
                                                 <tr>
                                                     <td>
-                                                        <i data-feather='user-plus'></i>
+                                                        <i data-feather='check-circle'></i>
                                                         <span class="fw-bold">&emsp;{{$entretien->designation}}</span>
                                                     </td>
                                                     <td>{{$entretien->date}}</td>
@@ -55,6 +55,24 @@
 
                                                     </td>
                                                 </tr>
+                                            @endif
+
+                                            @if($entretien->date >= Carbon\Carbon::now())
+                                                <tr>
+                                                    <td>
+                                                        <i data-feather='circle'></i>
+                                                        <span class="fw-bold">&emsp;{{$entretien->designation}}</span>
+                                                    </td>
+                                                    <td>{{$entretien->date}}</td>
+                                                    <td><span class="badge rounded-pill badge-light-primary me-1">{{$entretien->time}}</span></td>
+                                                    <td>
+                                                        <a href ="{{route('entretien.edit',$entretien->id)}}"><i data-feather="edit-2" class="me-50"></i></a>
+                                                        <a href ="{{route('entretien.destroy',$entretien->id)}}"><i data-feather="delete" class="me-50"></i></a>
+                                                        <a href ="{{route('entretien.show',$entretien->id)}}"><i data-feather="eye" class="me-50"></i></a>
+
+                                                    </td>
+                                                </tr>
+                                            @endif
 
                                         @endforeach
                                     </tbody>
