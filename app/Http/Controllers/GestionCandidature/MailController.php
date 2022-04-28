@@ -8,17 +8,7 @@ use App\Models\Mail;
 
 class MailController extends Controller
 {
-    public function __construct() {
-        $this->middleware('guest', ['except' => [
-            'index',
-             'show',
-              'create',
-               'store',
-                'edit',
-                 'update',
-                    'destroy'
-        ]]);
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +16,9 @@ class MailController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('show-mail', Mail::class);
+        $Mails = Mail::all();
+        return view('mail.index',['Mails'=>$Mails]);
     }
 
     /**
@@ -36,7 +28,7 @@ class MailController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -47,7 +39,7 @@ class MailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('create-mail', Mail::class);
     }
 
     /**
@@ -58,7 +50,9 @@ class MailController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->authorize('show-mail', Mail::class);
+        $Mail = Mail::find($id);
+        return view('mail.show',['Mail'=>$Mail]);
     }
 
     /**
@@ -69,7 +63,9 @@ class MailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->authorize('edit-mail', Mail::class);
+        $Mail = Mail::find($id);
+        return view('mail.edit',['Mail'=>$Mail]);
     }
 
     /**

@@ -23,6 +23,7 @@ class CreateCandidatsTable extends Migration
             $table->text('adresse');
             $table->text('profil_candidat');
             $table->String('langue');
+            $table->String('etat')->default('En cours de traitement');
             $table->text('photo');
             $table->foreignId('recrutement_id')->constrained();
             $table->timestamps();

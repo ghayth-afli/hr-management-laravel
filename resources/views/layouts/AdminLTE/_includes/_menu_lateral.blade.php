@@ -37,7 +37,7 @@
           </li>
         @endif
         @if (Auth::user()->can('show-mail', ''))
-          <li class=" nav-item"><a class="d-flex align-items-center" href="email.html"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Email</span></a>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('mail')}}"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Courriers</span></a>
           </li>
         @endif
         <li class=" nav-item"><a class="d-flex align-items-center" href="chat.html"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Chat</span></a>

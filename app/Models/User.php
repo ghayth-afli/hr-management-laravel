@@ -87,11 +87,6 @@ class User extends Authenticatable
         return $this->hasMany(Rapport::class);
     }
 
-    public function mails()
-    {
-        return $this->hasMany(Mail::class);
-    }
-
     public function entretiens()
     {
         return $this->hasMany(Entretien::class);

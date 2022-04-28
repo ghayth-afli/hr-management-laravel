@@ -75,6 +75,17 @@ Route::middleware([ChangePassword::class])->group(function () {
 		Route::get('{id}/candidats', 'CandidatController@index')->name('candidat');
 		Route::get('/candidats/show/{id}', 'CandidatController@show')->name('candidat.show');
 	});
+
+	Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 
+		// mails
+		Route::get('/mail', 'MailController@index')->name('mail');
+		Route::get('/mail/create', 'MailController@create')->name('mail.create');
+		Route::post('/mail/store', 'MailController@store')->name('mail.store');
+		Route::get('/mail/edit/{id}', 'MailController@edit')->name('mail.edit');
+		Route::put('/mail/update/{id}', 'MailController@update')->name('mail.update');
+		Route::get('/mail/show/{id}', 'MailController@show')->name('mail.show');
+		Route::get('/mail/destroy/{id}', 'MailController@destroy')->name('mail.destroy');
+	});
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\InterfaceVisiteur'], function (){ 

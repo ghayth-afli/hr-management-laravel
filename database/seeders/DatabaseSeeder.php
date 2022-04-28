@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             ConfigTableSeeder::class,
             PermissionRoleTablesSeeder::class,
             RoleUserTablesSeeder::class,
+            MailSeeder::class,
         ]);
 
         $this->command->info('Finished!');

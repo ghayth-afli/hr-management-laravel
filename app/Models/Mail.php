@@ -11,13 +11,9 @@ class Mail extends Model
     use HasFactory;
 
     protected $fillable = [
-        'email', 
         'contenu',
+        'objet',
         'type'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

@@ -45,9 +45,7 @@
             <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
             <!-- END: Custom CSS-->
 
-
-
-    <!-- END: Custom CSS-->
+ 
             @livewireStyles
             @yield('css')
     </head>
@@ -68,6 +66,14 @@
             <script>
                 feather.replace()
             </script>
+
+
+
+
+
+
+
+    <!-- END: Page JS-->
             @yield('js')
             @livewireScripts
     </body>

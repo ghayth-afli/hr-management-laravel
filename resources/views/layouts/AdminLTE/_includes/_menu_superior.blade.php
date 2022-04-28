@@ -6,7 +6,7 @@
           </ul>
           <ul class="nav navbar-nav bookmark-icons">
           @if (Auth::user()->can('show-mail', ''))
-            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-email.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Email"><i class="ficon" data-feather="mail"></i></a></li>
+            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('mail')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Courriers"><i class="ficon" data-feather="mail"></i></a></li>
           @endif
             <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-chat.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Chat"><i class="ficon" data-feather="message-square"></i></a></li>
             <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-calendar.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Calendrier"><i class="ficon" data-feather="calendar"></i></a></li>
@@ -27,7 +27,7 @@
                 <img class="round" src="{{ asset('public/img/config/nopic.png') }}" alt="avatar" height="40" width="40"/>
                 @endif   
                 <span class="avatar-status-online"></span></span></a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="{{ route('profile') }}"><i class="me-50" data-feather="user"></i> Profil</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Email</a><a class="dropdown-item" href="app-chat.html"><i class="me-50" data-feather="message-square"></i> Chat</a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="{{ route('profile') }}"><i class="me-50" data-feather="user"></i> Profil</a><a class="dropdown-item" href="{{ route('mail')}}"><i class="me-50" data-feather="mail"></i>Courriers</a><a class="dropdown-item" href="app-chat.html"><i class="me-50" data-feather="message-square"></i> Chat</a>
               <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i class="me-50" data-feather="settings"></i> Réglages</a>
               
               <div class="pull-right">

@@ -24,6 +24,7 @@ class Candidat extends Model
         'profil_candidat', 
         'langue', 
         'photo', 
+        'etat',
         'recrutement_id'
     ];
 
