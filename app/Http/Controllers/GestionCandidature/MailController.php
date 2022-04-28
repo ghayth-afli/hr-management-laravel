@@ -77,7 +77,20 @@ class MailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->authorize('edit-mail', Mail::class);
+        $req = $request->validate([
+            'objet' => 'required',
+            'contenu' => 'required',
+        ],[
+            'objet.required' => 'ce champ doit obligatoirement être rempli',
+            'contenu.required' => 'ce champ doit obligatoirement être rempli',
+        ]);
+        $mail=Mail::find($id);
+        $mail->update([
+            'objet' => request('objet'),
+            'contenu' => request('contenu'),
+            ]);
+        return redirect('/mail')->with('success','Mis à jour avec succès ! ');
     }
 
     /**
