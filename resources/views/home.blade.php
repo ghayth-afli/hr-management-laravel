@@ -55,7 +55,7 @@
                   <i data-feather="user-check" class="font-medium-5"></i>
                 </div>
               </div>
-              <h2 class="fw-bolder"  wire:poll>689</h2>
+              <h2 class="fw-bolder"  wire:poll>{{count($candidatsAccepté)}}</h2>
               <p class="card-text">Accepté</p>
             </div>
           </div>
@@ -70,7 +70,7 @@
                   <i data-feather="slash" class="avatar-icon"></i>
                 </div>
               </div>
-              <h2 class="fw-bolder" wire:poll>2.1k</h2>
+              <h2 class="fw-bolder" wire:poll>{{count($candidatsRefusé)}}</h2>
               <p class="card-text">Refusé</p>
             </div>
           </div>

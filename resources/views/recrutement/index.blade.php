@@ -72,7 +72,7 @@
                                         <td>
                                             <a href="{{ route('recrutement.destroy', $recrutement->id) }}" ><i class="fa-solid fa-delete-left"></i></a>
                                             <a href="{{ route('recrutement.edit', $recrutement->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a href="{{ route('recrutement.show', $recrutement->id) }}"><i class="fa-solid fa-eye"></i></a>
+                                            <a href="{{ route('candidat', $recrutement->id) }}"><i class="fa-solid fa-eye"></i></a>
                                         </td>
                                 </tr>
                             @endforeach

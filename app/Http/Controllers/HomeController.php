@@ -28,7 +28,9 @@ class HomeController extends Controller
     {  
         $recrutements = Recrutement::all();
         $candidats = Candidat::all();
+        $candidatsAccepté = Candidat::where('etat', '=', 'Invitation d\'entretien')->get();
+        $candidatsRefusé = Candidat::where('etat', '=', 'Refus de candidature')->get();
         $departements = Departement::all();
-        return view('home', ['recrutements' =>  $recrutements, 'candidats' =>  $candidats, 'departements' =>  $departements]);       
+        return view('home', ['recrutements' =>  $recrutements, 'candidats' =>  $candidats, 'departements' =>  $departements,'candidatsAccepté' =>  $candidatsAccepté,'candidatsRefusé' =>  $candidatsRefusé]);       
     }
 }
