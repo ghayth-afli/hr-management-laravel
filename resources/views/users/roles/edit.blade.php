@@ -1,6 +1,8 @@
 @extends('layouts.AdminLTE.index')
 
-
+@section('title')
+    <title>Modifier | {{$role->name}}</title>
+@endsection
 
 @section('css') 
         

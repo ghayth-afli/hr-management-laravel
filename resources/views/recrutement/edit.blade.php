@@ -3,7 +3,7 @@
 
 
 @section('title')
-
+ <title>Modifier |{{$recrutement->poste}}</title>
 @endsection
 
 

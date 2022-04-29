@@ -1,5 +1,9 @@
 @extends('layouts.AdminLTE.index')
 
+@section('title')
+    <title>Roles</title>
+@endsection
+
 @section('css')	
 		
 

@@ -1,7 +1,8 @@
 @extends('layouts.AdminLTE.index') 
 
-@section('icon_page', 'user') 
-
+@section('title')
+    <title>Mon profil</title>
+@endsection
 @section('css')
 
 @endsection
@@ -33,7 +34,7 @@
 
   <div class="card">
     <div class="card-header border-bottom">
-      <h4 class="card-title">Profile</h4>
+      <h4 class="card-title">Profil</h4>
     </div>
 
     
@@ -137,14 +138,6 @@
           <div class="col-12 col-sm-6 mb-1">
             <label class="form-label" for="accountState">État</label>
             <input type="text" class="form-control" id="accountState" name="etat" placeholder="State" value="{{$user->profil->etat}}" />
-          </div>
-          <div class="col-12 col-sm-6 mb-1">
-            <label for="language" class="form-label">Langue</label>
-            <select id="language" class="select2 form-select" name="langue">
-              <option value="" >Choisir la langue</option>
-              <option value="en">English</option>
-              <option value="fr">French</option>
-            </select>
           </div>
           <div class="col-12">
             <button type="submit" class="btn btn-primary mt-1 me-1">Sauvegarder</button>

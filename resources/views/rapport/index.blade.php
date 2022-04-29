@@ -1,7 +1,7 @@
 @extends('layouts.AdminLTE.index')
 
 @section('title')
-
+    <title>Rapports</title>
 @endsection
 
 

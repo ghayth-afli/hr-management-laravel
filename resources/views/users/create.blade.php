@@ -1,7 +1,10 @@
 @extends('layouts.AdminLTE.index')
 
-@section('css')
+@section('title')
+    <title>Ajouter |Responsable</title>
+@endsection
 
+@section('css')
 @endsection
 
 @section('content')    

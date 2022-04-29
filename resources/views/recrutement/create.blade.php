@@ -3,7 +3,7 @@
 
 
 @section('title')
-
+    <title>Ajouter| Recrutement</title>
 @endsection
 
 
