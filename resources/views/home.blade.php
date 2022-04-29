@@ -17,22 +17,6 @@
 <section id="dashboard-ecommerce">
   <div class="row match-height">
     <div class="row">
-      @if (Auth::user()->can('show-user', ''))
-          <div class="col-xl-2 col-md-4 col-sm-6">
-            <div class="card text-center">
-              <div class="card-body">
-                <div class="avatar bg-light-info p-50 mb-1">
-                  <div class="avatar-content">
-                    <i data-feather="eye" class="font-medium-5"></i>
-                  </div>
-                </div>
-                <h2 class="fw-bolder" wire:poll>{{count($users)}}</h2>
-                <p class="card-text">Responsable</p>
-              </div>
-            </div>
-          </div>
-      @endif
-
       @if (Auth::user()->can('show-recrutement', ''))
         <div class="col-xl-2 col-md-4 col-sm-6">
           <div class="card text-center">
@@ -92,13 +76,30 @@
           </div>
         </div>
       @endif
+      
+      @if (Auth::user()->can('show-user', ''))
+          <div class="col-xl-2 col-md-4 col-sm-6">
+            <div class="card text-center">
+              <div class="card-body">
+                <div class="avatar bg-light-info p-50 mb-1">
+                  <div class="avatar-content">
+                    <i data-feather="user" class="font-medium-5"></i>
+                  </div>
+                </div>
+                <h2 class="fw-bolder" wire:poll>{{count($users)}}</h2>
+                <p class="card-text">Responsable</p>
+              </div>
+            </div>
+          </div>
+      @endif
+
       @if (Auth::user()->can('show-entretien', ''))
         <div class="col-xl-2 col-md-4 col-sm-6">
           <div class="card text-center">
             <div class="card-body">
               <div class="avatar bg-light-danger p-50 mb-1">
                 <div class="avatar-content">
-                  <i data-feather="slash" class="avatar-icon"></i>
+                  <i data-feather="briefcase" class="avatar-icon"></i>
                 </div>
               </div>
               <h2 class="fw-bolder" wire:poll>{{count($entretiens)}}</h2>
