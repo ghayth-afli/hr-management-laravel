@@ -33,6 +33,7 @@ class HomeController extends Controller
         $candidatsRefusé = Candidat::where('etat', '=', 'Refus de candidature')->get();
         $departements = Departement::all();
         $entretiens = Entretien::all();
-        return view('home', ['recrutements' =>  $recrutements, 'candidats' =>  $candidats, 'departements' =>  $departements,'candidatsAccepté' =>  $candidatsAccepté,'candidatsRefusé' =>  $candidatsRefusé,'entretiens' =>  $entretiens]);       
+        $entretien = Entretien::all()->sortByDesc("date")->take(1);
+        return view('home', ['recrutements' =>  $recrutements, 'candidats' =>  $candidats, 'departements' =>  $departements,'candidatsAccepté' =>  $candidatsAccepté,'candidatsRefusé' =>  $candidatsRefusé,'entretiens' =>  $entretiens,'entretien' =>  $entretien]);       
     }
 }
