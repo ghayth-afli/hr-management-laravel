@@ -101,7 +101,7 @@
                   <i data-feather="slash" class="avatar-icon"></i>
                 </div>
               </div>
-              <h2 class="fw-bolder" wire:poll>{{count($entretien)}}</h2>
+              <h2 class="fw-bolder" wire:poll>{{count($entretiens)}}</h2>
               <p class="card-text">Entretien</p>
             </div>
           </div>
