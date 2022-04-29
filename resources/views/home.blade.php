@@ -93,57 +93,50 @@
                       <div class="col-12">
                           <div class="card">
                               <div class="card-header">
-                                  <h4 class="card-title">Table Basic</h4>
+                                  <h4 class="card-title">Entretiens</h4>
                               </div>
                               <div class="table-responsive">
                                   <table class="table">
                                       <thead>
                                           <tr>
-                                              <th>Project</th>
-                                              <th>Client</th>
-                                              <th>Users</th>
-                                              <th>Status</th>
-                                              <th>Actions</th>
+                                            <th>Designation</th>
+                                            <th>Date</th>
+                                            <th>Candidats</th>
+                                            <th>Horaire</th>
+                                            <th>Actions</th>
                                           </tr>
                                       </thead>
                                       <tbody>
-                                          <tr>
-                                              <td>
-                                                  <span class="fw-bold">Angular Project</span>
-                                              </td>
-                                              <td>Peter Charls</td>
-                                              <td>
-                                                  <div class="avatar-group">
-                                                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="Lilian Nenez">
-                                                          <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                                        @foreach($entretiens as $entretien)
+                                            @if($entretien->date < Carbon\Carbon::now())
+                                              <tr>
+                                                  <td>
+                                                      <i data-feather='check-circle'></i>
+                                                      <span class="fw-bold">&emsp;{{$entretien->designation}}</span>
+                                                  </td>
+                                                  <td>{{$entretien->date}}</td>
+                                                  <td>
+                                                      <div class="avatar-group">
+                                                          <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="Lilian Nenez">
+                                                              <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                                                          </div>
+                                                          <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="Alberto Glotzbach">
+                                                              <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                                                          </div>
+                                                          <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="Alberto Glotzbach">
+                                                              <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                                                          </div>
                                                       </div>
-                                                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="Alberto Glotzbach">
-                                                          <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
-                                                      </div>
-                                                      <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="Alberto Glotzbach">
-                                                          <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
-                                                      </div>
-                                                  </div>
-                                              </td>
-                                              <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
-                                              <td>
-                                                  <div class="dropdown">
-                                                      <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
-                                                          <i data-feather="more-vertical"></i>
-                                                      </button>
-                                                      <div class="dropdown-menu dropdown-menu-end">
-                                                          <a class="dropdown-item" href="#">
-                                                              <i data-feather="edit-2" class="me-50"></i>
-                                                              <span>Edit</span>
-                                                          </a>
-                                                          <a class="dropdown-item" href="#">
-                                                              <i data-feather="trash" class="me-50"></i>
-                                                              <span>Delete</span>
-                                                          </a>
-                                                      </div>
-                                                  </div>
-                                              </td>
-                                          </tr>
+                                                  </td>
+                                                  <td><span class="badge rounded-pill badge-light-primary me-1">{{$entretien->time}}</span></td>
+                                                  <td>
+                                                    <a href ="{{route('entretien.edit',$entretien->id)}}"><i data-feather="edit-2" class="me-50"></i></a>
+                                                    <a href ="{{route('entretien.destroy',$entretien->id)}}"><i data-feather="delete" class="me-50"></i></a>
+                                                    <a href ="{{route('entretien.show',$entretien->id)}}"><i data-feather="eye" class="me-50"></i></a>
+                                                  </td>
+                                              </tr>
+                                            @endif
+                                        @endforeach
                                       </tbody>
                                   </table>
                               </div>

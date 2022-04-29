@@ -6,6 +6,7 @@ use App\Models\Candidat;
 use App\Models\Departement;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Entretien;
 
 class HomeController extends Controller
 {
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $candidatsAccepté = Candidat::where('etat', '=', 'Invitation d\'entretien')->get();
         $candidatsRefusé = Candidat::where('etat', '=', 'Refus de candidature')->get();
         $departements = Departement::all();
-        return view('home', ['recrutements' =>  $recrutements, 'candidats' =>  $candidats, 'departements' =>  $departements,'candidatsAccepté' =>  $candidatsAccepté,'candidatsRefusé' =>  $candidatsRefusé]);       
+        $entretiens = Entretien::all();
+        return view('home', ['recrutements' =>  $recrutements, 'candidats' =>  $candidats, 'departements' =>  $departements,'candidatsAccepté' =>  $candidatsAccepté,'candidatsRefusé' =>  $candidatsRefusé,'entretiens' =>  $entretiens]);       
     }
 }
