@@ -63,9 +63,9 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     @if($user->isOnline())
-                                        <td><span data-v-32017d0f="" class="badge text-capitalize badge-light-success badge-pill"> active </span></td>
+                                        <td><span data-v-32017d0f="" class="badge text-capitalize badge-light-success badge-pill"> online </span></td>
                                     @else
-                                        <td><span data-v-32017d0f="" class="badge text-capitalize badge-light-secondary badge-pill"> inactive </span></td>
+                                        <td><span data-v-32017d0f="" class="badge text-capitalize badge-light-secondary badge-pill"> offline </span></td>
                                     @endif
                                     <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                     
@@ -73,8 +73,7 @@
                                         @if ($user->id != 1)
                                             @if (Auth::user()->can('create-user', 'edit-user', 'destroy-user'))
                                                 <a href="{{ route('user.destroy', $user->id) }}"><i class="fa-solid fa-delete-left"></i></a>
-                                                <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
-                                                <a href=""><i class="fa-solid fa-eye"></i></a>
+                                                <a href="{{ route('user.show', $user->id) }}"><i class="fa-solid fa-eye"></i></a>
                                             @endif
                                         @endif
                                         </td>

@@ -13,6 +13,7 @@ use App\Mail\NewPasswordMail;
 use Hash;
 use Mail;
 use App\Models\Rapport;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class UserController extends Controller 
@@ -83,7 +84,7 @@ class UserController extends Controller
             'contenu' => 'Utilisateur '.$user->name.' ajouté',
         ]);
 
-        return redirect()->route('user.create');
+        return redirect()->route('user');
     }
 
     public function edit($id)

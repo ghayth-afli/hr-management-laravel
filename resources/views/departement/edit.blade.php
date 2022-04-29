@@ -19,7 +19,22 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
-
+            <div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                    <div class="row breadcrumbs-top">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-start mb-0">Modifier</h2>
+                            <div class="breadcrumb-wrapper">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{{route('departement')}}">Departement</a></li>
+                                    <li class="breadcrumb-item"><a href="">{{$departement->nom}}</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('departement.edit',$departement->id)}}">Modifier</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="content-body">
 
 
@@ -29,7 +44,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Nouveau departement</h4>
+                                    <h4 class="card-title">Modifier departement</h4>
                                 </div>
                                 <div class="card-body">
                                     <form class="form" action="{{ route('departement.update',$departement->id) }}" method="post">

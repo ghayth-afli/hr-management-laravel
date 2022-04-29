@@ -18,6 +18,22 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
+        <div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                    <div class="row breadcrumbs-top">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-start mb-0">Modifier</h2>
+                            <div class="breadcrumb-wrapper">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{{route('entretien')}}">Entretien</a></li>
+                                    <li class="breadcrumb-item"><a href="">{{$entretien->designation}}</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('entretien.edit',$entretien->id)}}">Modifier</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="content-body">
                 <!-- Basic multiple Column Form section start -->
                 <section id="multiple-column-form">
