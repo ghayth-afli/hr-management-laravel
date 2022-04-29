@@ -17,7 +17,18 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
-            
+            <div class="content-header row">
+            </div>
+            @if(session()->has('success'))
+            <div class="demo-spacing-0">
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <div class="alert-body">
+                {{ session()->get('success') }}
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            @endif
             <div class="content-body">
                 <!-- Bordered table start -->
                 <div class="row" id="table-bordered">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\GestionCandidature;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Rapport;
+use Illuminate\Support\Facades\Auth;
 
 class RapportController extends Controller
 {

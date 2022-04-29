@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\ChangePassword;
 
 Auth::routes();
+//Change Password
 Route::get('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@index')->name('changePassword');
 Route::get('/mot-de-passe-oublié', 'App\Http\Controllers\Auth\ForgotPasswordController@index')->name('forgotPassword');
 Route::post('/mot-de-passe-envoyé', 'App\Http\Controllers\Auth\ForgotPasswordController@send')->name('sendPassword');
@@ -19,7 +20,6 @@ Route::middleware([ChangePassword::class])->group(function () {
 	Route::group(['namespace' => 'App\Http\Controllers\Profile'], function (){ 
 		Route::get('/profile', 'ProfileController@index')->name('profile');
 		Route::put('/profile/update/profile/{id}', 'ProfileController@updateProfile')->name('profile.update.profile');
-		Route::put('/profile/update/password/{id}', 'ProfileController@updatePassword')->name('profile.update.password');
 		Route::put('/profile/update/avatar/{id}', 'ProfileController@updateAvatar')->name('profile.update.avatar');
 	});
 
@@ -101,12 +101,6 @@ Route::middleware([ChangePassword::class])->group(function () {
 	Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 
 		// Rapport
 		Route::get('/rapport', 'RapportController@index')->name('rapport');
-		//Route::get('/rapport/create', 'EntretienController@create')->name('entretien.create');
-		//Route::post('/rapport/store', 'EntretienController@store')->name('entretien.store');
-		//Route::get('/rapport/edit/{id}', 'EntretienController@edit')->name('entretien.edit');
-		//Route::put('/rapport/update/{id}', 'EntretienController@update')->name('entretien.update');
-		//Route::get('/rapport/show/{id}', 'EntretienController@show')->name('entretien.show');
-		//Route::get('/rapport/destroy/{id}', 'EntretienController@destroy')->name('entretien.destroy');
 	});
 });
 
