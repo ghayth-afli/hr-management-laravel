@@ -12,6 +12,7 @@ use App\Models\Role;
 use App\Mail\NewPasswordMail;
 use Hash;
 use Mail;
+use App\Models\Rapport;
 use Illuminate\Support\Str;
 
 class UserController extends Controller 
@@ -78,6 +79,9 @@ class UserController extends Controller
         Mail::to($request->email)->send(new NewPasswordMail($pass,$request->email,$recipient));
 
         $this->flashMessage('check', 'User successfully added!', 'success');
+        Auth::user()->rapports()->create([
+            'contenu' => 'Utilisateur '.$user->name.' ajouté',
+        ]);
 
         return redirect()->route('user.create');
     }
@@ -159,6 +163,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy-user', User::class);
+        $user=User::find($id);
 
         $user = User::find($id);
 
@@ -170,7 +175,9 @@ class UserController extends Controller
         $user->delete();
 
         $this->flashMessage('check', 'User successfully deleted!', 'success');
-
+        Auth::user()->rapports()->create([
+            'contenu' => 'Utilisateur '.$user->name.' supprimé',
+        ]);
         return redirect()->route('user');
     }
 }

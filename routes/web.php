@@ -97,6 +97,17 @@ Route::middleware([ChangePassword::class])->group(function () {
 		Route::get('/entretien/show/{id}', 'EntretienController@show')->name('entretien.show');
 		Route::get('/entretien/destroy/{id}', 'EntretienController@destroy')->name('entretien.destroy');
 	});
+
+	Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 
+		// Rapport
+		Route::get('/rapport', 'RapportController@index')->name('rapport');
+		//Route::get('/rapport/create', 'EntretienController@create')->name('entretien.create');
+		//Route::post('/rapport/store', 'EntretienController@store')->name('entretien.store');
+		//Route::get('/rapport/edit/{id}', 'EntretienController@edit')->name('entretien.edit');
+		//Route::put('/rapport/update/{id}', 'EntretienController@update')->name('entretien.update');
+		//Route::get('/rapport/show/{id}', 'EntretienController@show')->name('entretien.show');
+		//Route::get('/rapport/destroy/{id}', 'EntretienController@destroy')->name('entretien.destroy');
+	});
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\InterfaceVisiteur'], function (){ 

@@ -39,7 +39,7 @@
           </li>
         @endif
         @if (Auth::user()->can('show-rapport', ''))
-          <li class=" nav-item"><a class="d-flex align-items-center" href="rapports.html"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Rapports</span></a>
+          <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('rapport')}}"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Rapports</span></a>
           </li>
         @endif
         @if (Auth::user()->can('show-mail', ''))

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Departement;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Rapport;
 
 class DepartementController extends Controller
 {
@@ -66,6 +67,10 @@ class DepartementController extends Controller
             'type' => 'Système',
         ]);
 
+        Auth::user()->rapports()->create([
+            'contenu' => 'Departement '.$departement->nom.' ajouté',
+        ]);
+
         return redirect('/departement')->with('success','Departement a été ajouté!');
     }
 
@@ -122,6 +127,10 @@ class DepartementController extends Controller
             'source' => Auth::user()->id,
             'type' => 'Système',
         ]);
+
+        Auth::user()->rapports()->create([
+            'contenu' => 'Departement '.$departement->nom.' modifié',
+        ]);
         return redirect('/departement')->with('success','Mis à jour avec succès ! ');
 
     }
@@ -135,11 +144,15 @@ class DepartementController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy-departement', Departement::class);
+        $departement=Departement::find($id);
         Departement::destroy($id);
         $notification = Notification::create([
             'content' => ' a supprimé un departement',
             'source' => Auth::user()->id,
             'type' => 'Système',
+        ]);
+        Auth::user()->rapports()->create([
+            'contenu' => 'Departement '.$departement->nom.' supprimé',
         ]);
         return redirect('/departement')->with('success','Département supprimé avec succès ! ');
     }

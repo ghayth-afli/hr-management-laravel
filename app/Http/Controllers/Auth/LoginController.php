@@ -39,25 +39,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    /*protected function credentials(Request $request) {
-        return ['email' => $request->{$this->username()}, 'password' => $request->password, 'active' => 1];
-    }
-
-    protected function sendFailedLoginResponse(Request $request)
-    {
-        $errors = [$this->username() => trans('auth.failed')];
-        
-        $user = User::where($this->username(), $request->{$this->username()})->first();
-
-        if ($user && \Hash::check($request->password, $user->password) && $user->active != 1) {
-            $errors = [$this->username() => trans('auth.notactivated')];
-        }
-
-        if ($request->expectsJson()) {
-            return response()->json($errors, 422);
-        }
-        return redirect()->back()
-            ->withInput($request->only($this->username(), 'remember'))
-            ->withErrors($errors);
-    }*/
 }

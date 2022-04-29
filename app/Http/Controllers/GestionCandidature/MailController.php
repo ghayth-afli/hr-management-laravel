@@ -5,6 +5,7 @@ namespace App\Http\Controllers\GestionCandidature;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Mail;
+use App\Models\Rapport;
 
 class MailController extends Controller
 {
@@ -90,6 +91,9 @@ class MailController extends Controller
             'objet' => request('objet'),
             'contenu' => request('contenu'),
             ]);
+            Auth::user()->rapports()->create([
+            'contenu' => 'Courrier '.$mail->type.' modifié',
+        ]);
         return redirect('/mail')->with('success','Mis à jour avec succès ! ');
     }
 

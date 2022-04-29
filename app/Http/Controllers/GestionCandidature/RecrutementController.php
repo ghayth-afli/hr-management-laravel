@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Recrutement;
 use App\Models\Departement;
 use App\Models\Notification;
+use App\Models\Rapport;
 use Illuminate\Support\Facades\Auth;
 
 class RecrutementController extends Controller
@@ -96,6 +97,9 @@ class RecrutementController extends Controller
             'content' => ' a postulé une nouvelle offre de travail',
             'source' => Auth::user()->id,
             'type' => 'Système',
+        ]);
+        Auth::user()->rapports()->create([
+            'contenu' => 'Recrutement'.$recrutement->poste.'ajouté',
         ]);
         return redirect('/recrutement')->with('success','Nouvel offre d\'emploi a été ajouté!');
     }
@@ -187,7 +191,9 @@ class RecrutementController extends Controller
             'source' => Auth::user()->id,
             'type' => 'Système',
         ]);
-
+        Auth::user()->rapports()->create([
+            'contenu' => 'Recrutement '.$recrutement->poste.' modifié',
+        ]);
         return redirect('/recrutement')->with('success','Nouvel offre d\'emploi a été modifié!');
     }
 
@@ -200,11 +206,15 @@ class RecrutementController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy-recrutement', Recrutement::class);
+        $recrutement=Recrutement::find($id);
         Recrutement::destroy($id);
         $notification = Notification::create([
             'content' => ' a supprimé une offre de travail',
             'source' => Auth::user()->id,
             'type' => 'Système',
+        ]);
+        Auth::user()->rapports()->create([
+            'contenu' => 'Recrutement '.$recrutement->poste.' supprimé',
         ]);
         return redirect('/recrutement')->with('success','recrutement supprimé avec succès ! ');
     }

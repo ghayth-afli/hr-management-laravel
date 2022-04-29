@@ -10,6 +10,7 @@ use App\Models\Role;
 use App\Models\User; 
 use App\Models\PermissionGroup; 
 use App\Models\Permission; 
+use App\Models\Rapport;
 
 class RoleController extends Controller 
 { 
@@ -63,6 +64,9 @@ class RoleController extends Controller
         $role->permissions()->sync($permissions);
 
         $this->flashMessage('check', 'Permission successfully added!', 'success');
+        Auth::user()->rapports()->create([
+            'contenu' => 'Role '.$role->name.' ajouté',
+        ]);
 
         return redirect()->route('role')->with('success', 'Role ajouté avec succès !');
     }
@@ -103,6 +107,10 @@ class RoleController extends Controller
         $role->permissions()->sync($permissions);
 
         $this->flashMessage('check', 'Permission successfully updated!', 'success');
+        Auth::user()->rapports()->create([
+            'contenu' => 'Role '.$role->name.' modifié',
+        ]);
+
 
         return redirect()->route('role')->with('success', 'Mise à jour du role réussie !');
     }
@@ -119,6 +127,9 @@ class RoleController extends Controller
         }
 
         $role->delete();
+        Auth::user()->rapports()->create([
+            'contenu' => 'Role '.$role->name.'supprimé',
+        ]);
 
         $this->flashMessage('check', 'Permission successfully deleted!', 'success');
 

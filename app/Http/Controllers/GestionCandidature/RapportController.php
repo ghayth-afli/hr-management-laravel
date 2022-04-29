@@ -8,17 +8,6 @@ use App\Models\Rapport;
 
 class RapportController extends Controller
 {
-    public function __construct() {
-        $this->middleware('guest', ['except' => [
-            'index',
-             'show',
-              'create',
-               'store',
-                'edit',
-                 'update',
-                    'destroy'
-        ]]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +15,9 @@ class RapportController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('show-rapport', Rapport::class);
+        $rapports = Rapport::all()->sortByDesc("created_at");
+        return view('rapport.index',['rapports'=> $rapports]);
     }
 
     /**

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Entretien;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Rapport;
 
 class EntretienController extends Controller
 {
@@ -65,7 +66,9 @@ class EntretienController extends Controller
             'source' => Auth::user()->id,
             'type' => 'Système',
         ]);
-
+        Auth::user()->rapports()->create([
+            'contenu' => 'Entretien '.$entretien->designation.' ajouté',
+        ]);
         return redirect('/entretien')->with('success','Entretien a été planifié!');
     }
 
@@ -126,7 +129,9 @@ class EntretienController extends Controller
             'source' => Auth::user()->id,
             'type' => 'Système',
         ]);
-
+        Auth::user()->rapports()->create([
+            'contenu' => 'Entretien '.$entretien->designation.' modifié',
+        ]);
         return redirect('/entretien')->with('success','Entretien a été planifié!');
     }
 
@@ -137,13 +142,17 @@ class EntretienController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {        
+        $entretien=Entretien::find($id);
         $this->authorize('destroy-entretien', Entretien::class);
         Entretien::destroy($id);
         $notification = Notification::create([
             'content' => ' a supprimé un entretien',
             'source' => Auth::user()->id,
             'type' => 'Système',
+        ]);
+        Auth::user()->rapports()->create([
+            'contenu' => 'Entretien '.$entretien->designation.' supprimé',
         ]);
         return redirect('/entretien')->with('success','Entretien supprimé avec succès ! ');
     }
