@@ -42,7 +42,7 @@ class UserController extends Controller
 
 		$roles_ids = Role::rolesUser($user);      	               
 
-        return view('users.show',compact('user', 'roles', 'roles_ids'));
+        return view('profile.show',compact('user', 'roles', 'roles_ids'));
     }
 
     public function create()

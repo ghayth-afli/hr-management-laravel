@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\PermissionGroup; 
 use App\Models\Permission; 
 use App\Models\Rapport;
+use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller 
 { 
