@@ -16,8 +16,8 @@ class CreateEtatCandidatsTable extends Migration
         Schema::create('etat__candidats', function (Blueprint $table) {
             $table->id();
             $table->string('etat');
-            $table->foreignId('candidat_id')->constrained();
-            $table->foreignId('mail_id')->constrained();
+            $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
+            $table->foreignId('mail_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ class CreateDepartementsTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('etat_recrutement');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }

@@ -15,8 +15,8 @@ class CreateNotificationViewsTable extends Migration
     {
         Schema::create('notification_views', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('notification_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('notification_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -26,8 +26,8 @@ class CreateRecrutementsTable extends Migration
             $table->text('description')->nullable();
             $table->text('exigences')->nullable();
             $table->date('date_expiration')->nullable()->nullable();
-            $table->foreignId('user_id')->constrained()->nullable();
-            $table->foreignId('departement_id')->constrained()->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->nullable();
+            $table->foreignId('departement_id')->constrained()->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

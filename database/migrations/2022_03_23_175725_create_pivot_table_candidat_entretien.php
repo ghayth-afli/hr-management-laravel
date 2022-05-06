@@ -15,8 +15,8 @@ class CreatePivotTableCandidatEntretien extends Migration
     {
         Schema::create('pivot_table_candidat_entretien', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('candidat_id')->constrained();
-            $table->foreignId('entretien_id')->constrained();
+            $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
+            $table->foreignId('entretien_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

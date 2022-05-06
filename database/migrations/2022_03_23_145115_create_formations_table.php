@@ -15,7 +15,7 @@ class CreateFormationsTable extends Migration
     {
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('candidat_id')->constrained();
+            $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
             $table->string('ecole');
             $table->string('diplome');
             $table->string('domaine');

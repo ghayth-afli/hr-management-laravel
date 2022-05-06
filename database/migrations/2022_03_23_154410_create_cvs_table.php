@@ -15,7 +15,7 @@ class CreateCvsTable extends Migration
     {
         Schema::create('cvs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('candidat_id')->constrained();
+            $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
             $table->string('chemin');
             $table->timestamps();
         });
