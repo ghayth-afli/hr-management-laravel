@@ -15,7 +15,6 @@
     <body>
         <div class="preloader"></div>
         <div id="main-wrapper">
-            @include('interface_visit.layouts.header')
             @yield('content')
         </div>
         @livewireScripts

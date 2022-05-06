@@ -23,6 +23,8 @@ class OffreController extends Controller
                 'postuler'
     ]]);
 }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -30,9 +32,10 @@ class OffreController extends Controller
      */
     public function index()
     {
-        $offres = Recrutement::all();
-        return view('interface_visit.offres', ['offres' =>  $offres]);
+        $offre = Recrutement::where('departement_id' ,'=', 0)->get();
+        return view('interface_visit.offres',['offre' => $offre]);
     }
+
 
     /**
      * Show the form for creating a new resource.

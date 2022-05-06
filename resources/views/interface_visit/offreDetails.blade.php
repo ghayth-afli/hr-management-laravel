@@ -12,8 +12,8 @@
 @endsection
 
 
-
 @section('content')
+	@include('interface_visit.layouts.header',['offre' => $offre])
     <section class="bg-light py-5">
 				<div class="container">
 					<div class="row">

@@ -12,8 +12,8 @@
 @endsection
 
 
-
 @section('content')
+			@include('interface_visit.layouts.header',['offre' => $offre])
 			<section class="bg-light py-5">
 				<div class="container">
                     <div class="dashboard-tlbar d-block mb-5">
@@ -23,7 +23,7 @@
 								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb">
 										<li class="breadcrumb-item text-muted"><a href="#">Carrière</a></li>
-										<li class="breadcrumb-item text-muted"><a href="#">Responsable département fluides</a></li>
+										<li class="breadcrumb-item text-muted"><a href="#">{{$offre->poste}}</a></li>
 										<li class="breadcrumb-item"><a href="#" class="theme-cl">Postuler</a></li>
 									</ol>
 								</nav>

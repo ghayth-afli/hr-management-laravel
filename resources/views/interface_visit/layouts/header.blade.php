@@ -9,9 +9,11 @@
 							<div class="mobile_nav">
 								<ul>
 								<li>
-									<a href="javascript:void(0);" data-toggle="modal" data-target="#login" class="crs_yuo12 w-auto text-white theme-bg">
+
+									<a href="{{route('offre.candidature',$offre->first()->id)}}" data-toggle="modal" data-target="#login" class="crs_yuo12 w-auto text-white theme-bg">
 										<span class="embos_45"><i class="fas fa-plus-circle mr-1 mr-1"></i>CANDIDATURE SPONTANÉE</span>
 									</a>
+									
 								</li>
 								</ul>
 							</div>
@@ -61,7 +63,7 @@
 							
 							<ul class="nav-menu nav-menu-social align-to-right">
 								<li class="add-listing">
-									<a href="" >
+									<a href="{{route('offre.candidature',$offre->first()->id)}}" >
 										<i class="lni lni-circle-plus mr-1"></i>CANDIDATURE SPONTANÉE
 									</a>
 								</li>

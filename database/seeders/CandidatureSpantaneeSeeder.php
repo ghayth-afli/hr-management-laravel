@@ -14,6 +14,7 @@ class CandidatureSpantaneeSeeder extends Seeder
     public function run()
     {
         Recrutement::create([
+            'id' => 0,
             'poste' => 'CANDIDATURE SPONTANÉE',
             'nbr_poste' => 0,
             'lieu' => '',

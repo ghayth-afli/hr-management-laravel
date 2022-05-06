@@ -11,8 +11,8 @@
 @endsection
 
 
-
 @section('content')
+	@include('interface_visit.layouts.header',['offre' => $offre])
 	<livewire:career /> 
 @endsection
 
