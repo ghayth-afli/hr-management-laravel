@@ -102,6 +102,11 @@ Route::middleware([ChangePassword::class])->group(function () {
 		// Rapport
 		Route::get('/rapport', 'RapportController@index')->name('rapport');
 	});
+
+	Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 
+		// Calendrier
+		Route::get('/calendrier', 'CalendarController@index')->name('calendrier');
+	});
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\InterfaceVisiteur'], function (){ 
