@@ -16,18 +16,18 @@ class CreateRecrutementsTable extends Migration
         Schema::create('recrutements', function (Blueprint $table) {
             $table->id();
             $table->string('poste');
-            $table->integer('nbr_poste');
-            $table->string('lieu');
-            $table->string('type');
-            $table->integer('experience');
-            $table->string('niveau_etude');
-            $table->string('langue');
+            $table->integer('nbr_poste')->nullable();
+            $table->string('lieu')->nullable();
+            $table->string('type')->nullable();
+            $table->integer('experience')->nullable();
+            $table->string('niveau_etude')->nullable();
+            $table->string('langue')->nullable();
             $table->char('genre');
-            $table->text('description');
-            $table->text('exigences');
-            $table->date('date_expiration');
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('departement_id')->constrained();
+            $table->text('description')->nullable();
+            $table->text('exigences')->nullable();
+            $table->date('date_expiration')->nullable()->nullable();
+            $table->foreignId('user_id')->constrained()->nullable();
+            $table->foreignId('departement_id')->constrained()->nullable();
             $table->timestamps();
         });
     }

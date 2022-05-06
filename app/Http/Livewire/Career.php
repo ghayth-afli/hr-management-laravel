@@ -16,7 +16,8 @@ class Career extends Component
     {
         return view('livewire.career',[
             'departements'=>Departement::all(),
-            'recrutements'=>Recrutement::when($this->Type, function ($query) {
+            'recrutements'=>Recrutement::where('departement_id' ,'!=', 0)
+                    ->when($this->Type, function ($query) {
                             $query->where('type', $this->Type);})
                     ->when($this->Departement, function ($query) {
                             $query->where('departement_id', $this->Departement);})

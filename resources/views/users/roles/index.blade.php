@@ -67,7 +67,7 @@
                     <small class="fw-bolder">Edit Role</small>
                 </a>
                 </div>
-                <a href="javascript:void(0);" class="text-body"><i data-feather="copy" class="font-medium-5"></i></a>
+                <a href="{{ route('role.destroy', $role->id) }}" class="text-body"><i data-feather="delete" class="font-medium-5"></i></a>
             </div>
             </div>
         </div>
