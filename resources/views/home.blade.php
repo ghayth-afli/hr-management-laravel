@@ -144,7 +144,7 @@
                                       @if($entretien->date > Carbon\Carbon::now())
                                         <tr>
                                             <td>
-                                                <i data-feather="check-circle"></i>
+                                                <i data-feather='circle'></i>
                                                 <span class="fw-bold">&emsp;{{$entretien->designation}}</span>
                                             </td>
                                             <td>{{$entretien->date}}</td>
