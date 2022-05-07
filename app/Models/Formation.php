@@ -14,7 +14,7 @@ class Formation extends Model
         'candidat_id', 
         'ecole',
         'diplome',
-        'domaine',
+        'section',
         'date_debut',
         'date_fin',
     ];

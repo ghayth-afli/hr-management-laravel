@@ -18,7 +18,7 @@ class CreateFormationsTable extends Migration
             $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
             $table->string('ecole');
             $table->string('diplome');
-            $table->string('domaine');
+            $table->string('section');
             $table->date('date_debut');
             $table->date('date_fin');
             $table->timestamps();

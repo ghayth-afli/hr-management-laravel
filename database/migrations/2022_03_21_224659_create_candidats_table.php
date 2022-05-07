@@ -23,6 +23,8 @@ class CreateCandidatsTable extends Migration
             $table->text('adresse');
             $table->text('profil_candidat');
             $table->String('langue');
+            $table->integer('nb_experience');
+            $table->String('sexe');
             $table->String('etat')->default('En cours de traitement');
             $table->text('photo');
             $table->foreignId('recrutement_id')->constrained()->onDelete('cascade');

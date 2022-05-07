@@ -17,7 +17,8 @@ class Candidat extends Model
     protected $fillable = [
         'nom', 
         'titre_pro', 
-        'email', 
+        'email',
+        'sexe', 
         'linkedin', 
         'tel', 
         'adresse', 
@@ -25,6 +26,7 @@ class Candidat extends Model
         'langue', 
         'photo', 
         'etat',
+        'nb_experience',
         'recrutement_id'
     ];
 

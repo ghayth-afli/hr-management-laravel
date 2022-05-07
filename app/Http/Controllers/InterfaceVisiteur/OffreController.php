@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Recrutement;
 use App\Models\Candidat;
 use App\Models\Notification;
-
+use Carbon\Carbon;
 class OffreController extends Controller
 {
     public function __construct() {
@@ -94,6 +94,7 @@ class OffreController extends Controller
         $req = $request->validate([
             'photo' => 'required',
             'nom' => 'required',
+            'sexe' => 'required',
             'titre_pro' => 'required',
             'email' => 'required|string|email|max:255',
             'tel' => 'required',
@@ -124,6 +125,7 @@ class OffreController extends Controller
 
             'photo.required' => 'ce champ doit obligatoirement être rempli',
             'nom.required' => 'ce champ doit obligatoirement être rempli',
+            'sexe.required' => 'ce champ doit obligatoirement être rempli',
             'titre_pro.required' => 'ce champ doit obligatoirement être rempli',
             'email.required' => 'ce champ doit obligatoirement être rempli en respectant le format',
             'tel.required' => 'ce champ doit obligatoirement être rempli',
@@ -155,16 +157,28 @@ class OffreController extends Controller
         $photo = time() . $request->nom . '.' . $request->file('photo')->extension();
         $request->file('photo')->move(public_path('images\cvPhoto'),$photo);
 
+        //calulate experience
+        $nb_exp = 0;
+        for ($i = 0; $i < count($request->titre); $i++) {
+
+                $date_debut = Carbon::parse($request->date_debExp[$i]);
+                $date_fin =  Carbon::parse($request->date_finExp[$i]);
+                $nb_exp += $date_debut->diffInYears($date_fin);
+        }
+
         //Store candidate
         $candidat = Candidat::create([
             'nom' => request('nom'),
+            'sexe' => request('sexe'),
             'titre_pro' => request('titre_pro'),
             'email' => request('email'),
             'linkedin' => request('linkedin'),
             'tel' => request('tel'),
             'adresse' => request('adresse'),
             'profil_candidat' => request('profil'),
+            'sexe' => request('sexe'),
             'langue' => request('langue'),
+            'nb_experience' => $nb_exp,
             'photo' => $photo,
             'recrutement_id' => request('recrutement_id'),
         ]);
@@ -174,7 +188,7 @@ class OffreController extends Controller
 
             $candidat->formations()->create([
                 'ecole' => $request->ecole[$i],
-                'domaine' => $request->domaine[$i],
+                'section' => $request->domaine[$i],
                 'diplome' => $request->diplome[$i],
                 'date_fin' => $request->date_fin[$i],
                 'date_debut' => $request->date_deb[$i],

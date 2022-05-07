@@ -55,7 +55,7 @@
                         <div class="card-body">
                             <div class="item-wrapper">
                                 <div>
-                                    <h6 class="item-price"><span class="badge bg-secondary">#Experiences : 4 ans</span></h6>
+                                    <h6 class="item-price"><span class="badge bg-secondary">#Experiences : {{$Candidat->nb_experience}} ans</span></h6>
                                     <h6 class="item-name">
                                         <a class="text-body" href="{{ route('candidat.show', $Candidat->id) }}" target="_blank">{{$Candidat->nom}}</a>
                                         <span class="card-text item-company"><a class="company-name">{{$Candidat->titre_pro}}</a></span>
@@ -94,8 +94,8 @@
                     <div class="col-sm-12">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center mt-2">
-                                @if($NbPage >= 2)
-                                    @for ($x = 0; $x <= $NbPage; $x++) {
+                                @if(count($Candidats)/6 >= 2)
+                                    @for ($x = 0; $x <= count($Candidats)/6; $x++) {
                                         <li class="page-item"><a class="page-link" href="#">$x</a></li>
                                     @endfor
                                 @endif
@@ -120,12 +120,13 @@
                     <div class="card-body">
                         <!-- Formation Filter starts -->
                         <div class="multi-range-price">
-                            <h6 class="filter-title mt-0">Formation :</h6>
+                            <h6 class="filter-title mt-0">Ecole:</h6>
                             <ul class="list-unstyled price-range" id="price-range">
                                 <select class="form-select" id="basicSelect">
-                                    <option>IT</option>
-                                    <option>Blade Runner</option>
-                                    <option>Thor Ragnarok</option>
+                                    <option>Tout</option>
+                                    @foreach($ecoles as $ecole)
+                                        <option>{{$ecole->ecole}}</option>
+                                    @endforeach
                                 </select>
                             </ul>
                         </div>
@@ -133,12 +134,28 @@
 
                         <!-- Etat Starts -->
                         <div id="product-categories">
+                            <h6 class="filter-title">Section de formation :</h6>
+                            <ul class="list-unstyled categories-list">
+                                <select class="form-select" id="basicSelect">
+                                    <option>Tout</option>
+                                    @foreach($sections as $section)
+                                        <option>{{$section->domaine}}</option>
+                                    @endforeach
+                                </select>
+                            </ul>
+                        </div>
+                        <!-- Etat Ends -->
+                         
+
+                        <!-- Etat Starts -->
+                        <div id="product-categories">
                             <h6 class="filter-title">Etat :</h6>
                             <ul class="list-unstyled categories-list">
                                 <select class="form-select" id="basicSelect">
-                                    <option>IT</option>
-                                    <option>Blade Runner</option>
-                                    <option>Thor Ragnarok</option>
+                                    <option>Tout</option>
+                                    @foreach($etats as $etat)
+                                        <option>{{$etat->adresse}}</option>
+                                    @endforeach
                                 </select>
                             </ul>
                         </div>
@@ -156,60 +173,18 @@
                         </div>
                         <!-- Expérience Ends -->
 
-                        <!-- Age starts -->
-                        <div class="brands">
-                            <h6 class="filter-title">Age :</h6>
-                            <ul class="list-unstyled brand-list">
-                                <li>
-                                    <div class="form-check">
-                                        <input type="radio" id="priceAll" name="price-range" class="form-check-input" checked />
-                                        <label class="form-check-label" for="priceAll">All</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input type="radio" id="priceRange1" name="price-range" class="form-check-input" />
-                                        <label class="form-check-label" for="priceRange1">&lt;=$10</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Age ends -->
-
                         <!-- Sexe starts -->
                         <div class="brands">
                             <h6 class="filter-title">Sexe :</h6>
                             <ul class="list-unstyled brand-list">
                                 <select class="form-select" id="basicSelect">
-                                    <option>IT</option>
-                                    <option>Blade Runner</option>
-                                    <option>Thor Ragnarok</option>
+                                    <option>Indifférent</option>
+                                    <option>Homme</option>
+                                    <option>Femme</option>
                                 </select>
                             </ul>
                         </div>
                         <!-- Sexe ends -->
-
-                        <!-- langues starts -->
-                        <div class="brands">
-                            <h6 class="filter-title">Langues :</h6>
-                            <ul class="list-unstyled brand-list">
-                                <li>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="productBrand1" />
-                                        <label class="form-check-label" for="productBrand1">Insignia™</label>
-                                    </div>
-                                    <span>746</span>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="productBrand2" checked />
-                                        <label class="form-check-label" for="productBrand2">Samsung</label>
-                                    </div>
-                                    <span>633</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- langues ends -->
 
                         <!-- Clear Filters Starts -->
                         <div id="clear-filters">

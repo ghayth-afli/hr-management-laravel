@@ -161,6 +161,25 @@
 															</div>
 															<div class="col-xl-12 col-lg-12">
 																<div class="form-group">
+																	<label class="text-dark ft-medium">Sexe</label>
+																	<select class="form-control rounded" id="basicSelect" name="sexe">
+																		<option value='Homme'>Homme</option>
+																		<option value='Femme'>Femme</option>
+																	</select>																
+																</div>
+																@if($errors->has('sexe'))
+																	<div class="demo-spacing-0">
+																		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+																			<div class="alert-body d-flex align-items-center">
+																				<i data-feather="info" class="me-50"></i>
+																				<span>{{ $errors->first('sexe') }}</span>
+																			</div>
+																		</div>
+																	</div>
+																@endif
+															</div>
+															<div class="col-xl-12 col-lg-12">
+																<div class="form-group">
 																	<label class="text-dark ft-medium">Langue(s)</label>
 																	<input type="text" class="form-control rounded"  placeholder="Ex : Fr" name="langue" required>
 																</div>
