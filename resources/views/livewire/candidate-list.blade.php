@@ -122,10 +122,10 @@
                         <div class="multi-range-price">
                             <h6 class="filter-title mt-0">Ecole:</h6>
                             <ul class="list-unstyled price-range" id="price-range">
-                                <select class="form-select" id="basicSelect">
+                                <select class="form-select" id="basicSelect"  wire:model="Ecole">
                                     <option>Tout</option>
                                     @foreach($ecoles as $ecole)
-                                        <option>{{$ecole->ecole}}</option>
+                                        <option value="{{$ecole->ecole}}">{{$ecole->ecole}}</option>
                                     @endforeach
                                 </select>
                             </ul>
@@ -136,10 +136,10 @@
                         <div id="product-categories">
                             <h6 class="filter-title">Section de formation :</h6>
                             <ul class="list-unstyled categories-list">
-                                <select class="form-select" id="basicSelect">
+                                <select class="form-select" id="basicSelect"  wire:model="Section">
                                     <option>Tout</option>
                                     @foreach($sections as $section)
-                                        <option>{{$section->domaine}}</option>
+                                        <option value="{{$section->domaine}}">{{$section->domaine}}</option>
                                     @endforeach
                                 </select>
                             </ul>
@@ -151,10 +151,10 @@
                         <div id="product-categories">
                             <h6 class="filter-title">Etat :</h6>
                             <ul class="list-unstyled categories-list">
-                                <select class="form-select" id="basicSelect">
+                                <select class="form-select" id="basicSelect"  wire:model="Etat">
                                     <option>Tout</option>
                                     @foreach($etats as $etat)
-                                        <option>{{$etat->adresse}}</option>
+                                        <option value="{{$etat->adresse}}">{{$etat->adresse}}</option>
                                     @endforeach
                                 </select>
                             </ul>
@@ -165,7 +165,7 @@
                         <div id="product-categories">
                             <h6 class="filter-title">Expérience :</h6>
                             <ul class="list-unstyled categories-list">
-                                <select class="form-select" id="basicSelect">
+                                <select class="form-select" id="basicSelect"  wire:model="Type">
                                     <option>Ordre croissant</option>
                                     <option>Ordre décroissant</option>
                                 </select>
@@ -177,7 +177,7 @@
                         <div class="brands">
                             <h6 class="filter-title">Sexe :</h6>
                             <ul class="list-unstyled brand-list">
-                                <select class="form-select" id="basicSelect">
+                                <select class="form-select" id="basicSelect"  wire:model="Type">
                                     <option>Indifférent</option>
                                     <option>Homme</option>
                                     <option>Femme</option>
