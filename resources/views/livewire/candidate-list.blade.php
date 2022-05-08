@@ -10,7 +10,7 @@
                                 <button class="navbar-toggler shop-sidebar-toggler" type="button" data-bs-toggle="collapse">
                                     <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
                                 </button>
-                                <div class="search-results">16285 résultats trouvés</div>
+                                <div class="search-results">{{count($Candidats)}} résultats trouvés</div>
                             </div>
                             <div class="view-options d-flex">
                                 <div class="btn-group" role="group">
