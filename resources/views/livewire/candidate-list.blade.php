@@ -89,6 +89,10 @@
                                 <i data-feather="send"></i>
                                 <span class="add-to-cart">Inviter</span>
                             </a>
+                            <a href="#" class="btn btn-primary1 btn-cart">
+                                <i data-feather="x"></i>
+                                <span class="add-to-cart">Refuser</span>
+                            </a>
                         </div>
                     </div>
                 @endforeach
