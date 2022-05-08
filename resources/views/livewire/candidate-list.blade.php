@@ -120,6 +120,25 @@
                     <div class="card-body">
                         <!-- Formation Filter starts -->
                         <div class="multi-range-price">
+                            <ul class="list-unstyled categories-list">
+                                <li>
+                                    <div class="form-check">
+                                    <input type="radio" id="category1" name="category-filter" class="form-check-input" checked="">
+                                    <label class="form-check-label" for="category1">Sélectionnés </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                    <input type="radio" id="category2" name="category-filter" class="form-check-input">
+                                    <label class="form-check-label" for="category2">Non sélectionnés </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Formation Filter starts -->
+
+                        <!-- Formation Filter starts -->
+                        <div class="multi-range-price">
                             <h6 class="filter-title mt-0">Ecole:</h6>
                             <ul class="list-unstyled price-range" id="price-range">
                                 <select class="form-select" id="basicSelect"  wire:model="Ecole">
@@ -165,9 +184,9 @@
                         <div id="product-categories">
                             <h6 class="filter-title">Expérience :</h6>
                             <ul class="list-unstyled categories-list">
-                                <select class="form-select" id="basicSelect"  wire:model="Type">
-                                    <option>Ordre croissant</option>
-                                    <option>Ordre décroissant</option>
+                                <select class="form-select" id="basicSelect"  wire:model="SortBy">
+                                    <option value="asc">Ordre croissant</option>
+                                    <option value="desc">Ordre décroissant</option>
                                 </select>
                             </ul>
                         </div>
@@ -177,10 +196,10 @@
                         <div class="brands">
                             <h6 class="filter-title">Sexe :</h6>
                             <ul class="list-unstyled brand-list">
-                                <select class="form-select" id="basicSelect"  wire:model="Type">
-                                    <option>Indifférent</option>
-                                    <option>Homme</option>
-                                    <option>Femme</option>
+                                <select class="form-select" id="basicSelect"  wire:model="Sexe">
+                                    <option value="">Indifférent</option>
+                                    <option value="Homme">Homme</option>
+                                    <option value="Femme">Femme</option>
                                 </select>
                             </ul>
                         </div>

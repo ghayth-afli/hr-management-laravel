@@ -12,7 +12,8 @@ class CandidateList extends Component
     public $Ecole;
     public $Etat;
     public $id_recrutement;
-    public $SortBy;
+    public $Sexe;
+    public $SortBy="desc";
     public function render()
     {
         
@@ -25,11 +26,13 @@ class CandidateList extends Component
                             ->when($this->Ecole, function ($query) {
                                 $query->where('formations.ecole', $this->Ecole);})
                             ->when($this->Etat, function ($query) {
-                                $query->where('adresse', $this->Etat);})
+                                $query->where('candidats.adresse', $this->Etat);})
+                            ->when($this->Sexe, function ($query) {
+                                $query->where('candidats.sexe', $this->Sexe);})
                             ->search(trim($this->Search))
+                            ->orderBy("candidats.nb_experience", $this->SortBy)
                             ->get()
-                            ->sortByDesc("created_at")
-                            ->orderBy("created_at", $this->SortBy),
+                            ->sortByDesc("candidats.created_at"),
                             
                         'sections' => Formation::select('section')->distinct('section')->get(),
                         'ecoles' => Formation::select('ecole')->distinct('ecole')->get(),
