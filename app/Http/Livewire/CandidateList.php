@@ -12,15 +12,16 @@ class CandidateList extends Component
     public $Ecole;
     public $Etat;
     public $id_recrutement;
+    public $SortBy;
     public function render()
     {
         
         return view('livewire.candidate-list',
                     [
                         'Candidats' => Candidat::where('recrutement_id', '=',$this->id_recrutement)
-                            ->with('formations')
+                            ->join('formations', 'candidats.id', '=', 'formations.candidat_id')
                             ->when($this->Section, function ($query) {
-                                $query->where('formations.ection', $this->Section);})
+                                $query->where('formations.section', $this->Section);})
                             ->when($this->Ecole, function ($query) {
                                 $query->where('formations.ecole', $this->Ecole);})
                             ->when($this->Etat, function ($query) {
@@ -28,7 +29,8 @@ class CandidateList extends Component
                             ->search(trim($this->Search))
                             ->get()
                             ->sortByDesc("created_at")
-                            ->take(4),
+                            ->orderBy("created_at", $this->SortBy),
+                            
                         'sections' => Formation::select('section')->distinct('section')->get(),
                         'ecoles' => Formation::select('ecole')->distinct('ecole')->get(),
                         'etats' => Candidat::select('adresse')->distinct('adresse')->get(),

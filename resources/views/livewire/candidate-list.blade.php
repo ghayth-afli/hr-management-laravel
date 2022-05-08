@@ -123,7 +123,7 @@
                             <h6 class="filter-title mt-0">Ecole:</h6>
                             <ul class="list-unstyled price-range" id="price-range">
                                 <select class="form-select" id="basicSelect"  wire:model="Ecole">
-                                    <option>Tout</option>
+                                    <option value="">Tout</option>
                                     @foreach($ecoles as $ecole)
                                         <option value="{{$ecole->ecole}}">{{$ecole->ecole}}</option>
                                     @endforeach
@@ -137,9 +137,9 @@
                             <h6 class="filter-title">Section de formation :</h6>
                             <ul class="list-unstyled categories-list">
                                 <select class="form-select" id="basicSelect"  wire:model="Section">
-                                    <option>Tout</option>
+                                    <option value="">Tout</option>
                                     @foreach($sections as $section)
-                                        <option value="{{$section->domaine}}">{{$section->domaine}}</option>
+                                        <option value="{{$section->section}}">{{$section->section}}</option>
                                     @endforeach
                                 </select>
                             </ul>
@@ -152,7 +152,7 @@
                             <h6 class="filter-title">Etat :</h6>
                             <ul class="list-unstyled categories-list">
                                 <select class="form-select" id="basicSelect"  wire:model="Etat">
-                                    <option>Tout</option>
+                                    <option value="">Tout</option>
                                     @foreach($etats as $etat)
                                         <option value="{{$etat->adresse}}">{{$etat->adresse}}</option>
                                     @endforeach
