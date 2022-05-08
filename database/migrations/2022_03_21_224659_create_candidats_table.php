@@ -27,6 +27,7 @@ class CreateCandidatsTable extends Migration
             $table->String('sexe');
             $table->String('etat')->default('En cours de traitement');
             $table->text('photo');
+            $table->boolean('selected')->default(false);
             $table->foreignId('recrutement_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

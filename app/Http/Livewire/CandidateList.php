@@ -13,6 +13,7 @@ class CandidateList extends Component
     public $Etat;
     public $id_recrutement;
     public $Sexe;
+    public $Selected;
     public $SortBy="desc";
     public function render()
     {
@@ -29,6 +30,8 @@ class CandidateList extends Component
                                 $query->where('candidats.adresse', $this->Etat);})
                             ->when($this->Sexe, function ($query) {
                                 $query->where('candidats.sexe', $this->Sexe);})
+                            ->when($this->Selected, function ($query) {
+                                $query->where('candidats.selected', $this->Selected);})
                             ->search(trim($this->Search))
                             ->orderBy("candidats.nb_experience", $this->SortBy)
                             ->get()

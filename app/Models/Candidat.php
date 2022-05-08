@@ -27,6 +27,7 @@ class Candidat extends Model
         'photo', 
         'etat',
         'nb_experience',
+        'selected',
         'recrutement_id'
     ];
 

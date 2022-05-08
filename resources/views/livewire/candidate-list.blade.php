@@ -123,14 +123,14 @@
                             <ul class="list-unstyled categories-list">
                                 <li>
                                     <div class="form-check">
-                                    <input type="radio" id="category1" name="category-filter" class="form-check-input" checked="">
+                                    <input type="radio" id="category1"  value=true name="category-filter" class="form-check-input" wire:model="Selected">
                                     <label class="form-check-label" for="category1">Sélectionnés </label>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="form-check">
-                                    <input type="radio" id="category2" name="category-filter" class="form-check-input">
-                                    <label class="form-check-label" for="category2">Non sélectionnés </label>
+                                    <input type="radio" id="category2" value=false name="category-filter" class="form-check-input" wire:model="Selected">
+                                    <label class="form-check-label" for="category2" checked="">Non sélectionnés </label>
                                     </div>
                                 </li>
                             </ul>
