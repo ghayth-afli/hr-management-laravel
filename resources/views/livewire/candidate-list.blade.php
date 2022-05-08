@@ -85,14 +85,16 @@
                                     <span>Annuler</span>
                                 </a>
                             @endif
-                            <a href="#" class="btn btn-primary btn-cart">
+                            <a class="btn btn-primary btn-cart">
                                 <i data-feather="send"></i>
                                 <span class="add-to-cart">Inviter</span>
                             </a>
-                            <a href="#" class="btn btn-primary1 btn-cart">
-                                <i data-feather="x"></i>
-                                <span class="add-to-cart">Refuser</span>
-                            </a>
+                            @if($Candidat->etat == 'En cours de traitement')
+                                <a class="btn btn-primary1 btn-cart"  wire:click=refuse({{$Candidat->id}})>
+                                    <i data-feather="x"></i>
+                                    <span class="add-to-cart">Refuser</span>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 @endforeach

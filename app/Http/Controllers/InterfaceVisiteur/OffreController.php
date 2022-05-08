@@ -8,6 +8,10 @@ use App\Models\Recrutement;
 use App\Models\Candidat;
 use App\Models\Notification;
 use Carbon\Carbon;
+use App\Models\Mail as Courrier;
+use Mail;
+use App\Mail\CandidateMailer;
+
 class OffreController extends Controller
 {
     public function __construct() {
@@ -236,6 +240,9 @@ class OffreController extends Controller
         ]);
         return redirect('/career')->with('success','Votre candidature a été envoyé!');
 
+        $mail = Courrier::where('type', '=','En cours de traitement')->first();
+
+        Mail::to($candidat->email)->send(new CandidateMailer($mail->objet,$candidat->nom,$mail->contenu));
     }
 
     /**

@@ -4,6 +4,9 @@ namespace App\Http\Livewire;
 use App\Models\Candidat; 
 use Livewire\Component;
 use App\Models\Formation;
+use App\Models\Mail as Courrier;
+use Mail;
+use App\Mail\CandidateMailer;
 
 class CandidateList extends Component
 {    
@@ -59,5 +62,18 @@ class CandidateList extends Component
                 'selected' => 0
             ]);
         }
+    }
+
+    public function refuse($id)
+    {
+        $candidat = Candidat::find($id);
+
+        $candidat->update([
+            'etat' => 'Refus de candidature'
+        ]);
+        $mail = Courrier::where('type', '=','Refus de candidature')->first();
+
+        Mail::to($candidat->email)->send(new CandidateMailer($mail->objet,$candidat->nom,$mail->contenu));
+
     }
 }
