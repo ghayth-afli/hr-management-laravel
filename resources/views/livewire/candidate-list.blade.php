@@ -74,10 +74,17 @@
                                     <h4 class="item-price"><span>Experiences :</span> 4 ans</h4>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-light btn-wishlist">
-                                <!--<i data-feather="plus"></i>-->
-                                <span>Présélection</span>
-                            </a>
+                            @if($Candidat->selected == 0)
+                                <a class="btn btn-light btn-wishlist" wire:click=select({{$Candidat->id}})>
+                                    <!--<i data-feather="plus"></i>-->
+                                    <span>Présélection</span>
+                                </a>
+                            @else
+                                <a class="btn btn-light btn-wishlist" wire:click=select({{$Candidat->id}})>
+                                    <!--<i data-feather="plus"></i>-->
+                                    <span>Annuler</span>
+                                </a>
+                            @endif
                             <a href="#" class="btn btn-primary btn-cart">
                                 <i data-feather="send"></i>
                                 <span class="add-to-cart">Inviter</span>
@@ -123,13 +130,13 @@
                             <ul class="list-unstyled categories-list">
                                 <li>
                                     <div class="form-check">
-                                    <input type="radio" id="category1"  value=true name="category-filter" class="form-check-input" wire:model="Selected">
+                                    <input type="radio" id="category1"  value=1 name="Selected" class="form-check-input" wire:model="Selected">
                                     <label class="form-check-label" for="category1">Sélectionnés </label>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="form-check">
-                                    <input type="radio" id="category2" value=false name="category-filter" class="form-check-input" wire:model="Selected">
+                                    <input type="radio" id="category2" value=0 name="Selected" class="form-check-input" wire:model="Selected">
                                     <label class="form-check-label" for="category2" checked="">Non sélectionnés </label>
                                     </div>
                                 </li>
