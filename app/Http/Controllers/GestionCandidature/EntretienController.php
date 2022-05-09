@@ -80,7 +80,8 @@ class EntretienController extends Controller
      */
     public function show($id)
     {
-        //
+        $entretiens = Entretien::find($id);
+        return view('entretien.show',['entretiens'=>$entretiens]);
     }
 
     /**
