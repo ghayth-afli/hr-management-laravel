@@ -54,11 +54,16 @@ class ChangePasswordController extends Controller
             }
             
         }
-        else{
+        if(Auth::user()->etatPassword == 'not changed'){
 
             $req = $request->validate([
                 'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
                 'password_confirmation' => 'min:6'
+            ]);
+            
+            Auth::user()->update([
+                'password' => bcrypt($request->get('password')),
+                'etatPassword' => 'changed'
             ]);
             return redirect('home');
         }
