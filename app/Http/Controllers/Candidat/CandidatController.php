@@ -10,6 +10,7 @@ use App\Models\Recrutement;
 use App\Models\Mail as Courrier;
 use Mail;
 use App\Mail\CandidateMailer;
+use App\Models\Notification;
 
 class CandidatController extends Controller
 {
@@ -66,6 +67,11 @@ class CandidatController extends Controller
 
         Mail::to($candidat->email)->send(new CandidateMailer($mail->objet,$candidat->nom,$mail->contenu));
 
+        $notification = Notification::create([
+            'content' => 'Candidat invité',
+            'source' => $candidat->id,
+            'type' => 'Candidature',
+        ]);
         return redirect('/entretien')->with('success','Invitation à été envoyé avec succès !');
     }
 

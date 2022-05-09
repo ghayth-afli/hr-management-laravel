@@ -7,6 +7,7 @@ use App\Models\Formation;
 use App\Models\Mail as Courrier;
 use Mail;
 use App\Mail\CandidateMailer;
+use App\Models\Notification;
 
 class CandidateList extends Component
 {    
@@ -75,5 +76,10 @@ class CandidateList extends Component
 
         Mail::to($candidat->email)->send(new CandidateMailer($mail->objet,$candidat->nom,$mail->contenu));
 
+        $notification = Notification::create([
+            'content' => 'Candidat refusé',
+            'source' => $candidat->id,
+            'type' => 'Candidature',
+        ]);
     }
 }

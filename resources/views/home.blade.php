@@ -205,22 +205,14 @@
                     </div>
 
                     <div class="avatar-group">
-                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="Billy Hopkins" class="avatar pull-up">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
+                      @foreach($candidats->take(6) as $candidat)
+                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="{{$candidat->nom}}" class="avatar pull-up">
+                            <img src="{{ asset("images/cvPhoto/".$candidat->photo)}}" alt="Avatar" width="33" height="33" />
                         </div>
-                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="Amy Carson" class="avatar pull-up">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" width="33" height="33" />
-                        </div>
-                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="Brandon Miles" class="avatar pull-up">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" width="33" height="33" />
-                        </div>
-                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="Daisy Weber" class="avatar pull-up">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33" height="33" />
-                        </div>
-                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="Jenny Looper" class="avatar pull-up">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33" height="33" />
-                        </div>
-                        <h6 class="align-self-center cursor-pointer ms-50 mb-0">+42</h6>
+                      @endforeach
+                        @if(count($candidats) > 6)
+                          <a href="{{route('entretien.show',$entretien->id)}}"><h6 class="align-self-center cursor-pointer ms-50 mb-0">+{{count($candidats)-6}}</h6></a>
+                        @endif
                     </div>
                 </div>
             </div>
