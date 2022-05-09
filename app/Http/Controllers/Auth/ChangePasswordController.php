@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ChangePasswordController extends Controller
 {
@@ -37,10 +38,10 @@ class ChangePasswordController extends Controller
             $req = $request->validate([
                 'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
                 'password_confirmation' => 'min:6',
-                'current_password' => 'required'
+                'current_password' => ['required']
             ]);
 
-            if (bcrypt($request->current_password) == Auth::user()->password ) {
+            if (Hash::check($request->get('current_password'), auth()->user()->password)) {
 
                 Auth::user()->update([
                     'password' => bcrypt($request->get('password')),

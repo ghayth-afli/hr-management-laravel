@@ -75,8 +75,8 @@
                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                         aria-describedby="login-password"
                       />
-                      @if ($errors->has('current_password'))
-                              <span id="login-email-error" class="error">{{ $errors->first('current_password') }}</span>
+                          @if(session()->has('alert'))
+                                  <span id="login-email-error" class="error">{{ session()->get('alert') }}</span>
                           @endif
                       <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                     </div>
