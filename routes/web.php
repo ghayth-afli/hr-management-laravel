@@ -75,7 +75,7 @@ Route::middleware([ChangePassword::class])->group(function () {
 		Route::get('{id}/candidats', 'CandidatController@index')->name('candidat');
 		Route::get('/candidats/show/{id}', 'CandidatController@show')->name('candidat.show');
 		Route::get('/candidat/{id}/planifier', 'CandidatController@planifier')->name('candidat.planifier');
-		Route::post('/candidat/{id}/inviter', 'CandidatController@inviter')->name('candidat.inviter');
+		Route::post('/candidat/inviter', 'CandidatController@inviter')->name('candidat.inviter');
 	});
 
 	Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 

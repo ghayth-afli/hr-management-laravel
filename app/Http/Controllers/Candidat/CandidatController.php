@@ -30,8 +30,9 @@ class CandidatController extends Controller
      */
     public function planifier($id)
     {
+        $entretiens = Entretien::all();
         $candidat = Candidat::find($id);
-        return view('candidat.planification',['candidat' => $candidat]);
+        return view('candidat.planification',['candidat' => $candidat,'entretiens' => $entretiens]);
     }
 
     /**
@@ -39,7 +40,7 @@ class CandidatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function inviter($id,Request $request)
+    public function inviter(Request $request)
     {
         $request->validate([
             'id_entretien' => 'required',
@@ -62,7 +63,7 @@ class CandidatController extends Controller
         $mail = Courrier::where('type', '=','Invitation d\'entretien')->first();
 
         Mail::to($candidat->email)->send(new CandidateMailer($mail->objet,$candidat->nom,$mail->contenu));
-        
+
         return redirect('/entretien')->with('success','Invitation à été envoyé avec succès !');
     }
 

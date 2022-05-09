@@ -85,7 +85,7 @@
                                     <span>Annuler</span>
                                 </a>
                             @endif
-                            <a class="btn btn-primary btn-cart">
+                            <a href="{{ route('candidat.planifier', $Candidat->id) }}" class="btn btn-primary btn-cart" target="_blank">
                                 <i data-feather="send"></i>
                                 <span class="add-to-cart">Inviter</span>
                             </a>
