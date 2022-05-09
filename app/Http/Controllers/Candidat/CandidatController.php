@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Candidat;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Candidat; 
+use App\Models\Entretien; 
+use App\Models\Mail as Courrier;
+use Mail;
+use App\Mail\CandidateMailer;
 
 class CandidatController extends Controller
 {
@@ -20,14 +24,49 @@ class CandidatController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Planifier.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function planifier($id)
     {
-        //
+        $candidat = Candidat::find($id);
+        return view('candidat.planification',['candidat' => $candidat]);
     }
+
+    /**
+     * Inviter.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function inviter($id,Request $request)
+    {
+        $request->validate([
+            'id_entretien' => 'required',
+            'id_candidat' => 'required',
+        ],[
+            'id_entretien' => 'ce champ doit obligatoirement être rempli',
+            'id_candidat' => 'ce champ doit obligatoirement être rempli',
+        ]);
+
+        $candidat = Candidat::find($request->id_candidat);
+
+        $entretien = Entretien::find($request->id_entretien);
+
+        $candidat->entretiens()->attach($entretien);
+
+        $candidat->update([
+            'etat' => 'Invitation d\'entretien'
+        ]);
+
+        $mail = Courrier::where('type', '=','Invitation d\'entretien')->first();
+
+        Mail::to($candidat->email)->send(new CandidateMailer($mail->objet,$candidat->nom,$mail->contenu));
+        
+        return redirect('/entretien')->with('success','Invitation à été envoyé avec succès !');
+    }
+
+
 
     /**
      * Store a newly created resource in storage.
