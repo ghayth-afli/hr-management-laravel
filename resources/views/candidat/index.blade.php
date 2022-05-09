@@ -24,12 +24,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-start mb-0">-----</h2>
+                            <h2 class="content-header-title float-start mb-0">Candidatures</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">-----</a></li>
-                                    <li class="breadcrumb-item"><a href="#">-----</a></li>
-                                    <li class="breadcrumb-item active">-----</li>
+                                    <li class="breadcrumb-item"><a href="index.html">Recrutement</a></li>
+                                    <li class="breadcrumb-item"><a href="#">{{$recrutement->poste}}</a></li>
+                                    <li class="breadcrumb-item active">Candidats</li>
                                 </ol>
                             </div>
                         </div>

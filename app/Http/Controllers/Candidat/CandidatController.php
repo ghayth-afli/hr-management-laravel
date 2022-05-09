@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Candidat; 
 use App\Models\Entretien; 
+use App\Models\Recrutement; 
 use App\Models\Mail as Courrier;
 use Mail;
 use App\Mail\CandidateMailer;
@@ -20,7 +21,8 @@ class CandidatController extends Controller
     public function index($id)
     {
         //$this->authorize('show-candidat', Departement::class);
-        return view('candidat.index',['id_recrutement' => $id]);
+        $recrutement = Recrutement::find($id);
+        return view('candidat.index',['id_recrutement' => $id,'recrutement' => $recrutement]);
     }
 
     /**
