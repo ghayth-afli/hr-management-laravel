@@ -62,6 +62,26 @@
               <form class="auth-login-form mt-2" method="POST" action="{{ route('changePassword.change') }}">
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="put">
+                @if(Auth::user()->etatPassword =='changed')
+                  <div class="mb-1">
+                    <label for="login-password" class="form-label">Mot de passe actuel</label>
+                    <div class="input-group input-group-merge form-password-toggle">
+                      <input
+                        type="password"
+                        class="form-control form-control-merge"
+                        id="login-password"
+                        name="current_password"
+                        tabindex="2"
+                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                        aria-describedby="login-password"
+                      />
+                      @if ($errors->has('current_password'))
+                              <span id="login-email-error" class="error">{{ $errors->first('current_password') }}</span>
+                          @endif
+                      <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                    </div>
+                  </div>
+                @endif
                 <div class="mb-1">
                   <label for="login-password" class="form-label">Nouveau mot de passe</label>
                   <div class="input-group input-group-merge form-password-toggle">

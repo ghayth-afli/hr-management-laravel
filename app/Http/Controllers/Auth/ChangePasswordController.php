@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ChangePasswordController extends Controller
 {
@@ -31,13 +32,36 @@ class ChangePasswordController extends Controller
             'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
             'password_confirmation' => 'min:6'
         ]);
+        if(Auth::user()->etatPassword == 'changed'){
 
-        Auth()->user()->update([
-            'password' => bcrypt($request->get('password')),
-            'etatPassword' => 'changed'
-        ]);
+            $req = $request->validate([
+                'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+                'password_confirmation' => 'min:6',
+                'current_password' => 'required'
+            ]);
 
-        return redirect('home');
+            if (bcrypt($request->current_password) == Auth::user()->password ) {
+
+                Auth::user()->update([
+                    'password' => bcrypt($request->get('password')),
+                    'etatPassword' => 'changed'
+                ]);
+                return redirect('home');
+            }
+            else{
+                return redirect('/changePassword')->with('alert','Mot de passe incorrect');
+            }
+            
+        }
+        else{
+
+            $req = $request->validate([
+                'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+                'password_confirmation' => 'min:6'
+            ]);
+            return redirect('home');
+        }
+
     }
 
 }
