@@ -10,7 +10,7 @@
                                 <button class="navbar-toggler shop-sidebar-toggler" type="button" data-bs-toggle="collapse">
                                     <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
                                 </button>
-                                <div class="search-results">{{count($Candidats)/2}} résultats trouvés</div>
+                                <div class="search-results">{{count($Candidats)}} résultats trouvés</div>
                             </div>
                             <div class="view-options d-flex">
                                 <div class="btn-group" role="group">
@@ -46,7 +46,6 @@
             <!-- E-commerce Products Starts -->
             <section id="ecommerce-products" class="grid-view">
                 @foreach($Candidats as $Candidat)
-                    @if($Candidat->id % 2 != 0)
                         <div class="card ecommerce-card">
                             <div class="item-img text-center">
                                 <a href="{{ route('candidat.show', $Candidat->id) }}" target="_blank">
@@ -97,7 +96,6 @@
                                 @endif
                             </div>
                         </div>
-                    @endif
                 @endforeach
             </section>
             <!-- E-commerce Products Ends -->
