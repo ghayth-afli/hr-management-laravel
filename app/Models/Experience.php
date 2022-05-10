@@ -17,7 +17,6 @@ class Experience extends Model
         'emplacement',
         'date_debut',
         'date_fin',
-        'taches'
     ];
 
     public function candidat()

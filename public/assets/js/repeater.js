@@ -30,3 +30,14 @@ $(document).on('click', '.btn-add2', function(e) {
     $(this).closest('.entry2').remove();
     return false;
 });
+
+$(document).on('click', '.btn-add3', function(e) {
+    e.preventDefault();
+    var controlForm = $(this).closest('.fvrduplicate3'),
+        currentEntry = $(this).parents('.entry3:first'),
+        newEntry = $(currentEntry.clone()).appendTo(controlForm);
+    newEntry.find('input').val('');
+}).on('click', '.btn-remove3', function(e) {
+    $(this).closest('.entry3').remove();
+    return false;
+});

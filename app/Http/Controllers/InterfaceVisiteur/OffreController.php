@@ -120,15 +120,6 @@ class OffreController extends Controller
             'emplacement.*' => 'required',
             'date_debExp.*' => 'required',
             'date_finExp.*' => 'required',
-            'taches.*' => 'required',
-
-            'titreProjet.*' => 'required',
-            'dateProjet.*' => 'required',
-            'description.*' => 'required',
-
-            'nomCert.*' => 'required',
-            'organisme.*' => 'required',
-            'date.*' => 'required',
 
             'competence.*' => 'required',
         ],[
@@ -155,15 +146,6 @@ class OffreController extends Controller
             'emplacement.*.required' => 'ce champ doit obligatoirement être rempli',
             'date_debExp.*.required' => 'ce champ doit obligatoirement être rempli',
             'date_finExp.*.required' => 'ce champ doit obligatoirement être rempli',
-            'taches.*.required' => 'ce champ doit obligatoirement être rempli',
-
-            'titreProjet.*.required' => 'ce champ doit obligatoirement être rempli',
-            'dateProjet.*.required' => 'ce champ doit obligatoirement être rempli',
-            'description.*.required' => 'ce champ doit obligatoirement être rempli',
-
-            'nomCert.*.required' => 'ce champ doit obligatoirement être rempli',
-            'organisme.*.required' => 'ce champ doit obligatoirement être rempli',
-            'date.*.required' => 'ce champ doit obligatoirement être rempli',
 
             'competence.*.required' => 'ce champ doit obligatoirement être rempli',
         ]);
@@ -219,32 +201,36 @@ class OffreController extends Controller
                 'emplacement' => $request->emplacement[$i],
                 'date_debut' => $request->date_debExp[$i],
                 'date_fin' => $request->date_finExp[$i],
-                'taches' => $request->taches[$i],
             ]);
 
         }
 
-        //Store candidate projects
-        for ($i = 0; $i < count($request->titreProjet); $i++) {
+        if ($request->titreProjet !=[]) {
+            //Store candidate projects
+            for ($i = 0; $i < count($request->titreProjet); $i++) {
 
-            $candidat->projets()->create([
-                'titre' => $request->titreProjet[$i],
-                'date' => $request->dateProjet[$i],
-                'description' => $request->description[$i],
-            ]);
+                $candidat->projets()->create([
+                    'titre' => $request->titreProjet[$i],
+                    'date' => $request->dateProjet[$i],
+                    'description' => $request->description[$i],
+                ]);
 
+            }
         }
+        
+        if ($request->nomCert != []) {
+            //Store candidate certifications
+            for ($i = 0; $i < count($request->nomCert); $i++) {
 
-        //Store candidate certifications
-        for ($i = 0; $i < count($request->nomCert); $i++) {
+                $candidat->certifications()->create([
+                    'nom' => $request->nomCert[$i],
+                    'organisme' => $request->organisme[$i],
+                    'date' => $request->date[$i],
+                ]);
 
-            $candidat->certifications()->create([
-                'nom' => $request->nomCert[$i],
-                'organisme' => $request->organisme[$i],
-                'date' => $request->date[$i],
-            ]);
-
+            }
         }
+        
 
         //Store candidate skills
         for ($i = 0; $i < count($request->competence); $i++) {

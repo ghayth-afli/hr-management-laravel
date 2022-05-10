@@ -411,20 +411,6 @@
 																@endif
 															</div>
 														</div>
-														<div class="form-group">
-															<label class="text-dark ft-medium">Tâches effectuées</label>
-															<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="taches[]" required></textarea>
-														</div>
-														@if($errors->has('taches.*'))
-															<div class="demo-spacing-0">
-																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-																	<div class="alert-body d-flex align-items-center">
-																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('taches.*') }}</span>
-																	</div>
-																</div>
-															</div>
-														@endif
 														<div class="col-xl-12 col-lg-12">
 															<div class="form-group">
 																<button type="button" class="btn gray ft-medium apply-btn fs-sm rounded btn-add1"><i class="fas fa-plus mr-1"></i>Ajouter une expérience</button>
@@ -442,15 +428,15 @@
 									<div class="_dashboard_content bg-white rounded mb-4">
 										<div class="_dashboard_content_header br-bottom py-3 px-3">
 											<div class="_dashboard__header_flex">
-												<h4 class="mb-0 ft-medium fs-md"><i class="fas fa-graduation-cap mr-1 theme-cl fs-sm"></i>Projet
+												<h4 class="mb-0 ft-medium fs-md"><i class="fas fa-graduation-cap mr-1 theme-cl fs-sm"></i>Projet (Optionnel)
 												</h4>	
 											</div>
 										</div>
 										
 										<div class="_dashboard_content_body py-3 px-3">
-												<div class="col-xl-12 col-lg-12 fvrduplicate2">
-													<div class="gray rounded p-3 mb-3 position-relative entry2">
-														<button type="button" class="aps-clone btn-remove2"><i class="fas fa-times"></i></button>
+												<div class="col-xl-12 col-lg-12 fvrduplicate3">
+													<div class="gray rounded p-3 mb-3 position-relative entry3">
+														<button type="button" class="aps-clone btn-remove3"><i class="fas fa-times"></i></button>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Titre</label>
 															<input type="text" class="form-control rounded" placeholder="Ecole" name="titreProjet[]" required>
@@ -501,7 +487,7 @@
 														@endif
 														<div class="col-xl-12 col-lg-12">
 															<div class="form-group">
-																<button type="button" class="btn gray ft-medium apply-btn fs-sm rounded btn-add2"><i class="fas fa-plus mr-1"></i>Ajouter une projet</button>
+																<button type="button" class="btn gray ft-medium apply-btn fs-sm rounded btn-add3"><i class="fas fa-plus mr-1"></i>Ajouter une projet</button>
 															</div>
 														</div>
 													</div>
@@ -516,7 +502,7 @@
 									<div class="_dashboard_content bg-white rounded mb-4">
 										<div class="_dashboard_content_header br-bottom py-3 px-3">
 											<div class="_dashboard__header_flex">
-												<h4 class="mb-0 ft-medium fs-md"><i class="fas fa-graduation-cap mr-1 theme-cl fs-sm"></i>Certification</h4>	
+												<h4 class="mb-0 ft-medium fs-md"><i class="fas fa-graduation-cap mr-1 theme-cl fs-sm"></i>Certification (Optionnel)</h4>	
 											</div>
 										</div>
 										

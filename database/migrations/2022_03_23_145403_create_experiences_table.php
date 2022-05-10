@@ -21,7 +21,6 @@ class CreateExperiencesTable extends Migration
             $table->string('emplacement');
             $table->date('date_debut');
             $table->date('date_fin');
-            $table->text('taches');
             $table->timestamps();
         });
     }
