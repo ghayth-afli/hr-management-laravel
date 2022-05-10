@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Recrutement;
 use App\Models\Candidat;
 use App\Models\Notification;
+use App\Models\Projet;
+
 use Carbon\Carbon;
 use App\Models\Mail as Courrier;
 use Mail;
@@ -120,6 +122,10 @@ class OffreController extends Controller
             'date_finExp.*' => 'required',
             'taches.*' => 'required',
 
+            'titreProjet.*' => 'required',
+            'dateProjet.*' => 'required',
+            'description.*' => 'required',
+
             'nomCert.*' => 'required',
             'organisme.*' => 'required',
             'date.*' => 'required',
@@ -150,6 +156,10 @@ class OffreController extends Controller
             'date_debExp.*.required' => 'ce champ doit obligatoirement être rempli',
             'date_finExp.*.required' => 'ce champ doit obligatoirement être rempli',
             'taches.*.required' => 'ce champ doit obligatoirement être rempli',
+
+            'titreProjet.*.required' => 'ce champ doit obligatoirement être rempli',
+            'dateProjet.*.required' => 'ce champ doit obligatoirement être rempli',
+            'description.*.required' => 'ce champ doit obligatoirement être rempli',
 
             'nomCert.*.required' => 'ce champ doit obligatoirement être rempli',
             'organisme.*.required' => 'ce champ doit obligatoirement être rempli',
@@ -210,6 +220,17 @@ class OffreController extends Controller
                 'date_debut' => $request->date_debExp[$i],
                 'date_fin' => $request->date_finExp[$i],
                 'taches' => $request->taches[$i],
+            ]);
+
+        }
+
+        //Store candidate projects
+        for ($i = 0; $i < count($request->titreProjet); $i++) {
+
+            $candidat->projets()->create([
+                'titre' => $request->titreProjet[$i],
+                'date' => $request->dateProjet[$i],
+                'description' => $request->description[$i],
             ]);
 
         }

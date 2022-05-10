@@ -6,6 +6,7 @@ use App\Models\Cv;
 use App\Models\Experience;
 use App\Models\Competance;
 use App\Models\Entretien;
+use App\Models\Projet;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -54,6 +55,11 @@ class Candidat extends Model
     public function certifications()
     {
         return $this->hasMany(Certification::class);
+    }
+
+    public function projets()
+    {
+        return $this->hasMany(Projet::class);
     }
 
     public function competances()

@@ -453,14 +453,14 @@
 														<button type="button" class="aps-clone btn-remove2"><i class="fas fa-times"></i></button>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Titre</label>
-															<input type="text" class="form-control rounded" placeholder="Ecole" name="titre[]" required>
+															<input type="text" class="form-control rounded" placeholder="Ecole" name="titreProjet[]" required>
 														</div>
-														@if($errors->has('titre.*'))
+														@if($errors->has('titreProjet.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('titre.*') }}</span>
+																		<span>{{ $errors->first('titreProjet.*') }}</span>
 																	</div>
 																</div>
 															</div>
@@ -470,14 +470,14 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Date</label>
-																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date[]" required>
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="dateProjet[]" required>
 																</div>
-																@if($errors->has('date.*'))
+																@if($errors->has('dateProjet.*'))
 																	<div class="demo-spacing-0">
 																		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																			<div class="alert-body d-flex align-items-center">
 																				<i data-feather="info" class="me-50"></i>
-																				<span>{{ $errors->first('date.*') }}</span>
+																				<span>{{ $errors->first('dateProjet.*') }}</span>
 																			</div>
 																		</div>
 																	</div>
@@ -487,14 +487,14 @@
 														</div>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Description</label>
-															<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="descriptions[]" required></textarea>
+															<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="description[]" required></textarea>
 														</div>
-														@if($errors->has('descriptions.*'))
+														@if($errors->has('description.*'))
 															<div class="demo-spacing-0">
 																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
 																	<div class="alert-body d-flex align-items-center">
 																		<i data-feather="info" class="me-50"></i>
-																		<span>{{ $errors->first('descriptions.*') }}</span>
+																		<span>{{ $errors->first('description.*') }}</span>
 																	</div>
 																</div>
 															</div>

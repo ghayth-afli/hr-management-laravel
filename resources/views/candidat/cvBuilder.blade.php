@@ -250,6 +250,29 @@
               @endforeach
             </div>
           </section>
+          <!-- projet -->
+          <section class="education section" id="education">
+            <h2 class="section-title">Projet</h2>
+
+            <div class="education__container bd-grid">
+              @foreach($candidat->projets->sortByDesc("date") as $projet)
+                <div class="education__content">
+                  <div class="education__time">
+                    <span class="education__rounder"></span>
+                    <span class="education__line"></span>
+                  </div>
+
+                  <div class="education__data bd-grid">
+                    <h3 class="education__title">
+                      {{$projet->titre}}
+                    </h3>
+                    <span class="education__year">{{ Carbon\Carbon::parse($projet->date)->format('m-Y') }}</span>
+                    <span class="education__studies">{{$projet->description}}</span>
+                  </div>
+                </div>
+              @endforeach
+            </div>
+          </section>
           <!-- CERTIFICATES -->
           <section class="certificate section" id="certificates">
             <h2 class="section-title">Certificates</h2>
