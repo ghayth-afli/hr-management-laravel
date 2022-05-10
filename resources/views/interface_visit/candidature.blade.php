@@ -439,7 +439,7 @@
 														<button type="button" class="aps-clone btn-remove3"><i class="fas fa-times"></i></button>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Titre</label>
-															<input type="text" class="form-control rounded" placeholder="Ecole" name="titreProjet[]" required>
+															<input type="text" class="form-control rounded" placeholder="Ecole" name="titreProjet[]">
 														</div>
 														@if($errors->has('titreProjet.*'))
 															<div class="demo-spacing-0">
@@ -456,7 +456,7 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Date</label>
-																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="dateProjet[]" required>
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="dateProjet[]" >
 																</div>
 																@if($errors->has('dateProjet.*'))
 																	<div class="demo-spacing-0">
@@ -473,7 +473,7 @@
 														</div>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Description</label>
-															<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="description[]" required></textarea>
+															<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="description[]" ></textarea>
 														</div>
 														@if($errors->has('description.*'))
 															<div class="demo-spacing-0">
@@ -512,7 +512,7 @@
 														<button type="button" class="aps-clone btn-remove1"><i class="fas fa-times"></i></button>
 														<div class="form-group">
 															<label class="text-dark ft-medium">Nom</label>
-															<input type="text" class="form-control rounded" placeholder="Nom" name="nomCert[]" required>
+															<input type="text" class="form-control rounded" placeholder="Nom" name="nomCert[]">
 														</div>
 														@if($errors->has('nomCert.*'))
 															<div class="demo-spacing-0">
@@ -526,7 +526,7 @@
 														@endif
 														<div class="form-group">
 															<label class="text-dark ft-medium">Organisme émetteur</label>
-															<input type="text" class="form-control rounded" placeholder="Organisme émetteur" name="organisme[]" required>
+															<input type="text" class="form-control rounded" placeholder="Organisme émetteur" name="organisme[]">
 														</div>
 														@if($errors->has('organisme.*'))
 															<div class="demo-spacing-0">
@@ -542,7 +542,7 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label class="text-dark ft-medium">Date d'émission</label>
-																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date[]" required>
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date[]">
 																</div>
 																@if($errors->has('date.*'))
 																	<div class="demo-spacing-0">
