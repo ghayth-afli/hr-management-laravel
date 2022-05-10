@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\ChangePassword;
+use App\Http\Controllers\GestionCandidature\CalendarController;
 
 Auth::routes();
 //Change Password
@@ -107,7 +108,10 @@ Route::middleware([ChangePassword::class])->group(function () {
 
 	Route::group(['namespace' => 'App\Http\Controllers\GestionCandidature'], function (){ 
 		// Calendrier
-		Route::get('/calendrier', 'CalendarController@index')->name('calendrier');
+		Route::get('/calendar/index', 'CalendarController@index')->name('calendrier');
+		Route::post('calendar', 'CalendarController@store')->name('calendar.store');
+		Route::patch('calendar/update/{id}', 'CalendarController@update')->name('calendar.update');
+		Route::delete('calendar/destroy/{id}', 'CalendarController@destroy')->name('calendar.destroy');
 	});
 });
 

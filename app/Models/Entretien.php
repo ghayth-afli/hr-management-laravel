@@ -12,10 +12,10 @@ class Entretien extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom', 
-        'designation',
+        'title', 
+        'start_date',
+        'end_date',
         'time',
-        'date',
     ];
 
     public function user ()

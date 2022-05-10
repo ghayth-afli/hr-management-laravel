@@ -436,6 +436,80 @@
 									</div>
 								</div>	
 							</div>
+							<!-- Projet -->
+							<div class="row">
+								<div class="col-lg-12 col-md-12">
+									<div class="_dashboard_content bg-white rounded mb-4">
+										<div class="_dashboard_content_header br-bottom py-3 px-3">
+											<div class="_dashboard__header_flex">
+												<h4 class="mb-0 ft-medium fs-md"><i class="fas fa-graduation-cap mr-1 theme-cl fs-sm"></i>Projet
+												</h4>	
+											</div>
+										</div>
+										
+										<div class="_dashboard_content_body py-3 px-3">
+												<div class="col-xl-12 col-lg-12 fvrduplicate2">
+													<div class="gray rounded p-3 mb-3 position-relative entry2">
+														<button type="button" class="aps-clone btn-remove2"><i class="fas fa-times"></i></button>
+														<div class="form-group">
+															<label class="text-dark ft-medium">Titre</label>
+															<input type="text" class="form-control rounded" placeholder="Ecole" name="titre[]" required>
+														</div>
+														@if($errors->has('titre.*'))
+															<div class="demo-spacing-0">
+																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+																	<div class="alert-body d-flex align-items-center">
+																		<i data-feather="info" class="me-50"></i>
+																		<span>{{ $errors->first('titre.*') }}</span>
+																	</div>
+																</div>
+															</div>
+														@endif
+														
+														<div class="form-row">
+															<div class="col-6">
+																<div class="form-group">
+																	<label class="text-dark ft-medium">Date</label>
+																	<input type="date" class="form-control rounded" placeholder="dd-mm-yyyy" name="date[]" required>
+																</div>
+																@if($errors->has('date.*'))
+																	<div class="demo-spacing-0">
+																		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+																			<div class="alert-body d-flex align-items-center">
+																				<i data-feather="info" class="me-50"></i>
+																				<span>{{ $errors->first('date.*') }}</span>
+																			</div>
+																		</div>
+																	</div>
+																@endif
+															</div>
+															
+														</div>
+														<div class="form-group">
+															<label class="text-dark ft-medium">Description</label>
+															<textarea class="form-control ht-80" placeholder="Tâches effectuées" name="descriptions[]" required></textarea>
+														</div>
+														@if($errors->has('descriptions.*'))
+															<div class="demo-spacing-0">
+																<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+																	<div class="alert-body d-flex align-items-center">
+																		<i data-feather="info" class="me-50"></i>
+																		<span>{{ $errors->first('descriptions.*') }}</span>
+																	</div>
+																</div>
+															</div>
+														@endif
+														<div class="col-xl-12 col-lg-12">
+															<div class="form-group">
+																<button type="button" class="btn gray ft-medium apply-btn fs-sm rounded btn-add2"><i class="fas fa-plus mr-1"></i>Ajouter une projet</button>
+															</div>
+														</div>
+													</div>
+												</div>
+										</div>
+									</div>
+								</div>	
+							</div>	
 							<!-- Certification -->
 							<div class="row">
 								<div class="col-lg-12 col-md-12">
@@ -508,7 +582,6 @@
 									</div>
 								</div>	
 							</div>
-							
 							<!-- Compétences -->
 							<div class="row">
 								<div class="col-lg-12 col-md-12">

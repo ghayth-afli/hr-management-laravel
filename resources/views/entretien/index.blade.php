@@ -40,13 +40,13 @@
                                     </thead>
                                     <tbody>
                                         @foreach($entretiens as $entretien)
-                                            @if($entretien->date < Carbon\Carbon::now())
+                                            @if($entretien->date > Carbon\Carbon::now())
                                                 <tr>
                                                     <td>
                                                         <i data-feather='check-circle'></i>
-                                                        <span class="fw-bold">&emsp;{{$entretien->designation}}</span>
+                                                        <span class="fw-bold">&emsp;{{$entretien->title}}</span>
                                                     </td>
-                                                    <td>{{$entretien->date}}</td>
+                                                    <td>{{$entretien->start_date}}</td>
                                                     <td><span class="badge rounded-pill badge-light-primary me-1">{{$entretien->time}}</span></td>
                                                     <td>
                                                         <a href ="{{route('entretien.edit',$entretien->id)}}"><i data-feather="edit-2" class="me-50"></i></a>
@@ -57,13 +57,13 @@
                                                 </tr>
                                             @endif
 
-                                            @if($entretien->date >= Carbon\Carbon::now())
+                                            @if($entretien->date <= Carbon\Carbon::now())
                                                 <tr>
                                                     <td>
                                                         <i data-feather='circle'></i>
-                                                        <span class="fw-bold">&emsp;{{$entretien->designation}}</span>
+                                                        <span class="fw-bold">&emsp;{{$entretien->title}}</span>
                                                     </td>
-                                                    <td>{{$entretien->date}}</td>
+                                                    <td>{{$entretien->start_date}}</td>
                                                     <td><span class="badge rounded-pill badge-light-primary me-1">{{$entretien->time}}</span></td>
                                                     <td>
                                                         <a href ="{{route('entretien.edit',$entretien->id)}}"><i data-feather="edit-2" class="me-50"></i></a>

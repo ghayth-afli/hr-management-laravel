@@ -56,9 +56,10 @@ class EntretienController extends Controller
 
         
         $entretien = Entretien::create([
-        'designation' => request('designation'),
+        'title' => request('designation'),
         'time' => request('time'),
-        'date' => request('date'),
+        'start_date' => request('date'),
+        'end_date' => request('date'),
         ]);
 
         $notification = Notification::create([
@@ -120,9 +121,10 @@ class EntretienController extends Controller
 
         
         $entretien->update([
-        'designation' => request('designation'),
-        'time' => request('time'),
-        'date' => request('date'),
+            'title' => request('designation'),
+            'time' => request('time'),
+            'start_date' => request('date'),
+            'end_date' => request('date'),
         ]);
 
         $notification = Notification::create([
