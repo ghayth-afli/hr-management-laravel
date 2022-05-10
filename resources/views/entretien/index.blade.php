@@ -40,7 +40,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($entretiens as $entretien)
-                                            @if($entretien->date > Carbon\Carbon::now())
+                                            @if($entretien->start_date < Carbon\Carbon::now())
                                                 <tr>
                                                     <td>
                                                         <i data-feather='check-circle'></i>
@@ -57,7 +57,7 @@
                                                 </tr>
                                             @endif
 
-                                            @if($entretien->date <= Carbon\Carbon::now())
+                                            @if($entretien->start_date >= Carbon\Carbon::now())
                                                 <tr>
                                                     <td>
                                                         <i data-feather='circle'></i>

@@ -141,13 +141,13 @@
                                 </thead>
                                 <tbody>
                                     @foreach($entretiens as $entretien) 
-                                      @if($entretien->date > Carbon\Carbon::now())
+                                      @if($entretien->start_date > Carbon\Carbon::now())
                                         <tr>
                                             <td>
                                                 <i data-feather='circle'></i>
-                                                <span class="fw-bold">&emsp;{{$entretien->designation}}</span>
+                                                <span class="fw-bold">&emsp;{{$entretien->title}}</span>
                                             </td>
-                                            <td>{{$entretien->date}}</td>
+                                            <td>{{$entretien->start_date}}</td>
                                             <td>
                                                 <div class="avatar-group">
                                                   @foreach($entretien->candidats as $candidat)
@@ -186,7 +186,7 @@
                             <h3 class="mb-0">{{Carbon\Carbon::parse($entretien->date)->translatedFormat('d')}}</h3>
                         </div>
                         <div class="my-auto">
-                            <h4 class="card-title mb-25">{{$entretien->designation}}</h4>
+                            <h4 class="card-title mb-25">{{$entretien->title}}</h4>
                         </div>
                     </div>
                     <div class="mt-0">
@@ -205,7 +205,7 @@
                     </div>
 
                     <div class="avatar-group">
-                      @foreach($candidats->take(6) as $candidat)
+                      @foreach($entretien->candidats->take(6) as $candidat)
                         <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="{{$candidat->nom}}" class="avatar pull-up">
                             <img src="{{ asset("images/cvPhoto/".$candidat->photo)}}" alt="Avatar" width="33" height="33" />
                         </div>
