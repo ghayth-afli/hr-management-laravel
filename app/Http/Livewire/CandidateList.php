@@ -38,8 +38,7 @@ class CandidateList extends Component
                                 $query->where('candidats.sexe', $this->Sexe);})
                             ->search(trim($this->Search))
                             ->orderBy("candidats.nb_experience", $this->SortBy)
-                            ->get()
-                            ->sortByDesc("candidats.created_at"),
+                            ->get(),
                             
                         'sections' => Formation::select('section')->distinct('section')->get(),
                         'ecoles' => Formation::select('ecole')->distinct('ecole')->get(),
