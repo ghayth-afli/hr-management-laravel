@@ -182,11 +182,11 @@
                 <div class="card-body">
                     <div class="meetup-header d-flex align-items-center">
                         <div class="meetup-day">
-                            <h6 class="mb-0">{{Carbon\Carbon::parse($entretien->date)->translatedFormat('D')}}</h6>
-                            <h3 class="mb-0">{{Carbon\Carbon::parse($entretien->date)->translatedFormat('d')}}</h3>
+                            <h6 class="mb-0">{{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('D')}}</h6>
+                            <h3 class="mb-0">{{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('d')}}</h3>
                         </div>
                         <div class="my-auto">
-                            <h4 class="card-title mb-25">{{$entretien->title}}</h4>
+                            <h4 class="card-title mb-25">{{$entre[0]->title}}</h4>
                         </div>
                     </div>
                     <div class="mt-0">
@@ -197,15 +197,15 @@
                         </div>
                         <div class="more-info">
                             <h6 class="mb-0">
-                                {{Carbon\Carbon::parse($entretien->date)->translatedFormat('D')}} {{Carbon\Carbon::parse($entretien->date)->translatedFormat('d')}} {{Carbon\Carbon::parse($entretien->date)->translatedFormat('M')}}
-                                {{Carbon\Carbon::parse($entretien->date)->Format('y')}}
+                                {{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('D')}} {{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('d')}} {{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('M')}}
+                                {{Carbon\Carbon::parse($entre[0]->start_date)->Format('y')}}
                             </h6>
-                            <small>{{$entretien->time}}</small>
+                            <small>{{$entre[0]->time}}</small>
                         </div>
                     </div>
 
                     <div class="avatar-group">
-                      @foreach($entretien->candidats->take(6) as $candidat)
+                      @foreach($entre[0]->candidats->take(6) as $candidat)
                         <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="{{$candidat->nom}}" class="avatar pull-up">
                             <img src="{{ asset("images/cvPhoto/".$candidat->photo)}}" alt="Avatar" width="33" height="33" />
                         </div>
