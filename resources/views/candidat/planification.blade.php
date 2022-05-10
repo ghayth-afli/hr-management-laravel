@@ -66,7 +66,7 @@
                                                 <div class="mb-1">
                                                     <select class="form-select" id="genre" name="id_entretien">
                                                         @foreach($entretiens as $entretien)
-                                                            <option value="{{$entretien->id}}">{{$entretien->designation}}</option>
+                                                            <option value="{{$entretien->id}}">{{$entretien->title}}</option>
                                                         @endforeach
                                                     </select>
                                                     @if($errors->has('id_entretien'))
