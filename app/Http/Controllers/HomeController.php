@@ -35,7 +35,7 @@ class HomeController extends Controller
         $candidatsRefusé = Candidat::where('etat', '=', 'Refus de candidature')->get();
         $departements = Departement::all();
         $entretiens = Entretien::all();
-        $entretien = Entretien::all()->where('start_date', '>', Carbon::now())->sortByDesc("start_date")->take(1);
+        $entretien = Entretien::where('start_date', '>', Carbon::now())->get()->sortBy("start_date")->take(1);
         
         return view('home', ['recrutements' =>  $recrutements,
             'candidats' =>  $candidats,
@@ -43,7 +43,7 @@ class HomeController extends Controller
             'candidatsAccepté' =>  $candidatsAccepté,
             'candidatsRefusé' =>  $candidatsRefusé,
             'entretiens' =>  $entretiens,
-            'entre' =>  $entretien,
+            'entres' =>  $entretien,
             'users' =>  $users]);       
     }
 }

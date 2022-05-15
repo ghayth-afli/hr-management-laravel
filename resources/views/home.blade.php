@@ -174,49 +174,51 @@
         </div>
         <!--/ Company Table Card -->
         <!-- Developer Meetup Card -->
-        <div class="col-lg-4 col-md-6 col-12">
-            <div class="card card-developer-meetup">
-                <div class="meetup-img-wrapper rounded-top text-center">
-                    <img src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/illustration/email.svg" alt="Meeting Pic" height="170" />
-                </div>
-                <div class="card-body">
-                    <div class="meetup-header d-flex align-items-center">
-                        <div class="meetup-day">
-                            <h6 class="mb-0">{{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('D')}}</h6>
-                            <h3 class="mb-0">{{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('d')}}</h3>
-                        </div>
-                        <div class="my-auto">
-                            <h4 class="card-title mb-25">{{$entre[0]->title}}</h4>
-                        </div>
-                    </div>
-                    <div class="mt-0">
-                        <div class="avatar float-start bg-light-primary rounded me-1">
-                            <div class="avatar-content">
-                                <i data-feather="calendar" class="avatar-icon font-medium-3"></i>
-                            </div>
-                        </div>
-                        <div class="more-info">
-                            <h6 class="mb-0">
-                                {{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('D')}} {{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('d')}} {{Carbon\Carbon::parse($entre[0]->start_date)->translatedFormat('M')}}
-                                {{Carbon\Carbon::parse($entre[0]->start_date)->Format('y')}}
-                            </h6>
-                            <small>{{$entre[0]->time}}</small>
-                        </div>
-                    </div>
+        @foreach($entres as $entre)
+          <div class="col-lg-4 col-md-6 col-12">
+              <div class="card card-developer-meetup">
+                  <div class="meetup-img-wrapper rounded-top text-center">
+                      <img src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/illustration/email.svg" alt="Meeting Pic" height="170" />
+                  </div>
+                  <div class="card-body">
+                      <div class="meetup-header d-flex align-items-center">
+                          <div class="meetup-day">
+                              <h6 class="mb-0">{{Carbon\Carbon::parse($entre->start_date)->translatedFormat('D')}}</h6>
+                              <h3 class="mb-0">{{Carbon\Carbon::parse($entre->start_date)->translatedFormat('d')}}</h3>
+                          </div>
+                          <div class="my-auto">
+                              <h4 class="card-title mb-25">{{$entre->title}}</h4>
+                          </div>
+                      </div>
+                      <div class="mt-0">
+                          <div class="avatar float-start bg-light-primary rounded me-1">
+                              <div class="avatar-content">
+                                  <i data-feather="calendar" class="avatar-icon font-medium-3"></i>
+                              </div>
+                          </div>
+                          <div class="more-info">
+                              <h6 class="mb-0">
+                                  {{Carbon\Carbon::parse($entre->start_date)->translatedFormat('D')}} {{Carbon\Carbon::parse($entre->start_date)->translatedFormat('d')}} {{Carbon\Carbon::parse($entre->start_date)->translatedFormat('M')}}
+                                  {{Carbon\Carbon::parse($entre->start_date)->Format('y')}}
+                              </h6>
+                              <small>{{$entre->time}}</small>
+                          </div>
+                      </div>
 
-                    <div class="avatar-group">
-                      @foreach($entre[0]->candidats->take(6) as $candidat)
-                        <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="{{$candidat->nom}}" class="avatar pull-up">
-                            <img src="{{ asset("images/cvPhoto/".$candidat->photo)}}" alt="Avatar" width="33" height="33" />
-                        </div>
-                      @endforeach
-                        @if(count($candidats) > 6)
-                          <a href="{{route('entretien.show',$entretien->id)}}"><h6 class="align-self-center cursor-pointer ms-50 mb-0">+{{count($candidats)-6}}</h6></a>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
+                      <div class="avatar-group">
+                        @foreach($entre->candidats->take(6) as $candidat)
+                          <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="bottom" title="{{$candidat->nom}}" class="avatar pull-up">
+                              <img src="{{ asset("images/cvPhoto/".$candidat->photo)}}" alt="Avatar" width="33" height="33" />
+                          </div>
+                        @endforeach
+                          @if(count($candidats) > 6)
+                            <a href="{{route('entretien.show',$entretien->id)}}"><h6 class="align-self-center cursor-pointer ms-50 mb-0">+{{count($candidats)-6}}</h6></a>
+                          @endif
+                      </div>
+                  </div>
+              </div>
+          </div>
+        @endforeach
         <!--/ Developer Meetup Card -->
       </div>
     @endif
