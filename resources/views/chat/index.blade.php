@@ -1,7 +1,7 @@
 @extends('layouts.AdminLTE.index')
 
 @section('title')
-
+    <title>Chat</title>
 @endsection
 
 
@@ -18,7 +18,7 @@
 
 
 @section('content')
-<livewire:chat />
+    <livewire:chat />
 @endsection
 
 
