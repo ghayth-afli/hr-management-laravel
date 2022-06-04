@@ -83,7 +83,7 @@
       <!--/ header section -->
 
       <!-- form -->
-      <form class="validate-form mt-2 pt-50" action="{{ route('profile.update.profile',$user->id) }}" method="post">
+      <form class="validate-form mt-2 pt-50" action="{{ route('profile.update.profile',Auth::user()->id) }}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_method" value="put">
         <div class="row">

@@ -14,6 +14,7 @@ use App\Models\Etat_Candidat;
 use App\Models\Rapport;
 use App\Models\Entretien;
 use App\Models\NotificationView;
+use App\Models\Message;
 use Cache;
 
 class User extends Authenticatable
@@ -95,5 +96,9 @@ class User extends Authenticatable
     public function notificationViews()
     {
         return $this->HasMany(NotificationView::class);
+    }
+
+    public function messages(){
+        return $this->hasMany(Message::class);
     }
 }

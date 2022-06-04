@@ -69,7 +69,7 @@
                     id="login-email"
                     name="email"
                     value="{{ old('email') }}"
-                    placeholder="john@example.com"
+                    placeholder="amaGroup@example.com"
                     aria-describedby="login-email"
                     tabindex="1"
                     autofocus

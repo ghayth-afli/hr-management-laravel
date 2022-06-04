@@ -13,6 +13,7 @@ Route::post('/mot-de-passe-envoyé', 'App\Http\Controllers\Auth\ForgotPasswordCo
 Route::put('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@change')->name('changePassword.change');
 
 Route::middleware([ChangePassword::class])->group(function () {
+	Route::get('/chat', 'App\Http\Controllers\Chat\ChatController@index')->name('index');
 	Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 	Route::get('/config', 'App\Http\Controllers\ConfigController@index')->name('config');
 	Route::put('/config/update/{id}', 'App\Http\Controllers\ConfigController@update')->name('config.update');

@@ -43,8 +43,8 @@ class ProfileController extends Controller
     		$this->flashMessage('warning', 'Error updating profile!', 'danger');            
             return redirect()->route('profile');
     	}
-
-
+        else
+        {
             $req = $request->validate([
                 'name' => 'required',
                 'email' => 'required',
@@ -56,14 +56,13 @@ class ProfileController extends Controller
                 'tel' => 'required',
                 'adresse' => 'required',
                 'etat' => 'required',
-                'langue' => 'required',
             ]);
             $user->profil->update($pro);
 
-
-        
-
             return redirect()->back()->with('success', 'Mise à jour du profil réussie !');   
+        }
+
+            
     }
 
 
