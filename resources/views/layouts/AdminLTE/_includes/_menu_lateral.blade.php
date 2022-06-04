@@ -46,7 +46,7 @@
           <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('mail')}}"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Courriers</span></a>
           </li>
         @endif
-        <li class=" nav-item"><a class="d-flex align-items-center" href="chat.html"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Chat</span></a>
+        <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('chat')}}"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Chat</span></a>
         </li>
         <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('calendrier')}}"><i data-feather="calendar"></i><span class="menu-title text-truncate" data-i18n="Calendar">Calendrier</span></a>
         </li>
