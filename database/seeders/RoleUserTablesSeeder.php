@@ -20,15 +20,15 @@ class RoleUserTablesSeeder extends Seeder
         $this->createAdmins();
 
         // Vincula usuários aos papéis
-        $this->sync();    
+        $this->sync();
     }
 
     private function createAdmins()
     {
-        
-        
+
+
         User::create([
-            'email' => 'admin@admin.com', 
+            'email' => 'admin@admin.com',
             'name'  => 'Administrator',
             //'prenom'  => 'f',
             'password' => bcrypt('admin'),
@@ -37,21 +37,20 @@ class RoleUserTablesSeeder extends Seeder
 
         Profil::create([
             'user_id' => 1,
-            'entreprise' => '', 
+            'entreprise' => '',
             'tel'  => 0,
             'adresse'  => '',
             'etat' => '',
-            'langue'  => '',
             'photo'  => ''
         ]);
 
     }
 
     private function sync()
-    {       
+    {
 
         $role = User::find(1);
-        $role->roles()->sync([1]);        
+        $role->roles()->sync([1]);
 
         $this->command->info('Users linked to roles!');
     }
